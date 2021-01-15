@@ -10,44 +10,6 @@
         <title>
             ASAE | Operacoes
         </title>
-        <script type="text/javascript">
-            function abrir() {
-                var main = document.getElementById("central");
-                var iten = main.getElementsByTagName("input");
-                
-                if (iten) {
-                    for (var i=0;i<iten.length;i++) {
-                        iten[i].onclick = function() {
-                            var el = document.getElementById(this.id.substr(7,7));
-                            if (el.style.display == "block")
-                                el.style.display = "none";
-                            else
-                                el.style.display = "block";
-                        }
-                    }
-                }
-                
-                (async ()=>{
-                var strHtml = "";
-                var ents = document.getElementById("entities")
-                const response = await fetch('http://35.172.203.74:8080/entities1');
-                const entities = await response.json();
-                
-                for(const entity of entities){
-                strHtml+= `<option value="${entity.idEntity}"> ${entity.NameEntity}</option>`
-                //console.log(entity.NameEntity)
-                ents.innerHTML=strHtml;
-                }
-                
-            })();
-            };
-            window.onload=abrir;
-            </script>
-        
-       
-         
-
-       
 
     </head>
     <body>
@@ -145,27 +107,9 @@
                     <option value="idEntity"> 4 </option>
                     <option value="idEntity"> 5 </option--> 
                   </select>
-                  
-                  <script>
-                    
-                    fetch(`http://35.172.203.74:8080/entities1`, { method: 'GET',
-                     headers: {'Accept': 'application/json',
-                     'Content-Type': 'application/json'}})
-            
-                    .then(res => res.json())
-                    //.then(json => console.log(json))
-                    .then((out) => {
-                    console.log(out);
-                    $.each(out, function(index, value) {
-                    console.log(value);
-                    table.row.add([value.idEntity, 
-                                    value.Name]).draw();
-                    });
-                    }).catch(err => console.error(err));
-                 </script>
                 
                 <!-- button who gives more information about the id inputed-->
-                <button class="mais" style="margin-left: -5%;"> <i class="far fa-plus-square"></i> </button>
+                <!--<button class="mais" style="margin-left: -5%;"> <i class="far fa-plus-square"></i> </button>-->
             
             <br><br>  
 
@@ -244,7 +188,6 @@
                         <!-- FIM DO FORMULÁRIO -->
                      
                     </div> 
-    </form>
                 
                 <div id="central1">
                     <!-- Botao -->
@@ -489,7 +432,40 @@
 
         </div>
     </div>
-
-
-
+             <script type="text/javascript">
+            function abrir() {
+                var main = document.getElementById("central");
+                var iten = main.getElementsByTagName("input");
+                
+                if (iten) {
+                    for (var i=0;i<iten.length;i++) {
+                        iten[i].onclick = function() {
+                            var el = document.getElementById(this.id.substr(7,7));
+                            if (el.style.display == "block")
+                                el.style.display = "none";
+                            else
+                                el.style.display = "block";
+                        }
+                    }
+                }
+                
+                (async ()=>{
+                var strHtml = "";
+                var ents = document.getElementById("entities")
+                const response = await fetch('http://35.172.203.74:8080/entities1');
+                const entities = await response.json();
+                
+                for(const entity of entities){
+                strHtml+= `<option name="${entity.idEntity}" value="${entity.idEntity}"> ${entity.NameEntity}</option>`
+                console.log(entity.idEntity)
+                ents.innerHTML=strHtml;
+                }
+                
+            })();
+            };
+            window.onload=abrir;
+            </script>
+            
         </body>
+        
+        

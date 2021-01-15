@@ -1,0 +1,7 @@
+comandos para mandar para o git hub no terminal da pasta PW:
+
+git add --all
+
+git commit -m "(descriçao do q mudaram)"
+
+git push

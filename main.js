@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
+const users = require('./backend/controllers_antigos/users.js');
 //const expressValidator = require('express-validator'); 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -155,7 +156,7 @@ app.post('/sign-up',function(req,res){
         
         var query = bd.connection.query('INSERT INTO users (username, password) VALUES (?, ?)',[name,hash],function(err,result){
             var message = "Your account was successfully created!";
-            console.log(query.sql);
+            console.log(hash);
             res.send(message);
         });
     }else{
