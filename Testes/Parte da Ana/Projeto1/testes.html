@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
+        <link rel="stylesheet" href="style.css" crossorigin="anonymous"></linkrel>
+        <link href="/_sidebar.scss" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <meta charset="UTF-8">
+        <link rel="icon" href="/Imgs/SimboloASAE_personalizado.jpeg.sb-e501c02c-7jNvGZ.png"> 
+        <title>
+            ASAE | Registar Operações
+        </title>
+        <script type="text/javascript">
+            function abrir() {
+                var main = document.getElementById("central");
+                var iten = main.getElementsByTagName("input");
+                if (iten) {
+                    for (var i=0;i<iten.length;i++) {
+                        iten[i].onclick = function() {
+                            var el = document.getElementById(this.id.substr(7,7));
+                            if (el.style.display == "block")
+                                el.style.display = "none";
+                            else
+                                el.style.display = "block";
+                        }
+                    }
+                }
+            }
+            window.onload=abrir;
+            </script>
+        
+       
+         
+
+       
+
+    </head>
+<body>
+    
+    div class="lateral_menu" style="position: absolute;">
+            <!--Identification of the user who is logged in the system-->
+            <div class="identify">
+                <img src="#" alt="foto utilizador">
+                <strong><p class="user_identify" > Username logado</p></strong>
+                <br>
+                <button type="button" class="logout"> LogOut </button>
+            </div>
+
+            <!--Options - load new pages-->
+            <div class="menuOptions">
+                <br><br><br><br>
+                <!--go to the page with the list of the request not awnser-->
+                <i class="far fa-clock"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                <a href="#"> Pedidos Pendentes</a>
+                <br><br><br><br>
+                <i class="fas fa-network-wired"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Gerir Ocorrência</a>
+                <br><br><br><br>
+                <i class="far fa-building"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Centros Colaboradores</a>
+                <br><br><br><br>
+                <i class="far fa-address-book"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Operacionais</a>
+                <br><br><br><br>
+                <i class="fas fa-hard-hat"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Parceiros</a>
+                <br><br><br><br>
+                <i class="fas fa-chart-line"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Dashboard </a>
+
+            </div>
+
+            <!--
+            <div class="out">
+                <a href="#"><i class="fas fa-times"></i></a>
+            </div>-->
+
+        </div> 
+</body>
+</html>

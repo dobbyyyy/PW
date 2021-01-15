@@ -1,0 +1,544 @@
+.lateral_menu {
+  background-color: rgb(230, 242, 213);
+  width: 310px;
+  height: 230%;
+  border-radius: 0px 30px 30px 0;
+}
+
+.identify img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+.operacoes {
+  margin-left: 26%;
+  width: 1000px;
+}
+
+.operacoes h1 {
+  text-align: right;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: #333333;
+}
+
+p {
+  display: inline;
+  padding-left: 20px;
+  padding-top: -70px;
+}
+
+.identify button {
+  margin-left: 140px;
+  margin-top: 10px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 30%;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: 3px solid rgb(242, 248, 233);
+}
+
+.menuOptions a {
+  cursor: pointer;
+  margin-top: 5%;
+  padding-left: 5%;
+  margin-left: 30px;
+  position: absolute;
+  color: #333333;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.menuOptions i {
+  cursor: pointer;
+  margin-top: 5%;
+  padding-left: 3%;
+  margin-left: 30px;
+  position: absolute;
+  color: #333333;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+a ::before {
+  cursor: pointer;
+  margin-top: 5%;
+  padding-left: 5%;
+  margin-left: 30px;
+  position: absolute;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+}
+
+.out a {
+  position: relative;
+  padding-left: 245px;
+  padding-top: 81%;
+  color: #333333;
+  font-size: 25px;
+}
+
+.id {
+  width: 300px;
+  height: 30px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.mais {
+  border: none;
+  background-color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+.centro_associado select {
+  width: 330px;
+  height: 60px;
+  margin-bottom: 30px;
+}
+
+.adicionar_center {
+  margin-bottom: 30px;
+  padding: 6px 10px 6px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 40px;
+  background-color: rgb(248, 248, 250);
+  cursor: pointer;
+}
+
+.table-responsiveOcorrencias {
+  margin-top: 10px;
+  padding-left: 40px;
+  margin-bottom: 40px;
+  padding-top: 0;
+}
+
+.table-responsiveOcorrencias tr {
+  height: 35px;
+}
+
+#operacional_id {
+  width: 300px;
+  height: 30px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+#operacional_name {
+  width: 500px;
+  height: 30px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.adicionar {
+  margin-bottom: 0px;
+  padding: 6px 10px 6px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 40px;
+  background-color: rgb(248, 248, 250);
+  cursor: pointer;
+}
+
+#y_n_ent {
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.escondida {
+  display: none;
+}
+
+#central {
+  margin-left: 40px;
+}
+
+#parceiro_id {
+  width: 300px;
+  height: 30px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#parceiro_name {
+  width: 500px;
+  height: 30px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.urgency select {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+#type {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.material a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #333333;
+}
+#material {
+  width: 300px;
+  height: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-left: -20px;
+}
+
+#materialAnc {
+  margin-left: 400px;
+}
+
+.material i {
+  margin-left: 40px;
+}
+
+#id {
+  width: 400px;
+  padding-left: 10px;
+}
+
+#centro {
+  width: 400px;
+  padding-left: 10px;
+}
+
+/* pedidosPendentes*/
+
+.pedidosPendentes h1 {
+  text-align: right;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: #333333;
+}
+
+.pedidosPendentes {
+  margin-left: 26%;
+  width: 1000px;
+}
+
+.lateral_menuPP {
+  background-color: rgb(230, 242, 213);
+  width: 310px;
+  height: 100%;
+  border-radius: 0px 30px 30px 0;
+}
+
+.table-responsive {
+  margin-left: 23%;
+  padding-top: 13%;
+}
+
+.table-responsive i {
+  cursor: pointer;
+}
+
+.w-100Text-centerBg-warning {
+  text-align: center;
+  padding-bottom: 20px;
+  background-color: rgb(230, 242, 213);
+  padding-top: 20px;
+}
+
+.tableTable-sm {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+#remove {
+  padding-left: 50px;
+}
+
+.table-responsive tr {
+  height: 35px;
+}
+
+.tableTable-sm button {
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.tableTable-sm tr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.bg-info {
+  background-color: rgb(242, 248, 233);
+}
+
+/*DataTables*/
+
+#myDataTable {
+  width: 60%;
+  margin-left: 30%;
+  margin-top: 30%;
+}
+
+.dataTables_wrapper .dataTables_length {
+  color: #333;
+  margin-left: 30%;
+  font-size: 12px;
+  width: 300px;
+  position: absolute;
+}
+
+label {
+  display: inline;
+  margin-bottom: 30px;
+
+  font-size: 12px;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin-right: 9%;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: transparent;
+  margin-left: 3px;
+  width: 150px;
+  height: 28px;
+  margin-top: 10px;
+  margin-bottom: 5%;
+}
+
+.dataTables_wrapper .dataTables_info {
+  color: #333;
+  margin-left: 30%;
+  font-size: 12px;
+  margin-top: 1%;
+}
+
+.dataTables_wrapper .dataTables_length {
+  color: #333;
+  margin-left: 30%;
+  font-size: 12px;
+  width: 300px;
+  position: absolute;
+  margin-top: 1%;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+  color: #333;
+  font-size: 12px;
+  margin-top: 1%;
+}
+
+/* Teste paginas de tabelas*/
+
+.allpage {
+}
+
+.identify h3 {
+  position: absolute;
+  margin-left: 26%;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 5%;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.lateral_menu {
+  background-color: #29323c;
+  width: 22%;
+  height: 100%;
+  border-radius: 0px 30px 30px 0;
+}
+
+.identify img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 48%;
+  margin-top: 60px;
+  position: relative;
+  background-color: #ffffff;
+  border: 4px solid rgb(44, 62, 78);
+}
+
+.operacoes {
+  margin-left: 26%;
+  width: 1000px;
+}
+
+.operacoes hr {
+  color: rgba(41, 50, 60);
+}
+
+.operacoes label {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+}
+
+.operacoes h1 {
+  text-align: right;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-right: 5%;
+  color: #333333;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.operacoes img {
+  margin-right: 3%;
+  margin-left: 96%;
+  margin-top: -8.5%;
+}
+
+.operacoes button {
+  cursor: pointer;
+}
+
+p {
+  display: inline;
+  padding-left: 20px;
+  padding-top: -70px;
+}
+
+.identify button {
+  margin-left: 39%;
+  margin-top: 5%;
+  border-radius: 20px;
+  background-color: rgb(44, 62, 78);
+  cursor: pointer;
+  color: #ffffff;
+  position: absolute;
+}
+
+.menuOptions {
+  margin-top: 15%;
+}
+
+.menuOptions a {
+  cursor: pointer;
+
+  padding-left: 5%;
+  margin-left: 30px;
+  position: absolute;
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+  font-size: 18px;
+  opacity: 80%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(225, 225, 225, 0.05);
+
+  padding: 15px;
+  width: 70%;
+  height: 5%;
+}
+
+.menuOptions i {
+  cursor: pointer;
+  margin-top: 5%;
+  margin-right: 10%;
+  margin-left: 30px;
+  position: absolute;
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+  font-size: 20px;
+  padding: 18px 15px 15px 0px;
+}
+
+.options:hover {
+  background: #374e62;
+  font-weight: bold;
+  width: 110%;
+}
+
+.options:hover a {
+  cursor: pointer;
+  color: greenyellow;
+}
+.options a {
+  cursor: pointer;
+  width: 100%;
+}
+
+a ::before {
+  cursor: pointer;
+  margin-top: 5%;
+  padding-left: 5%;
+  margin-left: 30px;
+  position: absolute;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+}
+
+.out a {
+  position: relative;
+  padding-left: 245px;
+  padding-top: 81%;
+  color: #333333;
+  font-size: 25px;
+}
+
+.id {
+  width: 300px;
+  height: 30px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.tabela {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin-top: 12%;
+  margin-left: 5%;
+}
+
+.logoutRevervado {
+  background-color: transparent;
+  border: 1px solid #fff;
+  transition: background-color 0.5s;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.logoutRevervado:hover {
+  background-color: #fff;
+  color: rgb(44, 62, 78);
+}
+
+.pedidosPendentes img {
+  margin-left: 92%;
+  margin-top: -7.5%;
+}
+
+.pedidosPendentes h1 {
+  text-align: right;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: #333333;
+  font-weight: 300;
+}

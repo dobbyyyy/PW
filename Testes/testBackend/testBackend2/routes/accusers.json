@@ -1,0 +1,22 @@
+{"accuser1":{
+	"id": "1",
+	"Name": "Miguel",
+	"Email": "m@gmail.com",
+	"Password":"12dcd",
+	"Address":"Braga",
+	"Telephone": "253456789"
+},"accuser2":{
+	"id": "2",
+	"Name": "Ana",
+	"Email": "a@gmail.com",
+	"Password":"t3242",
+	"Address":"Paços",
+	"Telephone": "256323434"
+},"accuser3":{
+	"id": "3",
+	"Name": "Joao",
+	"Email": "j@gmail.com",
+	"Password":"yasdas88",
+	"Address":"Braga",
+	"Telephone": "253234234"
+}}

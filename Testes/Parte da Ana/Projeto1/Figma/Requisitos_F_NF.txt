@@ -1,0 +1,62 @@
+Requisitos Funcionais:
+     - O usuário criar uma conta com um nome de usuário e uma password, ambos definidos por si;
+     
+     - Como função básica, o sistema deverá permitir consultar todas as ocorrências e os seus detalhes (ex: data, grau da ocorrência...)
+     
+     - A consulta das ocorrências definidas no ponto anterior servem para qualquer utilizador (com login ou sem login);
+     
+     - As funções que permitem a alteração de dados no sistema deverão apenas estar acessíveis/visíveis para utilizadores com login efetuado.
+     
+     - A interface básica, para além de disponibilizar funcionalidades para a já referida consulta de occorrências, deve incluir opções para acesso ao sistema (para utilizadores autorizados) e registo de novos utilizadores;
+     
+     - Existem três tipos de utilizadores com níveis de permissão diferentes: utilizador base, utilizador tipo registado, utilizador tipo administrador;
+     
+     - O utilizador base tem acesso livre ao sistema e apenas pode consultar ocorrências;
+
+     - O utilizador do tipo registado poderá aceder ao sistema mediante um controlo de acesso válido. Nesta situação poderá gerir a lista de ocorrências. Deve ter a autorização para exercer funções que permitam adicionar, alterar, remover e descrever ocorrências. As características relevantes de cada item devem ser consideradas na interface;
+
+     - O utilizador tipo registado, quando não registado no sistema, terá possibilidade de efectuar autonomamente o seu registo;
+
+     - O utilizador tipo administrador depois de aceder ao sistema mediante um controlo de acesso válido poderá gerir uma lista de utilizadores registados. Para a lista devem existir funções que permitam a inserção e eliminação de items. As características relevantes de cada item devem ser consideradas na interface.
+
+     - A lista de registados mantida pelo utilizador administrador é também uma lista de autorizações de acesso ao sistema.
+
+     - O utilizador administrador poderá criar outros utilizadores registados ou utilizadores administradores;
+
+     - Para cada uma das ocorrências  deverá existir a possibilidade de autorizar ou não a sua disponibilidade aos utilizadores base. Isto permitirá que utilizadores registados adicionem registos de ocorrências em qualquer momento e apenas os disponibilizem ao acesso geral quando assim o entenderem;
+
+     - A interface da aplicação deve ser acessível a partir de um browser Internet;
+
+     - O sistema deverá permitir que os utilizadores registados e administradores alterem a sua password de acesso e quaisquer outras configurações pessoais;
+
+     - O sistema deverá avisar o utilizador de qualquer erro que eventualmente surja;
+
+     - Para além das opções de adicionar e eliminar existentes e disponibilizadas para as várias listas deverão existir funcionalidades de alteração, cópia e movimentação;
+
+
+
+
+
+
+Requisitos Não Funcionais:
+     - A aplicação deverá ter uma interface simples e intuitiva para motivar e facilitar a sua utilização;
+
+     - Uma vez que a interface se destina a ser apresentado num brower impõe-se a compatibilidade com os navegadores web mais comuns (Chrome, Edge, Firefox, Opera, Safari);
+
+     - No entanto, é absolutamente fundamental garantir a máximo nível de fiabilidade da aplicação e níveis de consistência dos dados;
+    
+     - Todos os requisitos mínimos indicados devem ter  funcionamento assegurado livre de qualquer erro;
+
+     - A segurança dos dados é também importante sendo fundamental a protecção das informações contra acessos não autorizados;~
+
+     - A utilização do sistema a partir da internet, que implica equipamento físico que ultrapassa o âmbito do projecto, pode levar a que determinadas operações demorem um tempo não desprezável;                                                                              
+     - Todo o código a desenvolver deverá estar optimizado de forma a que os tempos para actualização de informações no ecrã sejam mínimos (preferencialmente inferiores a um segundo);
+
+     - O desenvolvimento da aplicação deverá ser feito tendo em conta futuras actualizações;
+
+     - Ao mesmo tempo deverão existir manuais que permitam que pessoas externas ao projecto actual se possam contextualizar e realizar operações de manutenção ao software em funcionamento;                   
+
+
+                           
+                           
+

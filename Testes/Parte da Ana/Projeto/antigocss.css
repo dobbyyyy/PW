@@ -1,0 +1,221 @@
+/* registarOperacao */
+
+.identify h3 {
+  position: absolute;
+  margin-left: 26%;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 5%;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #fff;
+}
+
+.lateral_menu {
+  background-color: #29323c;
+  width: 22%;
+  height: 259%;
+  border-radius: 0px 30px 30px 0;
+}
+
+.identify img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 38%;
+  margin-top: 60px;
+  position: relative;
+  background-color: #ffffff;
+  border: 4px solid rgb(44, 62, 78);
+}
+
+.operacoes {
+  margin-left: 26%;
+  width: 1000px;
+}
+
+.operacoes hr {
+  color: rgba(41, 50, 60);
+}
+
+.operacoes label {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+}
+
+.operacoes h1 {
+  text-align: right;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-right: 5%;
+  color: #333333;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.operacoes img {
+  margin-right: 3%;
+  margin-left: 96%;
+  margin-top: -8.5%;
+}
+
+.operacoes button {
+  cursor: pointer;
+}
+
+p {
+  display: inline;
+  padding-left: 20px;
+  padding-top: -70px;
+}
+
+.identify button {
+  margin-left: 39%;
+  margin-top: 30px;
+  border-radius: 20px;
+  background-color: rgb(44, 62, 78);
+  cursor: pointer;
+  color: #ffffff;
+  position: absolute;
+}
+
+.menuOptions a {
+  cursor: pointer;
+  margin-top: 5%;
+  padding-left: 5%;
+  margin-left: 30px;
+  position: absolute;
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+  font-size: 20px;
+  opacity: 80%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(225, 225, 225, 0.05);
+  padding: 15px;
+}
+
+.menuOptions i {
+  cursor: pointer;
+  margin-top: 5%;
+
+  margin-left: 30px;
+  position: absolute;
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+  font-size: 20px;
+  padding: 18px 15px 15px 0px;
+}
+
+.options:hover {
+  background: #374e62;
+  font-weight: bold;
+}
+
+.options:hover a {
+  color: greenyellow;
+}
+
+a ::before {
+  cursor: pointer;
+  margin-top: 5%;
+  padding-left: 5%;
+  margin-left: 30px;
+  position: absolute;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+}
+
+
+
+<div class="pedidosPendentes" style="position: absolute; display: inline;">
+    <h1 style="font-style: italic;">Operacionais</h1>            
+ 
+</div>
+    
+    <div class="table-responsiveOP">
+        <table id="tblParticipants" class="tableTable-sm">
+      <thead>
+          <tr><th class="w-100Text-centerBg-warning" colspan="6">Lista de Operacionais da ASAE</th></tr>
+          <tr class="bg-info" style="text-align: left;">
+              <th class="w-2" style="padding-left: 10px; width: 50px; padding-bottom: auto; height: 40px;">ID</th>
+              <th class="w-50" style="padding-left: 10px; width: 275px; padding-bottom: auto;">Nome</th>
+              <th class="w-50" style="padding-left: 10px; width: 175px; padding-bottom: auto;">Centro</th>
+              <th class="w-38" style="padding-left: 10px; width: 110px; padding-bottom: auto;">Contacto</th>              
+              <th class="w-10" style="padding-left: 10px; width: 250px; padding-bottom: auto;">Morada</th>
+              <th class="w" style="padding-left: 10px; width: 50px; padding-bottom: auto;">Ações</th>
+                          
+          </tr> 
+      </thead><tbody>
+  
+          <tr class="rows">
+              <td style="padding-left: 10px;" >op1</td>
+              <td style="padding-left: 10px;">Alberto</td>
+              <td style="padding-left: 10px;">Centro 1</td>
+              <td style="padding-left: 10px;">123456789</td>
+              <td style="padding-left: 10px;">Rua asd</td>
+              <td style="padding-left: 13px;"><i class="far fa-edit"></i> <i class="far fa-trash-alt"></i></td>
+
+          </tr>
+      
+          <tr>
+              <td style="padding-left: 10px;">op2</td>
+              <td style="padding-left: 10px;">Joana</td>
+              <td style="padding-left: 10px;">Centro 2</td>
+              <td style="padding-left: 10px;">987654321</td>
+              <td style="padding-left: 10px;">Rua zxc</td>
+              <td style="padding-left: 13px;"><i class="far fa-edit"></i> <i class="far fa-trash-alt"></i></td>
+              
+          </tr>
+      
+          <tr>
+              <td style="padding-left: 10px;">op3</td>
+              <td style="padding-left: 10px;">Pedro</td>
+              <td style="padding-left: 10px;">Centro 3</td>
+              <td style="padding-left: 10px;">345678922 </td>
+              <td style="padding-left: 10px;">Avenida hjk</td>
+              <td style="padding-left: 13px;"><i class="far fa-edit"></i> <i class="far fa-trash-alt"></i></td>
+              
+          </tr>
+      
+          <tr>
+              <td style="padding-left: 10px;">op4</td>
+              <td style="padding-left: 10px;">Luís</td>
+              <td style="padding-left: 10px;">Centro 4</td>
+              <td style="padding-left: 10px;">789012345</td>
+              <td style="padding-left: 10px;">Travessa uio</td>
+              <td style="padding-left: 13px;"><i class="far fa-edit"></i> <i class="far fa-trash-alt"></i></td>
+              
+          </tr>
+      
+         
+          <tr>
+            <td style="padding-left: 10px;">op5</td>
+            <td style="padding-left: 10px;">Patrícia</td>
+            <td style="padding-left: 10px;">Centro 3</td>
+            <td style="padding-left: 10px;">7897882345</td>
+            <td style="padding-left: 10px;">Travessa ytr</td>
+            <td style="padding-left: 13px;"><i class="far fa-edit"></i> <i class="far fa-trash-alt"></i></td>
+            
+        </tr>
+
+        <tr>
+            <td style="padding-left: 10px;">op6</td>
+            <td style="padding-left: 10px;">Liliana</td>
+            <td style="padding-left: 10px;">Centro 3</td>
+            <td style="padding-left: 10px;">786782345</td>
+            <td style="padding-left: 10px;">Travessa lkj</td>
+            <td style="padding-left: 13px;"><i class="far fa-edit"></i> <i class="far fa-trash-alt"></i></td>
+            
+        </tr>
+
+        <tr>
+            <td style="padding-left: 10px;">op7</td>
+            <td style="padding-left: 10px;">Emílio</td>
+            <td style="padding-left: 10px;">Centro 2</td>
+            <td style="padding-left: 10px;">123412345</td>
+            <td style="padding-left: 10px;">Rua uio</td>
+            <td style="padding-left: 13px;"><i class="far fa-edit"></i> <i class="far fa-trash-alt"></i></td>
+            
+        </tr>
+          
+          
+    </div>

@@ -1,0 +1,332 @@
+<div class="lateral_menuPP" style="position: absolute;">
+            <!--Identification of the user who is logged in the system-->
+            <div class="identify">
+                <img src="#" alt="foto utilizador">
+                <strong><p class="user_identify" > Username logado</p></strong>
+                <br>
+                <button type="button" class="logout"> LogOut </button>
+            </div>
+
+            <!--Options - load new pages-->
+            <div class="menuOptions">
+                <br><br><br><br>
+                <!--go to the page with the list of the request not awnser-->
+                <i class="far fa-clock"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                <a href="#"> Pedidos Pendentes</a>
+                <br><br><br><br>
+                <i class="fas fa-network-wired"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Gerir Ocorrência</a>
+                <br><br><br><br>
+                <i class="far fa-building"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Centros Colaboradores</a>
+                <br><br><br><br>
+                <i class="far fa-address-book"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Operacionais</a>
+                <br><br><br><br>
+                <i class="fas fa-hard-hat"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Parceiros</a>
+                <br><br><br><br>
+                <i class="fas fa-chart-line"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Dashboard </a>
+
+            </div>
+
+            <!--
+            <div class="out">
+                <a href="#"><i class="fas fa-times"></i></a>
+            </div>-->
+
+        </div> 
+
+
+
+
+
+        .lateral_menu {
+            background-color: rgb(230, 242, 213);
+            width: 310px;
+            height: 230%;
+            border-radius: 0px 30px 30px 0;
+          }
+          
+          .identify img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-left: 30px;
+            margin-top: 50px;
+          }
+          
+          .operacoes {
+            margin-left: 26%;
+            width: 1000px;
+          }
+          
+          .operacoes h1 {
+            text-align: right;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            color: #333333;
+          }
+          
+          p {
+            display: inline;
+            padding-left: 20px;
+            padding-top: -70px;
+          }
+          
+          .identify button {
+            margin-left: 140px;
+            margin-top: 10px;
+            padding-left: 6px;
+            padding-right: 6px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            border-radius: 30%;
+            background-color: #ffffff;
+            cursor: pointer;
+            border: 3px solid rgb(242, 248, 233);
+          }
+          
+          .menuOptions a {
+            cursor: pointer;
+            margin-top: 5%;
+            padding-left: 5%;
+            margin-left: 30px;
+            position: absolute;
+            color: #333333;
+            text-decoration: none;
+            font-size: 20px;
+          }
+          
+          .menuOptions i {
+            cursor: pointer;
+            margin-top: 5%;
+            padding-left: 3%;
+            margin-left: 30px;
+            position: absolute;
+            color: #333333;
+            text-decoration: none;
+            font-size: 20px;
+          }
+          
+          a ::before {
+            cursor: pointer;
+            margin-top: 5%;
+            padding-left: 5%;
+            margin-left: 30px;
+            position: absolute;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 23px;
+          }
+          
+          .out a {
+            position: relative;
+            padding-left: 245px;
+            padding-top: 81%;
+            color: #333333;
+            font-size: 25px;
+          }
+          
+          .id {
+            width: 300px;
+            height: 30px;
+            padding-left: 20px;
+            margin-bottom: 20px;
+          }
+          
+          .mais {
+            border: none;
+            background-color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 30px;
+            margin-left: 30px;
+          }
+          
+          .centro_associado select {
+            width: 330px;
+            height: 60px;
+            margin-bottom: 30px;
+          }
+          
+          .adicionar_center {
+            margin-bottom: 30px;
+            padding: 6px 10px 6px 10px;
+            border: 1px solid #ffffff;
+            border-radius: 40px;
+            background-color: rgb(248, 248, 250);
+            cursor: pointer;
+          }
+          
+          .table-responsiveOcorrencias {
+            margin-top: 10px;
+            padding-left: 40px;
+            margin-bottom: 40px;
+            padding-top: 0;
+          }
+          
+          .table-responsiveOcorrencias tr {
+            height: 35px;
+          }
+          
+          #operacional_id {
+            width: 300px;
+            height: 30px;
+            padding-left: 20px;
+            margin-bottom: 20px;
+          }
+          
+          #operacional_name {
+            width: 500px;
+            height: 30px;
+            padding-left: 20px;
+            margin-bottom: 20px;
+          }
+          
+          .adicionar {
+            margin-bottom: 0px;
+            padding: 6px 10px 6px 10px;
+            border: 1px solid #ffffff;
+            border-radius: 40px;
+            background-color: rgb(248, 248, 250);
+            cursor: pointer;
+          }
+          
+          #y_n_ent {
+            margin-left: 40px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
+          
+          .escondida {
+            display: none;
+          }
+          
+          #central {
+            margin-left: 40px;
+          }
+          
+          #parceiro_id {
+            width: 300px;
+            height: 30px;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+          }
+          
+          #parceiro_name {
+            width: 500px;
+            height: 30px;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            margin-left: 30px;
+          }
+          
+          .urgency select {
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-bottom: 30px;
+          }
+          
+          #type {
+            margin-top: 20px;
+            margin-left: 50px;
+          }
+          
+          .material a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #333333;
+          }
+          #material {
+            width: 300px;
+            height: 30px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding-left: -20px;
+          }
+          
+          #materialAnc {
+            margin-left: 400px;
+          }
+          
+          .material i {
+            margin-left: 40px;
+          }
+          
+          #id {
+            width: 400px;
+            padding-left: 10px;
+          }
+          
+          #centro {
+            width: 400px;
+            padding-left: 10px;
+          }
+          
+          /* pedidosPendentes*/
+          
+          .pedidosPendentes h1 {
+            text-align: right;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            color: #333333;
+          }
+          
+          .pedidosPendentes {
+            margin-left: 26%;
+            width: 1000px;
+          }
+          
+          .lateral_menuPP {
+            background-color: rgb(230, 242, 213);
+            width: 310px;
+            height: 100%;
+            border-radius: 0px 30px 30px 0;
+          }
+          
+          .table-responsive {
+            margin-left: 23%;
+            padding-top: 13%;
+          }
+          
+          .table-responsive i {
+            cursor: pointer;
+          }
+          
+          .w-100Text-centerBg-warning {
+            text-align: center;
+            padding-bottom: 20px;
+            background-color: rgb(230, 242, 213);
+            padding-top: 20px;
+          }
+          
+          .tableTable-sm {
+            padding-right: 20px;
+            padding-left: 20px;
+          }
+          
+          #remove {
+            padding-left: 50px;
+          }
+          
+          .table-responsive tr {
+            height: 35px;
+          }
+          
+          .tableTable-sm button {
+            border: none;
+            background-color: #ffffff;
+            cursor: pointer;
+          }
+          
+          .tableTable-sm tr {
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+          
+          .bg-info {
+            background-color: rgb(242, 248, 233);
+          }

@@ -1,0 +1,19 @@
+{"partner1":{
+	"id": "1",
+	"Name": "GNR",
+	"Email": "gnr@gmail.com",
+	"Telephone": "253456789",
+	"Address":"Braga"
+},"partner2":{
+	"id": "2",
+	"Name": "PSP",
+	"Email": "psp@gmail.com",
+	"Telephone": "253467890",
+	"Address":"Barcelos"
+},"partner3":{
+	"id": "3",
+	"Name": "cepol",
+	"Email": "cepol@gmail.com",
+	"Telephone": "253123456",
+	"Address":"Bruxelas"
+}}

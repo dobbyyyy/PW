@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
+        <link rel="stylesheet" href="style.css" crossorigin="anonymous"></linkrel>
+        <link href="/Projeto/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <meta charset="UTF-8">
+        <link rel="icon" href="/Imgs/SimboloASAE_personalizado.jpeg.sb-e501c02c-7jNvGZ.png"> 
+        <title>
+            ASAE | Registar Pedido
+        </title>
+    </head>
+    <body>
+       <!-- Nav bar + img new logo ASAE
+        <header>
+            <nav>
+            <div class="container">
+                <img src="/Imgs/SimboloASAE_personalizado.png" alt="logotipo asae" class="logo">
+            
+                <ul>
+                    <li><a href="#">A ASAE</a></li>
+                    <li><a href="#">OCORRÊNCIAS</a></li>
+                    <li><a href="#">ESTATÍSTICAS</a></li>
+                    <li><a href="#">COLABORADORES</a></li>
+                    <li><a href="#">LOGIN</a></li>
+                </ul>
+            </nav>
+            </div>
+        </header> -->
+        <header>
+            <div class="container">
+                
+            <nav>
+
+                <ul>
+                    <li><img src="/Imgs/SimboloASAE_personalizado.jpeg.sb-e501c02c-7jNvGZ.png" alt="logotipo asae" class="logo"></li>
+                    <li><a href="#">A ASAE</a></li>
+                    <li><a href="#">OCORRÊNCIAS</a></li>
+                    <li><a href="#">ESTATÍSTICAS</a></li>
+                    <li><a href="#">COLABORADORES</a></li>
+                    <li><a href="#">LOGIN <img src="/Imgs/login_icon_149440.png" class="loginImg" alt=""></a></li>
+                </ul>
+            </nav>
+            </div>
+        </header>
+
+
+        <div class="outBox">
+        <div class="registarPedido">
+            <h2> Denuncia de um pedido</h2> 
+                
+        </div>
+
+        <!--Formulário-->
+        <div class="dadosPessoais">
+           
+            <p style="font-size: x-large; ">Sobre o denunciante</p>
+            <hr style="color: rgb(46, 57, 71);">
+            <br>
+            
+            <form>
+               
+                <br>
+                <input type="text" class="name" name="name" placeholder="   Nome ">
+                <br>
+                <br>
+                <br>
+                <input type="email" class="name" name="email" placeholder="   Email ">
+                <br>
+                <br>
+                <br>
+                <input type="tel" class="contact" name="contact" placeholder="   Contacto  ">
+                <!--<div class="entidade" style="text-align: right; position: relative; padding-right: 20%; padding-top: -5%;">-->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Entidade <span style="color: rgb(180, 239, 72);">*</span></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ent" name="ent" style="cursor: pointer;"> Interna &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ent" name="ent" > Externa 
+                <br>
+                <br>
+                <br>
+                <input type="text" class="name" name="adress" placeholder="   Morada ">
+                <br>
+                <br>
+                
+  
+            </form>
+        </div>
+
+
+        </div>
+     
+
+        <div class="outBox2">
+            <br>
+            <br>
+            <br>
+        <div class="dadosDenuncia">
+            <p style="font-size: x-large;"> Sobre o pedido</p>
+            <hr>
+            <br>
+            <form>
+                <br>
+                <input type="text" class="name" name="nameID" placeholder="   Nome do estabelecimento * ">
+                <br>
+                <br>
+                <br>
+                <input type="text" class="name" name="adress" placeholder="   Morada * ">
+                <br>
+                <br>
+                <br>
+                <input type="text" class="contact" name="city" placeholder="   Localidade * ">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="tel" class="contact" name="contact" placeholder="   Contacto * ">
+                <br>
+                <br>
+                <br>
+                <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grau de urgência <span style="color: rgb(180, 239, 72);">*</span> &nbsp;&nbsp;&nbsp;</label><select name="urgencia" id="urgencia">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <br>
+                  <br>
+                <br>
+                <div class="type_op">
+                    
+                        <br>
+                        <label for="" >Selecione a área de operação que mais se enquadra com a denuncia <span style="color: rgb(180, 239, 72);">*</span></label>
+                        <br>
+                        <input type="checkbox" name="type" id="type"> Fiscalização Alimentar (PNFA)
+                        <br>
+                        <input type="checkbox" name="type" id="type"> Inspeção 
+                        <br>
+                        <input type="checkbox" name="type" id="type"> Vigilância
+                        <br>
+                        <input type="checkbox" name="type" id="type"> Colheita de Amostras (PNCA)
+                        <br>
+                        <input type="checkbox" name="type" id="type"> Recolha de Amostras
+                        <br>
+                        <input type="checkbox" name="type" id="type"> Anásile de géneros alimentícios colocados no mercado
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+    
+                    </div>
+                 <label style="padding-left: 20px; padding-bottom: 10px;" for="id: desc"> &nbsp;Descrição do pedido <span style="color: rgb(180, 239, 72);">*</span></label>
+                <br>
+                <br>
+               <textarea  id="desc" name="desc" rows="4" cols="50" placeholder="Descrição do pedido *">
+                 </textarea>
+                <br>
+                <br>
+                <br>
+                <div class="buttons1">
+                    <button type="reset" href="#" class="BUTTON1" style="display: inline;">Limpar</button> 
+                    <button href="#" class="BUTTON1" >Submeter</button> 
+                </div>
+
+            </form>
+
+           
+
+        </div>
+<br><br><br><br><br>
+    </div>
+</div>
+
+</body>

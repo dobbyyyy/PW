@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+    </head>
+    <body>
+        
+        <div id="divAccusers" class="container">
+            <!-- Table -->
+            <div class="table-responsive">
+              <table id="tblAccusers" class="table table-sm">
+              </table>
+            </div>
+</div>
+
+        <script type="text/javascript">
+	window.onload=()=>{
+const tblAccusers = document.getElementById("tblAccusers")
+
+//GET
+const renderAccusers = async () => {
+        let strHtml = `
+            <thead>
+                <tr><th class='w-100 text-center bg-warning' colspan='4'>Lista de Pedidos</th></tr>
+                <tr class='bg-info'>
+                    <th class='w-2'>id</th>
+                    <th class='w-50'>Nome</th>
+                    <th class='w-50'>Username</th>
+                    <th class='w-38'>E-mail</th>              
+                    <th class='w-10'>Password</th>
+                    <th class='w-60'>Morada</th>              
+                </tr> 
+            </thead><tbody>
+        `
+        const response = await fetch('http://3.231.220.162:8080/accusers')
+        const accusers = await response.json()
+        let i = 1
+        for (const accuser of accusers) {            
+            strHtml += `<tr>
+                    <td>${accuser.idAccuser}</td>
+                    <td>${accuser.Name}</td>
+                    <td>${accuser.Username}</td>
+                    <td>${accuser.Email}</td>
+                    <td>${accuser.Password}</td>
+                    <td>${accuser.Address}</td>
+                    <td><i id='${accuser.idAccuser}' class='fas fa-trash-alt remove'></i></td>
+                </tr>`        
+            i++
+        }
+        strHtml += "</tbody>"
+        tblAccusers.innerHTML = strHtml
+        
+//DELETE
+        const btnDelete = document.getElementsByClassName("remove")
+        for (let i = 0; i < btnDelete.length; i++) {
+            btnDelete[i].addEventListener("click", () => {
+                swal({
+                    title: 'Tem a certeza?',
+                    text: "Nao sera possivel reverter a remocao!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Remover'
+                  }).then( async (result) => {
+                    if (result.value) {                        
+                        let idAccuser = btnDelete[i].getAttribute("id")
+                        try {
+                            const response = await fetch(`http://3.231.220.162:8080/accusers/${idAccuser}`, { method: "DELETE"})
+                            const accusers = await response.json()                            
+                            swal('Removido!','O denunciante foi removido da tabela.','success')
+                            renderAccusers()
+                        } catch(err) {
+                            swal({type: 'error', title: 'Erro', text: err})
+                        }
+                    } 
+                  })
+            })
+        }
+        
+//UPDATE
+        const saveBtn = document.getElementsByClassName("fa fa-save")
+        for (let i = 0; i < saveBtn.length; i++) {
+            saveBtn[i].addEventListener("click", () => {
+                console.log("fetch")
+                swal({
+                    title: 'Tem a certeza?',
+                    text: "Esta linha sera alterada na base de dados!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3075d6',
+                    cancelButtonColor: '#d34',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Alterar'
+                  }).then( async (result) => {
+                    if (result.value) {                        
+                        let idAccuser = saveBtn[i].getAttribute("name")
+                        var Name=document.getElementById("name_row"+idAccuser).innerHTML;
+                        var Username=document.getElementById("username_row"+idAccuser).innerHTML;
+                        var Email=document.getElementById("email_row"+idAccuser).innerHTML;
+                        var Password=document.getElementById("password_row"+idAccuser).innerHTML;
+                        var Address=document.getElementById("add_row"+idAccuser).innerHTML;
+                        var Telephone=document.getElementById("tel_row"+idAccuser).innerHTML;
+                        console.log(Name+ Username+ Email+ Password+ Address+ Telephone)
+                        try {
+                            const response = await fetch(`http://3.231.220.162:8080/accusers/${idAccuser}`, { method: "PUT",body: `Name=${Name}&Username=${Username}&Email=${Email}&Password=${Password}&Address=${Address}&Telephone=${Telephone}`,
+                                headers: {"Content-type": "application/x-www-form-urlencoded"}})
+                            const accusers = await response.json()                            
+                            swal('Actualizado!','O denunciante foi alterado na base de dados.','success')
+                    
+                        } catch(err) {
+                            swal({type: 'error', title: 'Erro', text: err})
+                        }
+                    } 
+                  })
+            })
+        }
+        }
+        renderAccusers()
+    }
+    function edit_row(no){
+    document.getElementById("edit_button"+no).style.display="none";
+    document.getElementById("save_button"+no).style.display="block";
+
+ var name=document.getElementById("name_row"+no);
+ var username=document.getElementById("username_row"+no);
+ var email=document.getElementById("email_row"+no);
+ var password=document.getElementById("password_row"+no);
+ var address=document.getElementById("add_row"+no);
+ var telephone=document.getElementById("tel_row"+no);
+ 
+    
+ var nome_data=name.innerHTML;
+ var username_data=username.innerHTML;
+ var email_data=email.innerHTML;
+ var password_data=password.innerHTML;
+ var morada_data=address.innerHTML;
+ var telefone_data=telephone.innerHTML;
+ 
+    
+ name.innerHTML="<input type='text' id='name_text"+no+"' value='"+nome_data+"'>";
+ username.innerHTML="<input type='text' id='username_text"+no+"' value='"+username_data+"'>";
+ email.innerHTML="<input type='text' id='email_text"+no+"' value='"+email_data+"'>";
+ password.innerHTML="<input type='text' id='password_text"+no+"' value='"+password_data+"'>";
+ address.innerHTML="<input type='text' id='add_text"+no+"' value='"+morada_data+"'>";
+ telephone.innerHTML="<input type='text' id='tel_text"+no+"' value='"+telefone_data+"'>";
+ 
+}
+function save_row(no){
+console.log("save")
+ var name_val=document.getElementById("name_text"+no).value;
+ var username_val=document.getElementById("username_text"+no).value;
+ var email_val=document.getElementById("email_text"+no).value;
+ var password_val=document.getElementById("password_text"+no).value;
+ var add_val=document.getElementById("add_text"+no).value;
+ var tel_val=document.getElementById("tel_text"+no).value;
+ 
+
+ document.getElementById("name_row"+no).innerHTML=name_val;
+ document.getElementById("username_row"+no).innerHTML=username_val;
+ document.getElementById("email_row"+no).innerHTML=email_val;
+ document.getElementById("password_row"+no).innerHTML=password_val;
+ document.getElementById("add_row"+no).innerHTML=add_val;
+ document.getElementById("tel_row"+no).innerHTML=tel_val;
+ 
+
+ document.getElementById("edit_button"+no).style.display="block";
+ document.getElementById("save_button"+no).style.display="none";
+
+ var name=document.getElementById("name_row"+no);
+ var username=document.getElementById("username_row"+no);
+ var email=document.getElementById("email_row"+no);
+ var password=document.getElementById("password_row"+no);
+ var address=document.getElementById("add_row"+no);
+ var telephone=document.getElementById("tel_row"+no);
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
+    </body>
+</html>

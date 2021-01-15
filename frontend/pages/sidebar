@@ -1,0 +1,141 @@
+ <!-- Page Wrapper -->
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img src="#" alt="foto user"></img>
+                </div>
+                <div class="sidebar-brand-text mx-3" style="display: inline;">Username Logado </div>
+                <br>
+                <button class="logoutButton"> LogOut </button>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+
+            <!-- Nav Item - Pedidos Pendentes list -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="far fa-clock"></i>
+                    <span>Pedidos pendentes </span>
+                </a>
+                
+            </li>
+
+            <!-- Nav Item - Gerir ocorrência -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Gerir ocorrência </span>
+                </a>
+                
+            
+            </li>
+
+           
+
+        
+
+            <!-- Nav Item - centros colaboradores list-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="far fa-building"></i>
+                    <span>Centros colaboradores</span>
+                </a>
+                
+            </li>
+
+            <!-- Nav Item - operacionais list-->
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="far fa-address-book"></i>
+                    <span>Operacionais</span></a>
+            </li>
+
+            <!-- Nav Item - Parceiros list-->
+            <li class="nav-item active">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-hard-hat"></i>
+                    <span>Parceiros</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+           
+
+        </ul>
+    </div>
+
+        <!-- End of Sidebar -->
+
+
+
+
+
+
+
+
+        /* Sidebar */
+
+.wrapper {
+  width: 400px;
+  height: 100%;
+  background-color: rgb(230, 242, 213);
+  margin-top: -20px;
+  padding-top: 60px;
+}
+
+.sidebar {
+  width: 300px;
+  min-height: 100px;
+}
+
+.nav-link {
+  text-align: center;
+  padding: 0.75rem 1rem;
+}
+
+.nav-item span {
+  font-size: 20px;
+  display: block;
+
+  color: #333333;
+}
+
+hr.sidebar-divider {
+  margin: 0 1rem 1rem;
+}
+
+p {
+  font-size: 0.75rem;
+  color: fade-out(white, 0.5);
+}
+
+.nav-link {
+  text-align: center;
+  padding: 0.75rem 1rem;
+}
+
+span {
+  font-size: 20px;
+  display: block;
+  text-decoration: none;
+}
+
+i {
+  margin-right: 0;
+  color: #333333;
+}
+
+[data-toggle="collapse"]::after {
+  display: none;
+}

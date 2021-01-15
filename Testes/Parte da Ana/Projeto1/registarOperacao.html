@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
+        <link rel="stylesheet" href="style.css" crossorigin="anonymous"></linkrel>
+        <link href="/_sidebar.scss" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <meta charset="UTF-8">
+        <link rel="icon" href="/Imgs/SimboloASAE_personalizado.jpeg.sb-e501c02c-7jNvGZ.png"> 
+        <title>
+            ASAE | Ocorrências
+        </title>
+        <script type="text/javascript">
+            function abrir() {
+                var main = document.getElementById("central");
+                var iten = main.getElementsByTagName("input");
+                if (iten) {
+                    for (var i=0;i<iten.length;i++) {
+                        iten[i].onclick = function() {
+                            var el = document.getElementById(this.id.substr(7,7));
+                            if (el.style.display == "block")
+                                el.style.display = "none";
+                            else
+                                el.style.display = "block";
+                        }
+                    }
+                }
+            }
+            window.onload=abrir;
+            </script>
+        
+       
+         
+
+       
+
+    </head>
+    <body>
+
+
+        <!--<header>
+            <div class="container">
+                
+            <nav>
+
+                <ul>
+                    <li><img src="/Imgs/SimboloASAE_personalizado.jpeg.sb-e501c02c-7jNvGZ.png" alt="logotipo asae" class="logo"></li>
+                    <li><a href="#">A ASAE</a></li>
+                    <li><a href="#">OCORRÊNCIAS</a></li>
+                    <li><a href="#">ESTATÍSTICAS</a></li>
+                    <li><a href="#">COLABORADORES</a></li>
+                    <li><a href="#">LOGIN <img src="/Imgs/login_icon_149440.png" class="loginImg" alt=""></a></li>
+                </ul>
+            </nav>
+            </div>
+        </header>-->
+
+        
+        <div class="lateral_menu" style="position: absolute;">
+            <!--Identification of the user who is logged in the system-->
+            <div class="identify">
+                <img src="Projeto/Imgs/1499345621-contact_85338.png" alt="foto utilizador">
+                <a href="#"> <h3> Username logado</h3></a>
+                <br>
+                <br>
+                <button type="button" class="logout" style="border: 3px solid #374e62;"> LogOut </button>
+            </div>
+
+            <!--Options - load new pages-->
+            <div class="menuOptions">
+                <br><br><br><br>
+                <!--go to the page with the list of the request not awnser-->
+                <div class="options">
+                <i class="far fa-clock"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                <a href="#"> Pedidos Pendentes</a>
+                <br><br><br><br>
+            </div>
+            
+                
+                <div class="options">
+                <i class="fas fa-network-wired"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Gerir Ocorrência</a>
+                <br><br><br><br>
+            </div>
+                
+            
+            <div class="options">
+                <i class="far fa-building"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Centros Colaboradores</a>
+                <br><br><br><br>
+            </div>
+            <div class="options">
+                <i class="far fa-address-book"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Operacionais</a>
+                <br><br><br><br>
+            </div>
+            <div class="options">
+                <i class="fas fa-hard-hat"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Parceiros</a>
+                <br><br><br><br>
+            </div>
+            <div class="options">
+                <i class="fas fa-chart-line"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#"> Dashboard </a>
+                <br><br><br><br>
+            </div>
+
+            </div>
+
+            <!--
+            <div class="out">
+                <a href="#"><i class="fas fa-times"></i></a>
+            </div>-->
+
+        </div> 
+
+
+       
+
+
+
+        <!--operation register: only autorized workers can acess this page-->
+       
+
+
+        <div class="operacoes" style="position: absolute; display: inline;">
+            <h1 style="font-style: italic;">Ocorrências</h1>
+            <form class="from_OP" action="/operations">
+                <!-- about the request in cause-->
+                <strong><label for="id_request" style="font-style: italic;"> Pedido </label></strong>
+                <hr>
+                <br>
+                <select name="id">
+                    <!-- go to BD search the centers-->
+                    <option value="*"> Estabelecimento -- (id: -)</option>
+                    <option value="*"> Estabelecimento 1 (id: 1)</option>
+                    <option value="*"> Estabelecimento 2 (id: 2)</option>
+                    <option value="*"> Estabelecimento 3 (id: 3)</option>
+                    <option value="*"> Estabelecimento 4 (id: 4)</option>
+                    <option value="*"> Estabelecimento 5 (id: 5)</option>
+                  </select>
+                
+                <!-- button who gives more information about the id inputed-->
+                <button class="mais"> <i class="far fa-plus-square"></i> </button>
+
+            <br><br>  
+
+               <!-- <div class="centro_associado">
+                    <label style="font-style: italic;"> Centros colaboradores </label>
+                    <hr>
+                    <br>
+                    <select name="centro" id="centro">
+                        --go to BD search the centers--
+                        <option value="*"> Centro -- </option>
+                        <option value="*"> Centro 1 </option>
+                        <option value="*"> Centro 2</option>
+                        <option value="*"> Centro 3</option>
+                        <option value="*"> Centro 4</option>
+                        <option value="*"> Centro 5</option>
+                      </select>
+                      <br>
+                      <button class="adicionar_center"> Adicionar centro </button>
+                      <br>
+                    <select name="centro" id="centro" hidden>
+                        -- go to BD search more centers--
+                        -- only if the user select the button class "adicionar_center"--
+                        <option value="*"> Centro -- </option>
+                        <option value="*"> Centro 1 </option>
+                        <option value="*"> Centro 2</option>
+                        <option value="*"> Centro 3</option>
+                        <option value="*"> Centro 4</option>
+                        <option value="*"> Centro 5</option>
+                      </select>  </div>-->
+
+                 <div class="centro_associado">
+                    <strong><label style="font-style: italic;"> Centros colaboradores </label></strong>
+                    <hr>
+                    <br>
+                    
+                    <p for="" >Selecione os centros destacados:</p>
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Centro 1 (id: c1)
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Centro 2 (id: c2)
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Centro 3 (id: c3)
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Centro 4 (id: c4)
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Centro 5 (id: c5)
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Centro 6 (id: c6)
+                    <br>
+                    <br>
+
+
+                </div>
+<br>
+                <div class="operacional_assoc">
+                   <strong> <label for="" style="font-style: italic;">Operacionais destacados</label> </strong>
+                    <hr>
+                 
+                    <div class="table-responsiveOcorrencias"  style="overflow: scroll;  width: auto; height: 150px;"> 
+                    
+                            <table id="tblParticipants" class="tableTable-sm">
+                          <thead>
+                           
+                            <tr class="bg-info1">
+                                <th class="w-2" style="padding-left: 10px; width: 170px; padding-bottom: 20px; "></th>
+                               
+                                <th class="w-50" style="padding-left: 10px; width: 4600px; padding-bottom: 20px;"></th>
+                                <th class="w-50" style="padding-left: 10px; width: 70px; padding-bottom: 20px; "></th>
+                                
+                                            
+                            </tr> 
+                          </thead>
+
+                          <tbody >
+                      
+                              <tr class="rows">
+                                  <td >op1</td>
+                                  <td style="padding-left: 10px;">Alberto</td>
+                                  <td> <input type="checkbox"></td>
+                                 
+                                  
+                              </tr>
+                          
+                              <tr>
+                                  <td >op2</td>
+                                  <td style="padding-left: 10px;">Joana</td>
+                                  <td> <input type="checkbox"></td>
+                                  
+                              </tr>
+                          
+                              <tr>
+                                  <td >op3</td>
+                                  <td style="padding-left: 10px;">Pedro</td>
+                                  <td> <input type="checkbox"></td>
+                                  
+                              </tr>
+                          
+                              <tr>
+                                  <td>op4</td>
+                                  <td style="padding-left: 10px;">Luís</td>
+                                  <td> <input type="checkbox"></td>
+                                 
+                              </tr>
+                          
+                             
+                              <tr>
+                                <td>op5</td>
+                                <td style="padding-left: 10px;">Patrícia</td>
+                                <td> <input type="checkbox"></td>
+                              
+                            </tr>
+            
+                            <tr>
+                                <td >op6</td>
+                                <td style="padding-left: 10px;">Liliana</td>
+                                <td> <input type="checkbox"></td>
+                                
+                            </tr>
+            
+                            <tr>
+                                <td>op7</td>
+                                <td style="padding-left: 10px;">Emílio</td>
+                                <td> <input type="checkbox"></td>
+                                
+                            </tr>
+                            </tbody>  
+                            </table>
+                    
+                    </div>  
+                </div>
+                
+
+             
+
+               
+                <div class="parceiro_associado">
+                    <br>
+                <strong><label for="" style="font-style: italic;"> Entidades internas </label></strong>
+                    <hr>
+                    <br>
+                    <p for=""> Esta operação conta com a participação de parceiros de entidades internas?</p>
+                    <br>
+                    
+                <div id="central">
+                      <!-- Botao -->
+                      <br>
+                    <input type="radio" value="Sim" id="receita1"> Sim
+                    <!-- conteudo escondido -->
+                     <div id="1" class="escondida"> 
+                       <!-- Aqui fica o seu form -->
+                        
+                        <!-- INICIO DO FORMULÁRIO -->
+                        <br>
+                        <label style="margin-top: 7px; margin-left: 20px;" for=""> Indique:</label>
+                        <br>
+                        
+                        <select style="margin-top: 7px; margin-left: 20px;" name="id" id="id">
+                            <!-- go to BD search the centers-->
+                            <option value="*"> Entidade -- (id: -)</option>
+                            <option value="*"> Entidade 1 (id: ent1)</option>
+                            <option value="*"> Entidade 2 (id: ent2)</option>
+                            <option value="*"> Entidade 3 (id: ent3)</option>
+                            <option value="*"> Entidade 4 (id: ent4)</option>
+                            <option value="*"> Entidade 5 (id: ent5)</option>
+                            <br>
+                          </select>
+                            
+                        <!-- FIM DO FORMULÁRIO -->
+                    </div>
+    
+                <div id="central1">
+                    <!-- Botao -->
+                    <br>
+                  
+                    <input type="radio" value="Sim" id="receita1"> Não
+                    <br>
+                    <br>
+                 </div>
+
+                 </div>
+                
+                </div>
+
+
+<br><br>
+
+                <div class="urgency">
+                <strong><label for="" style="font-style: italic;">Urgência </label></strong>
+                    <hr>
+                    <!--Urgency of the request-->
+                    <p> Grau de urgência </p><select name="urgencia" id="urgencia">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                </div>
+<br><br>
+                <div class="type_op">
+                <strong><label for="" style="font-style: italic;"> Tipo de operação </label></strong>
+                    <hr>
+                    <br>
+                    <p for="" >Selecione o tipo de operação destacada</p>
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Fiscalização Alimentar (PNFA)
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Inspeção 
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Vigilância
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Colheita de Amostras (PNCA)
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Recolha de Amostras
+                    <br>
+                    <input type="checkbox" name="type" id="type"> Anásile de géneros alimentícios colocados no mercado
+                    <br>
+
+
+                </div>
+
+                <br><br><br>
+                <div class="material">
+                <strong><label for="" style="font-style: italic;"> Materiais </label></strong>
+                    <hr>
+                    <br>
+                    <div class="table-responsiveOcorrencias"  style="overflow: scroll;  width: auto; height: 175px;"> 
+                    
+                        <table id="tblParticipants" class="tableTable-sm">
+                      <thead>
+                       
+                        <tr class="bg-info1">
+                            <th class="w-2" style="padding-left: 10px; width: 250px; padding-bottom: 20px; "></th>
+                           
+                            <th class="w-50" style="padding-left: 10px; width: 4600px; padding-bottom: 20px;"></th>
+                            <th class="w-50" style="padding-left: 10px; width: 70px; padding-bottom: 20px;"></th>
+                            
+                                        
+                        </tr> 
+                      </thead>
+
+                      <tbody >
+                  
+                          <tr class="rows">
+                              <td >mt1</td>
+                              <td style="padding-left: 10px;">Material X</td>
+                              <td> <input type="checkbox"></td>
+                             
+                              
+                          </tr>
+                        
+                          <tr>
+                              <td >mt2</td>
+                              <td style="padding-left: 10px;">Material Y</td>
+                              <td> <input type="checkbox"></td>
+                              
+                          </tr>
+                   
+                          <tr>
+                              <td >mt3</td>
+                              <td style="padding-left: 10px;">Material Z</td>
+                              <td> <input type="checkbox"></td>
+                              
+                          </tr>
+                      
+                          <tr>
+                              <td>mt4</td>
+                              <td style="padding-left: 10px;">Material A</td>
+                              <td> <input type="checkbox"></td>
+                             
+                          </tr>
+                      
+                         
+                          <tr>
+                            <td>mt5</td>
+                            <td style="padding-left: 10px;">Material B</td>
+                            <td> <input type="checkbox"></td>
+                          
+                        </tr>
+        
+                        <tr>
+                            <td >mt6</td>
+                            <td style="padding-left: 10px;">Material F</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+        
+                        <tr>
+                            <td>mt7</td>
+                            <td style="padding-left: 10px;">Material R</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>mt8</td>
+                            <td style="padding-left: 10px;">Material W</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>mt9</td>
+                            <td style="padding-left: 10px;">Material E</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>mt10</td>
+                            <td style="padding-left: 10px;">Material P</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>mt11</td>
+                            <td style="padding-left: 10px;">Material M</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+
+                        <tr>
+                            <td>mt11</td>
+                            <td style="padding-left: 10px;">Material L</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        </tbody>  
+                        </table>
+                    </div>
+                    <div class="materialAnc" style="padding-left: 700px;">
+                    <a href="#"> Verificar disponibilidade dos materiais </a>
+                </div>
+                </div>  
+               
+
+                <div class="buttons1">
+                    <br>
+                    <br>
+                    <button type="reset" href="#" class="BUTTON1" style="display: inline; margin: auto;">Limpar</button> 
+                    <button href="#" class="BUTTON1" >Submeter</button> 
+                </div>
+            </div>
+
+            </form>
+
+
+        </div>

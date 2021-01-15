@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
+        <link rel="stylesheet" href="/style.css" crossorigin="anonymous"></linkrel>
+        <link href="/_sidebar.scss" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <meta charset="UTF-8">
+        <link rel="icon" href="/_img/Imgs/SimboloASAE_personalizado.jpeg.sb-e501c02c-7jNvGZ.png"> 
+        <title>
+            ASAE | Operacoes
+        </title>
+        <script type="text/javascript">
+            function abrir() {
+                var main = document.getElementById("central");
+                var iten = main.getElementsByTagName("input");
+                
+                if (iten) {
+                    for (var i=0;i<iten.length;i++) {
+                        iten[i].onclick = function() {
+                            var el = document.getElementById(this.id.substr(7,7));
+                            if (el.style.display == "block")
+                                el.style.display = "none";
+                            else
+                                el.style.display = "block";
+                        }
+                    }
+                }
+                
+                (async ()=>{
+                var strHtml = "";
+                var ents = document.getElementById("entities")
+                const response = await fetch('http://35.172.203.74:8080/entities1');
+                const entities = await response.json();
+                
+                for(const entity of entities){
+                strHtml+= `<option value="${entity.idEntity}"> ${entity.NameEntity}</option>`
+                //console.log(entity.NameEntity)
+                ents.innerHTML=strHtml;
+                }
+                
+            })();
+            };
+            window.onload=abrir;
+            </script>
+        
+       
+         
+
+       
+
+    </head>
+    <body>
+            <div class="lateral_menu" style="position: absolute; height: 260%;">
+            <!--Identification of the user who is logged in the system-->
+            <div class="identify">
+                <img src="/_img/Imgs/1499345621-contact_85338.png" alt="">
+                <a href="#" > <h3 style="margin-left: 30%;"> Username logado</h3></a>
+                <br>
+                <br>
+                
+                <a href="" style="margin: 5%;"><button class="logoutRevervado" onclick="" style="border: 1px solid #fff; margin-left: 37%; margin-top: 10%;"> <span style="font-size: 12px; text-align: center;padding-left: 2px; "> LogOut </span></button></a> 
+            </div>
+    
+            <!--Options - load new pages-->
+            <div class="menuOptions">
+                
+                <!--go to the page with the list of the request not awnser-->
+                <div class="options" style="margin-top: 10%">
+                <i class="far fa-clock" style="margin-left: 15%;"></i> 
+                <a href="/pedidosPendentes.html" style="margin-top: 5%; margin-left: 25%; margin-bottom: 3%"> Pedidos Pendentes</a>
+                <br><br>
+            </div>
+            
+                
+                <div class="options" style="margin-top: 10%">
+                <i class="fas fa-network-wired" style="margin-left: 15%;"></i> 
+                <a href="/registarOperacao.html" style="margin-top: 4%;margin-left: 25%; color: greenyellow; font-size: 22px;" > Gerir Ocorrência</a>
+                
+                <br><br>
+            </div>
+                
+            <div class="options" style="margin-top: 14%">
+                <i class="far fa-address-card" style="margin-left: 15%;"></i>
+                <a href="/registarOperacao.html" style="margin-top: 5%;margin-left: 25%; " > Entidades</a>
+                
+                <br><br>
+            </div>
+            
+            <div class="options" style="margin-top: 14%">
+                <i class="fas fa-user-secret" style="margin-left: 15%;"></i>
+                <a href="/registarOperacao.html" style="margin-top: 5%;margin-left: 25%; " > Denunciantes</a>
+                
+                <br><br>
+            </div>
+            
+            
+            <div class="options" style="margin-top: 14%">
+                <i class="far fa-building" style="margin-left: 15%;"></i> 
+                <a href="/centros.html" style="margin-top: 5%;margin-left: 25%;"> Colaboradores</a>
+                <br><br>
+            </div>
+            
+            <div class="options" style="margin-top: 14%">
+                <i class="far fa-address-book" style="margin-left: 15%;"></i> 
+                <a href="/operacionais.html" style="margin-top: 5%;margin-left: 25%;"> Operacionais</a>
+                <br><br>
+            </div>
+            
+            <div class="options" style="margin-top: 14%">
+                <i class="fas fa-hard-hat" style="margin-left: 15%;"></i> 
+                <a href="/parceiros.html" style="margin-top: 5%;margin-left: 25%;"> Parceiros</a>
+                <br><br>
+            </div>
+            
+            <div class="options" style="margin-top: 14%">
+                <i class="fas fa-chart-line" style="margin-left: 15%;"></i> 
+                <a href="#" style="margin-top: 5%;margin-left: 25%;"> Dashboard </a>
+                <br><br>
+            </div>
+    
+            </div>
+            
+            </div>
+
+
+        <!--operation register: only autorized workers can acess this page-->
+       
+
+
+        <div class="operacoes" style="position: absolute; display: inline; ">
+            <h1 style="font-style: italic;">Ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">
+            
+            <form action ="http://35.172.203.74:8080/occurrences1" method ="POST">
+                <!-- about the request in cause-->
+                <strong><label for="id_request" style="font-style: italic;"> Pedido </label></strong>
+                <hr style="width: 110%;">
+                <br>
+                <select name="idEntity" id="entities">
+                    <!-- go to BD search the centers-->
+                    <!--<option value="*"> Estabelecimento -- (id: -)</option>
+                    <option value="idEntity"> 1 </option>
+                    <option value="idEntity"> 2 </option>
+                    <option value="idEntity"> 3 </option>
+                    <option value="idEntity"> 4 </option>
+                    <option value="idEntity"> 5 </option--> 
+                  </select>
+                  
+                  <script>
+                    
+                    fetch(`http://35.172.203.74:8080/entities1`, { method: 'GET',
+                     headers: {'Accept': 'application/json',
+                     'Content-Type': 'application/json'}})
+            
+                    .then(res => res.json())
+                    //.then(json => console.log(json))
+                    .then((out) => {
+                    console.log(out);
+                    $.each(out, function(index, value) {
+                    console.log(value);
+                    table.row.add([value.idEntity, 
+                                    value.Name]).draw();
+                    });
+                    }).catch(err => console.error(err));
+                 </script>
+                
+                <!-- button who gives more information about the id inputed-->
+                <button class="mais" style="margin-left: -5%;"> <i class="far fa-plus-square"></i> </button>
+            
+            <br><br>  
+
+                 <div class="Colaboradores">
+                    <strong><label style="font-style: italic;"> Lista de colaboradores </label></strong>
+                    <hr style="width: 121%;">
+                    <br>
+                    
+                    <p for="" >Selecione um colaborador:</p>
+                    <br>
+                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">1</span>
+                    <br>
+                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">2</span>
+                    <br>
+                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">3</span>
+                    <br>
+                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">4</span>
+                    <br>
+                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">5</span>
+                    <br>
+                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">6</span>
+                    <br>
+                    <br>
+                </div>
+<br>
+
+<div class="urgency">
+    <strong><label for="" style="font-style: italic;">Urgência </label></strong>
+        <hr style="width: 121%;">
+        <!--Urgency of the request-->
+        <p> Grau de urgência </p><select name="idUrgency_Level" id="idUrgency_Level" style="margin-left: -7%;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+    </div>
+              
+             
+
+               
+                <div class="parceiro_associado">
+                    <br>
+                <strong><label for="" style="font-style: italic;"> Entidades internas </label></strong>
+                    <hr style="width: 121%;">
+                    <br>
+                    <p for=""> Esta operação conta com a participação de parceiros de entidades internas?</p>
+                    <br>
+                    
+                <div id="central">
+                      <!-- Botao -->
+                      <br>
+                      <!--<form action="">-->
+                    <input type="radio" value="Sim" name="idPartner" id="idPartner" style="margin-right: 2%;"> Sim
+                    <!-- conteudo escondido -->
+                     <div id="1" class="escondida"> 
+                       <!-- Aqui fica o seu form -->
+                        
+                        <!-- INICIO DO FORMULÁRIO -->
+                        <br>
+                        <label style="margin-top: 7px; margin-left: 20px;" for=""> Indique:</label>
+                        <br>
+                        
+                        <select style="margin-top: 7px; margin-left: 20px;" name="idEntity" id="idEntity">
+                            <!-- go to BD search the centers-->
+                            <option value="*"> Entidade -- (id: -)</option>
+                            <option value="*"> 1</option>
+                            <option value="*"> 2</option>
+                            <option value="*"> 3</option>
+                            <option value="*"> 4</option>
+                            <option value="*"> 5</option>
+                            <br>
+                          </select>
+                        
+                        <!-- FIM DO FORMULÁRIO -->
+                     
+                    </div> 
+    </form>
+                
+                <div id="central1">
+                    <!-- Botao -->
+                    <br>
+                  
+                    <input type="radio" value="Não" name="entidade" id="receita1" style="margin-right: 2%;"> Não
+                
+                    <br>
+                    <br>
+                 </div>
+
+                 </div>
+                
+                </div>
+
+
+<br><br>
+<div class="operacional_assoc">
+    <strong> <label for="" style="font-style: italic;">Operacionais destacados</label> </strong>
+     <hr style="width: 110%;">
+  
+     <div class="table-responsiveOcorrencias"  style="overflow: scroll;  width: auto; height: 150px;"> 
+     
+             <table id="tblParticipants" class="tableTable-sm">
+           <thead>
+            
+             <tr class="bg-info1">
+                 <th class="w-2" style="padding-left: 10px; width: 170px; padding-bottom: 20px; "></th>
+                
+                 <th class="w-50" style="padding-left: 10px; width: 4600px; padding-bottom: 20px;"></th>
+                 <th class="w-50" style="padding-left: 10px; width: 70px; padding-bottom: 20px; "></th>
+                 
+                             
+             </tr> 
+           </thead>
+
+           <tbody >
+       
+               <tr class="rows">
+                   <td >op1</td>
+                   <td style="padding-left: 10px;">Alberto</td>
+                   <td> <input type="checkbox"></td>
+                  
+                   
+               </tr>
+           
+               <tr>
+                   <td >op2</td>
+                   <td style="padding-left: 10px;">Joana</td>
+                   <td> <input type="checkbox"></td>
+                   
+               </tr>
+           
+               <tr>
+                   <td >op3</td>
+                   <td style="padding-left: 10px;">Pedro</td>
+                   <td> <input type="checkbox"></td>
+                   
+               </tr>
+           
+               <tr>
+                   <td>op4</td>
+                   <td style="padding-left: 10px;">Luís</td>
+                   <td> <input type="checkbox"></td>
+                  
+               </tr>
+           
+              
+               <tr>
+                 <td>op5</td>
+                 <td style="padding-left: 10px;">Patrícia</td>
+                 <td> <input type="checkbox"></td>
+               
+             </tr>
+
+             <tr>
+                 <td >op6</td>
+                 <td style="padding-left: 10px;">Liliana</td>
+                 <td> <input type="checkbox"></td>
+                 
+             </tr>
+
+             <tr>
+                 <td>op7</td>
+                 <td style="padding-left: 10px;">Emílio</td>
+                 <td> <input type="checkbox"></td>
+                 
+             </tr>
+             </tbody>  
+             </table>
+     
+     </div>  
+ </div>
+ 
+
+               
+<br><br>
+                <div class="type_op">
+                <strong><label for="" style="font-style: italic;"> Tipo de operação </label></strong>
+                    <hr style="width: 110%;">
+                    <br>
+                    <p for="" >Selecione o tipo de operação destacada</p>
+                    <br>
+                        <input type="checkbox" name="Type" value="Fiscalização Alimentar (PNFA)"> Fiscalização Alimentar (PNFA)
+                        <br>
+                        <input type="checkbox" name="Type" value="Inspeção"> Inspeção 
+                        <br>
+                        <input type="checkbox" name="Type" value="Vigilância"> Vigilância
+                        <br>
+                        <input type="checkbox" name="Type" value="Colheita de Amostras (PNCA)"> Colheita de Amostras (PNCA)
+                        <br>
+                        <input type="checkbox" name="Type" value="Recolha de Amostras"> Recolha de Amostras
+                        <br>
+                        <input type="checkbox" name="Type" value="Anasile de géneros alimentícios colocados no mercado"> Anasile de géneros alimentícios colocados no mercado
+                    <br>
+
+
+                </div>
+
+                <br><br><br>
+                <div class="material">
+                <strong><label for="" style="font-style: italic;"> Materiais </label></strong>
+                    <hr style="width: 110%;">
+                    <br>
+                    <div class="table-responsiveOcorrencias"  style="overflow: scroll;  width: auto; height: 175px;"> 
+                    
+                        <table id="idMaterial_Operation" class="tableTable-sm">
+                      <thead>
+                       
+                        <tr class="bg-info1">
+                            <th class="w-2" style="padding-left: 10px; width: 250px; padding-bottom: 20px; "></th>
+                           
+                            <th class="w-50" style="padding-left: 10px; width: 4600px; padding-bottom: 20px;"></th>
+                            <th class="w-50" style="padding-left: 10px; width: 70px; padding-bottom: 20px;"></th>
+                            
+                                        
+                        </tr> 
+                      </thead>
+
+                      <tbody >
+                  
+                          <tr class="rows">
+                              <td >mt1</td>
+                              <td style="padding-left: 10px;">Material X</td>
+                              <td> <input type="checkbox"></td>
+                             
+                              
+                          </tr>
+                        
+                          <tr>
+                              <td >mt2</td>
+                              <td style="padding-left: 10px;">Material Y</td>
+                              <td> <input type="checkbox"></td>
+                              
+                          </tr>
+                   
+                          <tr>
+                              <td >mt3</td>
+                              <td style="padding-left: 10px;">Material Z</td>
+                              <td> <input type="checkbox"></td>
+                              
+                          </tr>
+                      
+                          <tr>
+                              <td>mt4</td>
+                              <td style="padding-left: 10px;">Material A</td>
+                              <td> <input type="checkbox"></td>
+                             
+                          </tr>
+                      
+                         
+                          <tr>
+                            <td>mt5</td>
+                            <td style="padding-left: 10px;">Material B</td>
+                            <td> <input type="checkbox"></td>
+                          
+                        </tr>
+        
+                        <tr>
+                            <td >mt6</td>
+                            <td style="padding-left: 10px;">Material F</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+        
+                        <tr>
+                            <td>mt7</td>
+                            <td style="padding-left: 10px;">Material R</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>mt8</td>
+                            <td style="padding-left: 10px;">Material W</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>mt9</td>
+                            <td style="padding-left: 10px;">Material E</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>mt10</td>
+                            <td style="padding-left: 10px;">Material P</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td>mt11</td>
+                            <td style="padding-left: 10px;">Material M</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+
+                        <tr>
+                            <td>mt11</td>
+                            <td style="padding-left: 10px;">Material L</td>
+                            <td> <input type="checkbox"></td>
+                            
+                        </tr>
+                        </tbody>  
+                        </table>
+                    </div>
+                    <div class="materialAnc" style=" width: 300px; margin-left: 80%;">
+                    <a href="#"> Verificar disponibilidade dos materiais </a>
+                </div>
+                </div>  
+               
+
+                <div class="buttons1">
+                    <br>
+                    <br>
+                    <button class="btn btn-second">limpar</button> 
+                    <button class="btn btn-second" style="margin-left: 5%; display: inline;">submeter</button> 
+                </div>
+            </div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+
+        </body>

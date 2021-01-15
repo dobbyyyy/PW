@@ -1,0 +1,22 @@
+{"colaborator1":{
+	"idColaborator": "1",
+	"Name": "Jorge",
+	"Email": "a@gmail.com",
+	"Password":"123a",
+	"Address":"Barcelos",
+	"Telephone": "912344567"
+},"colaborator2":{
+	"idColaborator": "2",
+	"Name": "Miguel",
+	"Email": "m@hotmail.com",
+	"Password":"456c",
+	"Address":"Braga",
+	"Telephone": "994567890"
+},"colaborator3":{
+	"idColaborator": "3",
+	"Name": "Ricardo",
+	"Email": "r@gmail.com",
+	"Password":"2e3",
+	"Address":"Braga",
+	"Telephone": "938765432"
+}}
