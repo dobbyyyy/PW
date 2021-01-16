@@ -25,32 +25,22 @@ function deleteOperation(req, res){
 //SAVE:
 function addOperation(req, res){
     const idOperation = req.body.idOperation;
-    const Type = req.body.Type;
     const idOccurrence = req.body.idOccurrence;
     const idOperation_Manager = req.body.idOperation_Manager;
-    const idMaterial_Operation = req.body.idMaterial_Operation;
-    const idRequest = req.body.idRequest;
-    const idAccuser = req.body.idAccuser;
-    const idColaborator = req.body.idColaborator;
-    const idEntity = req.body.idEntity;
-    const idPartner = req.body.idPartner;
-    bd.execSQLQuery(`INSERT INTO Operations (idOperation, Type, idOccurrence, idOperation_Manager, idMaterial_Operation, idRequest, idAccuser, idColaborator, idEntity, idPartner) 
-    VALUES('${idOperation}','${Type}','${idOccurrence}','${idOperation_Manager}','${idMaterial_Operation}','${idRequest}','${idAccuser}','${idColaborator}','${idEntity}','${idPartner}')`, res);
+    const Type = req.body.Type;
+    const State = req.body.State;
+    bd.execSQLQuery(`INSERT INTO Operations (idOperation, idOccurrence, idOperation_Manager, Type, State) 
+    VALUES('${idOperation}','${idOccurrence}','${idOperation_Manager}','${Type}','${State}')`, res);
 };
 
 //UPDATE:
 function updateOperation(req, res){
     const idOperation = parseInt(req.params.id);
-    const Type = req.body.Type;
     const idOccurrence = req.body.idOccurrence;
     const idOperation_Manager = req.body.idOperation_Manager;
-    const idMaterial_Operation = req.body.idMaterial_Operation;
-    const idRequest = req.body.idRequest;
-    const idAccuser = req.body.idAccuser;
-    const idColaborator = req.body.idColaborator;
-    const idEntity = req.body.idEntity;
-    const idPartner = req.body.idPartner;
-    bd.execSQLQuery(`UPDATE Operations SET Type='${Type}', idOccurrence='${idOccurrence}', idOperation_Manager='${idOperation_Manager}', idMaterial_Operation='${idMaterial_Operation}', idRequest='${idRequest}', idAccuser='${idAccuser}', idColaborator='${idColaborator}', idEntity='${idEntity}', idPartner='${idPartner}' WHERE idOperation=${idOperation}`, res);
+    const Type = req.body.Type;
+    const State = req.body.State;
+    bd.execSQLQuery(`UPDATE Operations SET idOccurrence='${idOccurrence}', idOperation_Manager='${idOperation_Manager}', Type='${Type}', State='${State}' WHERE idOperation=${idOperation}`, res);
 };
 
 /*

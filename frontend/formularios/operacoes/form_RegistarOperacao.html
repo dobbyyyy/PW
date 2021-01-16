@@ -10,53 +10,9 @@
         <title>
             ASAE | Operacoes
         </title>
-        <script type="text/javascript">
-            function abrir() {
-                var main = document.getElementById("central");
-                var iten = main.getElementsByTagName("input");
-                if (iten) {
-                    for (var i=0;i<iten.length;i++) {
-                        iten[i].onclick = function() {
-                            var el = document.getElementById(this.id.substr(7,7));
-                            if (el.style.display == "block")
-                                el.style.display = "none";
-                            else
-                                el.style.display = "block";
-                        }
-                    }
-                }
-            }
-            window.onload=abrir;
-            </script>
-        
-       
-         
-
-       
 
     </head>
     <body>
-
-
-        <!--<header>
-            <div class="container">
-                
-            <nav>
-
-                <ul>
-                    <li><img src="/Imgs/SimboloASAE_personalizado.jpeg.sb-e501c02c-7jNvGZ.png" alt="logotipo asae" class="logo"></li>
-                    <li><a href="#">A ASAE</a></li>
-                    <li><a href="#">OCORRÊNCIAS</a></li>
-                    <li><a href="#">ESTATÍSTICAS</a></li>
-                    <li><a href="#">COLABORADORES</a></li>
-                    <li><a href="#">LOGIN <img src="/Imgs/login_icon_149440.png" class="loginImg" alt=""></a></li>
-                </ul>
-            </nav>
-            </div>
-        </header>-->
-
-        
-      
             <div class="lateral_menu" style="position: absolute; height: 260%;">
             <!--Identification of the user who is logged in the system-->
             <div class="identify">
@@ -135,207 +91,30 @@
 
 
         <div class="operacoes" style="position: absolute; display: inline; ">
-            <h1 style="font-style: italic;">Ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">
+            <h1 style="font-style: italic;">Registo da Operação</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">
             
-            <form action ="http://3.236.44.220:8080/operations" method ="POST">
+            <form action ="http://3.239.88.73:8080/operations1" method ="POST">
                 <!-- about the request in cause-->
-                <strong><label for="id_request" style="font-style: italic;"> Pedido </label></strong>
+                <strong><label for="id_occurrence" style="font-style: italic;"> Lista das Ocorrências </label></strong>
                 <hr style="width: 110%;">
                 <br>
-                <select name="idEntity" id="${entity.idEntity}">
-                    <!-- go to BD search the centers-->
-                    <option value="*"> Estabelecimento -- (id: -)</option>
-                    <option value="1"> 1 </option>
-                    <option value="2"> 2 </option>
-                    <option value="3"> 3 </option>
-                    <option value="4"> 4 </option>
-                    <option value="5"> 5 </option>
-                  </select>
+                <select name="idOccurrence" id="occurrences">
+                </select>
                 
-                <!-- button who gives more information about the id inputed-->
-                <button class="mais" style="margin-left: -5%;"> <i class="far fa-plus-square"></i> </button>
+<br><br>               
+               <strong><label for="id_operationManager" style="font-style: italic;"> Lista dos Operation Manager </label></strong>
+                <hr style="width: 110%;">
+                <br>
+                <select name="idOperation_Manager" id="managers">
+                </select>
             
-            <br><br>  
-
-                 <div class="Colaboradores">
-                    <strong><label style="font-style: italic;"> Lista de colaboradores </label></strong>
-                    <hr style="width: 121%;">
-                    <br>
-                    
-                    <p for="" >Selecione um colaborador:</p>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">1</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">2</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">3</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">4</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">5</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">6</span>
-                    <br>
-                    <br>
-                </div>
-<br>
-
-<div class="urgency">
-    <strong><label for="" style="font-style: italic;">Urgência </label></strong>
-        <hr style="width: 121%;">
-        <!--Urgency of the request-->
-        <p> Grau de urgência </p><select name="idUrgency_Level" id="urgencia" style="margin-left: -7%;">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-    <!--</div>-->
-              
-             
-
-               
-                <div class="parceiro_associado">
-                    <br>
-                <strong><label for="" style="font-style: italic;"> Entidades internas </label></strong>
-                    <hr style="width: 121%;">
-                    <br>
-                    <p for=""> Esta operação conta com a participação de parceiros de entidades internas?</p>
-                    <br>
-                    
-                <div id="central">
-                      <!-- Botao -->
-                      <br>
-                      <!--<form action="">-->
-                    <input type="radio" value="Sim" name="idPartner" id="receita1" style="margin-right: 2%;"> Sim
-                    <!-- conteudo escondido -->
-                     <div id="1" class="escondida"> 
-                       <!-- Aqui fica o seu form -->
-                        
-                        <!-- INICIO DO FORMULÁRIO -->
-                        <br>
-                        <label style="margin-top: 7px; margin-left: 20px;" for=""> Indique:</label>
-                        <br>
-                        
-                        <select style="margin-top: 7px; margin-left: 20px;" name="id" id="id">
-                            <!-- go to BD search the centers-->
-                            <option value="*"> Entidade -- (id: -)</option>
-                            <option value="*"> 1</option>
-                            <option value="*"> 2</option>
-                            <option value="*"> 3</option>
-                            <option value="*"> 4</option>
-                            <option value="*"> 5</option>
-                            <br>
-                          </select>
-                        
-                        <!-- FIM DO FORMULÁRIO -->
-                     
-                    </div> 
-    </form>
-                
-                <div id="central1">
-                    <!-- Botao -->
-                    <br>
-                  
-                    <input type="radio" value="Não" name="entidade" id="receita1" style="margin-right: 2%;"> Não
-                
-                    <br>
-                    <br>
-                 </div>
-
-                 </div>
-                
-                </div>
-
-
-<br><br>
-<div class="operacional_assoc">
-    <strong> <label for="" style="font-style: italic;">Operacionais destacados</label> </strong>
-     <hr style="width: 110%;">
-  
-     <div class="table-responsiveOcorrencias"  style="overflow: scroll;  width: auto; height: 150px;"> 
-     
-             <table id="tblParticipants" class="tableTable-sm">
-           <thead>
-            
-             <tr class="bg-info1">
-                 <th class="w-2" style="padding-left: 10px; width: 170px; padding-bottom: 20px; "></th>
-                
-                 <th class="w-50" style="padding-left: 10px; width: 4600px; padding-bottom: 20px;"></th>
-                 <th class="w-50" style="padding-left: 10px; width: 70px; padding-bottom: 20px; "></th>
-                 
-                             
-             </tr> 
-           </thead>
-
-           <tbody >
-       
-               <tr class="rows">
-                   <td >op1</td>
-                   <td style="padding-left: 10px;">Alberto</td>
-                   <td> <input type="checkbox"></td>
-                  
-                   
-               </tr>
-           
-               <tr>
-                   <td >op2</td>
-                   <td style="padding-left: 10px;">Joana</td>
-                   <td> <input type="checkbox"></td>
-                   
-               </tr>
-           
-               <tr>
-                   <td >op3</td>
-                   <td style="padding-left: 10px;">Pedro</td>
-                   <td> <input type="checkbox"></td>
-                   
-               </tr>
-           
-               <tr>
-                   <td>op4</td>
-                   <td style="padding-left: 10px;">Luís</td>
-                   <td> <input type="checkbox"></td>
-                  
-               </tr>
-           
-              
-               <tr>
-                 <td>op5</td>
-                 <td style="padding-left: 10px;">Patrícia</td>
-                 <td> <input type="checkbox"></td>
-               
-             </tr>
-
-             <tr>
-                 <td >op6</td>
-                 <td style="padding-left: 10px;">Liliana</td>
-                 <td> <input type="checkbox"></td>
-                 
-             </tr>
-
-             <tr>
-                 <td>op7</td>
-                 <td style="padding-left: 10px;">Emílio</td>
-                 <td> <input type="checkbox"></td>
-                 
-             </tr>
-             </tbody>  
-             </table>
-     
-     </div>  
- </div>
- 
-
-               
 <br><br>
                 <div class="type_op">
                 <strong><label for="" style="font-style: italic;"> Tipo de operação </label></strong>
                     <hr style="width: 110%;">
                     <br>
                     <p for="" >Selecione o tipo de operação destacada</p>
-                    <br>
+                    <br><br>
                         <input type="checkbox" name="Type" value="Fiscalização Alimentar (PNFA)"> Fiscalização Alimentar (PNFA)
                         <br>
                         <input type="checkbox" name="Type" value="Inspeção"> Inspeção 
@@ -348,122 +127,23 @@
                         <br>
                         <input type="checkbox" name="Type" value="Anasile de géneros alimentícios colocados no mercado"> Anasile de géneros alimentícios colocados no mercado
                     <br>
-
-
                 </div>
-
-                <br><br><br>
-                <div class="material">
-                <strong><label for="" style="font-style: italic;"> Materiais </label></strong>
+                
+<br><br>
+                <div class="state">
+                <strong><label for="" style="font-style: italic;"> Estado da Ocorrência </label></strong>
                     <hr style="width: 110%;">
                     <br>
-                    <div class="table-responsiveOcorrencias"  style="overflow: scroll;  width: auto; height: 175px;"> 
-                    
-                        <table id="idMaterial_Operation" class="tableTable-sm">
-                      <thead>
-                       
-                        <tr class="bg-info1">
-                            <th class="w-2" style="padding-left: 10px; width: 250px; padding-bottom: 20px; "></th>
-                           
-                            <th class="w-50" style="padding-left: 10px; width: 4600px; padding-bottom: 20px;"></th>
-                            <th class="w-50" style="padding-left: 10px; width: 70px; padding-bottom: 20px;"></th>
-                            
-                                        
-                        </tr> 
-                      </thead>
-
-                      <tbody >
-                  
-                          <tr class="rows">
-                              <td >mt1</td>
-                              <td style="padding-left: 10px;">Material X</td>
-                              <td> <input type="checkbox"></td>
-                             
-                              
-                          </tr>
-                        
-                          <tr>
-                              <td >mt2</td>
-                              <td style="padding-left: 10px;">Material Y</td>
-                              <td> <input type="checkbox"></td>
-                              
-                          </tr>
-                   
-                          <tr>
-                              <td >mt3</td>
-                              <td style="padding-left: 10px;">Material Z</td>
-                              <td> <input type="checkbox"></td>
-                              
-                          </tr>
-                      
-                          <tr>
-                              <td>mt4</td>
-                              <td style="padding-left: 10px;">Material A</td>
-                              <td> <input type="checkbox"></td>
-                             
-                          </tr>
-                      
-                         
-                          <tr>
-                            <td>mt5</td>
-                            <td style="padding-left: 10px;">Material B</td>
-                            <td> <input type="checkbox"></td>
-                          
-                        </tr>
-        
-                        <tr>
-                            <td >mt6</td>
-                            <td style="padding-left: 10px;">Material F</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-        
-                        <tr>
-                            <td>mt7</td>
-                            <td style="padding-left: 10px;">Material R</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>mt8</td>
-                            <td style="padding-left: 10px;">Material W</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>mt9</td>
-                            <td style="padding-left: 10px;">Material E</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>mt10</td>
-                            <td style="padding-left: 10px;">Material P</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>mt11</td>
-                            <td style="padding-left: 10px;">Material M</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-
-                        <tr>
-                            <td>mt11</td>
-                            <td style="padding-left: 10px;">Material L</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        </tbody>  
-                        </table>
-                    </div>
-                    <div class="materialAnc" style=" width: 300px; margin-left: 80%;">
-                    <a href="#"> Verificar disponibilidade dos materiais </a>
+                    <p for="" >Selecione o estado que se encontra a Ocorrência</p>
+                    <br><br>
+                        <input type="checkbox" name="State" value="Ativo"> Ativo
+                        <br>
+                        <input type="checkbox" name="State" value="Em resolução"> Em resolução 
+                        <br>
+                        <input type="checkbox" name="State" value="Concluido"> Concluido
+                    <br>
                 </div>
-                </div>  
-               
-
+ 
                 <div class="buttons1">
                     <br>
                     <br>
@@ -477,7 +157,54 @@
 
         </div>
     </div>
-
-
-
+             <script type="text/javascript">
+            function abrir() {
+                var main = document.getElementById("central");
+                var iten = main.getElementsByTagName("input");
+                
+                if (iten) {
+                    for (var i=0;i<iten.length;i++) {
+                        iten[i].onclick = function() {
+                            var el = document.getElementById(this.id.substr(7,7));
+                            if (el.style.display == "block")
+                                el.style.display = "none";
+                            else
+                                el.style.display = "block";
+                        }
+                    }
+                }
+            
+            (async ()=>{
+                var strHtml = "";
+                var occu = document.getElementById("occurrences")
+                const response = await fetch('http://3.239.88.73:8080/occurrences1');
+                const occurrences = await response.json();
+                
+                for(const occurrence of occurrences){
+                strHtml+= `<option name="idOccurrence" value="${occurrence.idOccurrence}"> ${occurrence.idOccurrence}</option>`
+                console.log("Occorrencia" +occurrence.idOccurrence)
+                occu.innerHTML=strHtml;
+                }
+                
+            })();
+            
+            (async ()=>{
+                var strHtml = "";
+                var manag = document.getElementById("managers")
+                const response = await fetch('http://3.239.88.73:8080/operations_manager1');
+                const managers = await response.json();
+                
+                for(const manager of managers){
+                strHtml+= `<option name="idOperation_Manager" value="${manager.idOperation_Manager}"> ${manager.Name}</option>`
+                console.log("Occorrencia" +manager.idOperation_Manager)
+                manag.innerHTML=strHtml;
+                }
+                
+            })();
+            };
+            window.onload=abrir;
+            </script>
+            
         </body>
+        
+        

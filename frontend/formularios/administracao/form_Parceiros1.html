@@ -149,7 +149,7 @@
             let table = $('#parc-list').DataTable();
 
     
-            fetch('http://3.234.211.29:8080/partners')
+            fetch('https://asaepw.herokuapp.com/partners')
             .then(res => res.json())
             .then((out) => {
                 $.each(out, function(index, value) {
@@ -172,7 +172,7 @@
         function listParc() {
             let table = $('#parc-list').DataTable();
     
-            fetch(`http://35.172.203.74:8080/partners`, { method: 'GET',
+            fetch(`https://asaepw.herokuapp.com/partners`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

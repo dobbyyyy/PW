@@ -119,12 +119,14 @@
             <tr>
                 <th>idOccurrence</th>
                 <th>Type</th>
+                <th>idRequest</th>
                 <th>idUrgency_Level</th>
                 <th>idEntity</th>
                 <th>idColaborator</th>
                 <th>idPartner</th>
                 <th>idOperational</th>
                 <th>idMaterial</th>
+                <th>State</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -152,7 +154,7 @@
         function listOccurrence() {
             let table = $('#colab-list').DataTable();
     
-            fetch(`http://34.236.171.1:8080/occurrences`, { method: 'GET',
+            fetch(`http://3.239.88.73:8080/occurrences`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             
@@ -163,13 +165,15 @@
                 $.each(out, function(index, value) {
                     console.log(value);
                     table.row.add([value.idOccurrence, 
-                                    value.Type, 
+                                    value.Type,
+                                    value.idRequest,
                                     value.idUrgency_Level,
                                     value.idEntity,
                                     value.idColaborator, 
                                     value.idPartner,
                                     value.idOperational,
-                                    value.idMaterial,'']).draw();
+                                    value.idMaterial,
+                                    value.State,'']).draw();
                 });
             }).catch(err => console.error(err));
         }

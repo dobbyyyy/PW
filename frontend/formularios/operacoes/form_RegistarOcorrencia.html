@@ -120,11 +120,11 @@
         <hr style="width: 121%;">
         <!--Urgency of the request-->
         <p> Grau de urgência </p><select name="idUrgency_Level" id="idUrgency_Level" style="margin-left: -7%;">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value="1">Nao Urgente</option>
+            <option value="2">Pouco Urgente</option>
+            <option value="3">Urgente</option>
+            <option value="4">Muito Urgente</option>
+            <option value="5">Emergencia</option>
           </select>
     </div>
               
@@ -151,16 +151,9 @@
                         <!-- INICIO DO FORMULÁRIO -->
                         <br>
                         <label style="margin-top: 7px; margin-left: 20px;" for=""> Indique:</label>
-                        <br>
+                        <br><br>
                         
                         <select name="idPartner" id="partners">
-                            <!-- go to BD search the centers-->
-                            <!--<option value="*"> Entidade -- (id: -)</option>
-                            <option value="*"> 1</option>
-                            <option value="*"> 2</option>
-                            <option value="*"> 3</option>
-                            <option value="*"> 4</option>
-                            <option value="*"> 5</option>-->
                             <br>
                           </select>
                         
@@ -170,7 +163,7 @@
                 
                 <div id="central1">
                     <!-- Botao -->
-                    <br>
+                    <br><br>
                   
                     <input type="radio" value="Não" style="margin-right: 2%;"> Não
                 
@@ -216,7 +209,7 @@
                     <hr style="width: 110%;">
                     <br>
                     <p for="" >Selecione o tipo de operação destacada</p>
-                    <br>
+                    <br><br>
                         <input type="checkbox" name="Type" value="Fiscalização Alimentar (PNFA)"> Fiscalização Alimentar (PNFA)
                         <br>
                         <input type="checkbox" name="Type" value="Inspeção"> Inspeção 
@@ -245,9 +238,8 @@
                        
                         <tr class="bg-info1">
                             <th class="w-2" style="padding-left: 10px; width: 250px; padding-bottom: 20px; "></th>
-                           
-                            <th class="w-50" style="padding-left: 10px; width: 4600px; padding-bottom: 20px;"></th>
-                            <th class="w-50" style="padding-left: 10px; width: 70px; padding-bottom: 20px;"></th>
+                            <th class="w-2" style="padding-left: 10px; width: 4600px; padding-bottom: 20px;"></th>
+                            <th class="w-2" style="padding-left: 10px; width: 70px; padding-bottom: 20px;"></th>
                             
                                         
                         </tr> 
@@ -258,6 +250,23 @@
                     <a href="#"> Verificar disponibilidade dos materiais </a>
                 </div>
                 </div>  
+                
+<br><br>
+                <div class="state">
+                <strong><label for="" style="font-style: italic;"> Estado da Ocorrencia </label></strong>
+                    <hr style="width: 110%;">
+                    <br>
+                    <p for="" >Selecione o estado que se encontra a Ocorrencia</p>
+                    <br><br>
+                        <input type="checkbox" name="State" value="Ativo"> Ativo
+                        <br>
+                        <input type="checkbox" name="State" value="Em resoluçao"> Em resoluçao 
+                        <br>
+                        <input type="checkbox" name="State" value="Concluido"> Concluido
+                    <br>
+
+
+                </div>
                
 
                 <div class="buttons1">
@@ -312,7 +321,8 @@
                 
                 for(const colaborator of colaborators){
                 strHtml+= `<br>
-                    <input type="checkbox" name="${colaborator.idColaborator}"" id="${colaborator.idColaborator}" value="${colaborator.idColaborator}"> ${colaborator.Name}<span style="margin-left: -7%;">1</span>
+                    <input type="checkbox" name="idColaborator" id="${colaborator.idColaborator}" value="${colaborator.idColaborator}"> ${colaborator.Name}
+                    <span style="margin-left: -7%;">${colaborator.idColaborator}</span>
                     <br>`
                 console.log("colaborador" +colaborator.idColaborator);
                 collabs.innerHTML=strHtml;
@@ -322,14 +332,14 @@
             
                 (async ()=>{
                 var strHtml = "";
-                var ents = document.getElementById("partners")
+                var parts = document.getElementById("partners")
                 const response = await fetch('http://3.239.88.73:8080/partners1');
                 const partners = await response.json();
                 
                 for(const partner of partners){
                 strHtml+= `<option name="idPartner" id="${partner.idPartner}" value="${partner.idPartner}"> ${partner.Name}</option>`
                 console.log("Partner" +partner.idPartner);
-                ents.innerHTML=strHtml;
+                parts.innerHTML=strHtml;
                 }
                 
             })();
@@ -343,9 +353,9 @@
                 for(const operational of operationals){
                 
                 strHtml+= `<tr>
-                   <td >"${operational.idOperational}"</td>
+                   <td name="idOperational" id="${operational.idOperational}" value="${operational.idOperational}">${operational.idOperational}</td>
                    <td style="padding-left: 10px;" name="idOperational">${operational.Name}</td>
-                   <td> <input type="checkbox"></td>
+                   <td> <input type="checkbox" name="idOperational" id="${operational.idOperational}" value="${operational.idOperational}></td>
                </tr>`
                 
                 console.log("operational" + operational.idOperational);
@@ -363,13 +373,11 @@
                 for(const material of materials){
                 
                 strHtml+= `<tr>
-                   <td >"${material.idMaterial}"</td>
-                   <td style="padding-left: 10px;" name="idMaterial">${material.Name}</td>
-                   <td> <input type="checkbox"></td>
+                   <td style="padding-left: 10px;">${material.Name}</td>
+                   <td> <input type="checkbox" name="idMaterial" value="${material.idMaterial}></td>
                </tr>`
                 console.log("material" +material.idMaterial);
                 mats.innerHTML=strHtml;
-                
                 }
             })();
             };

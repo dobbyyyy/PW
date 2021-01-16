@@ -1,19 +1,32 @@
+const bd = require('../config/mysql1');
+
 function getAll(req, res) {
     let sql = "SELECT username, name, email FROM users";
-    global.connection.query(sql, function(err, results) {
+    bd.connection.query(sql, function(err, results) {
         if (err) {
             console.log(err);
             return res.status(500).json(err);
         }
-        res.json(results);
+        //res.json(results);
     });      
 }
 
 function getOne(req, res) {
     let sql = "SELECT username, name, email FROM users WHERE username=?";
-    global.connection.query(sql, req.params.username, function(err, results) {
+    bd.connection.query(sql, req.params.username, function(err, results) {
         if (err) return res.status(500).end();
         if (results.length == 0) return res.status(404).end();
+        return res.json(results[0]);
+    });
+}
+
+function getPass(req, res) {
+    let sql = "SELECT password FROM users WHERE username=?";
+    bd.connection.query(sql, req.params.username, function(err, results) {
+        if (err) return res.status(500).end();
+        if (results.length == 0) return res.status(404).end();
+        const pw = res.json();
+        console.log(pw);
         return res.json(results[0]);
     });
 }

@@ -12,13 +12,14 @@ const controllerPartner = require('./backend/controllers_antigos/partners.js');
 const controllerColaborator = require('./backend/controllers_antigos/colaborators.js');
 const controllerOperational = require('./backend/controllers_antigos/operationals.js');
 const controllerOperation = require('./backend/controllers_antigos/operations.js');
-const routeOperations_Manager = require('./backend/controllers/operations_manager.js');
+const controllerOperations_Manager = require('./backend/controllers_antigos/operations_manager.js');
 const controllerOccurrence = require('./backend/controllers_antigos/occurrences.js');
 const routeUrgency_Levels = require('./backend/controllers/urg_levels.js');
 const controllerMaterial = require('./backend/controllers_antigos/materials.js');
 const routeMaterials_Operation = require('./backend/controllers/materials_operation.js');
 const controllerRequest = require('./backend/controllers_antigos/requests.js');
 const controllerEntity = require('./backend/controllers_antigos/entities.js');
+const controllerUser = require('./backend/controllers_antigos/users.js');
 
 const routeOperations_Center = require('./backend/controllers/operations_center.js');
 const routeOperation_Operational = require('./backend/controllers/operations_operationals.js');
@@ -71,6 +72,23 @@ router.get('/requests1/', controllerRequest.readRequest);
 router.post('/requests1/', controllerRequest.addRequest);
 router.delete('/requests1/:id', controllerRequest.deleteRequest);
 router.put('/requests1/:id', controllerRequest.updateRequest);
+
+router.get('/operations_manager1/', controllerOperations_Manager.readOperations_Manager);
+router.post('/operations_manager1/', controllerOperations_Manager.addOperations_Manager);
+router.delete('/operations_manager1/:id', controllerOperations_Manager.deleteOperations_Manager);
+
+router.get('/users/', controllerUser.list);
+router.get('/users/:username', controllerUser.read);
+
+/*function test(){
+(async ()=>{
+const response = await fetch('http://3.239.88.73:8080/requests1/');
+const users = await response.json();
+console.log(users);
+})();}*/
+
+
+///test();
 
 console.log("API");
 

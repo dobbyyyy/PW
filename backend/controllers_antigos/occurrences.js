@@ -25,25 +25,31 @@ function deleteOccurrence(req, res){
 function addOccurrence(req, res){
     const idOccurrence = req.body.idOccurrence;
     const Type = req.body.Type;
+    //const idRequest = req.body.idRequest;
     const idUrgency_Level = req.body.idUrgency_Level;
     const idEntity = req.body.idEntity;
     const idColaborator = req.body.idColaborator;
     const idPartner = req.body.idPartner;
     const idOperational = req.body.idOperational;
     const idMaterial = req.body.idMaterial;
-    bd.execSQLQuery(`INSERT INTO Occurrences (idOccurrence, Type, idUrgency_Level, idEntity, idColaborator, idPartner, idOperational, idMaterial)
-    VALUES('${idOccurrence}','${Type}','${idUrgency_Level}','${idEntity}','${idColaborator}','${idPartner}','${idOperational}','${idMaterial}')`, res);
+    const State = req.body.State;
+    bd.execSQLQuery(`INSERT INTO Occurrences (idOccurrence, Type, idUrgency_Level, idEntity, idColaborator, idPartner, idOperational, idMaterial, State)
+    VALUES('${idOccurrence}','${Type}','${idUrgency_Level}','${idEntity}','${idColaborator}','${idPartner}','${idOperational}','${idMaterial}','${State}')`, res);
 };
 
 //UPDATE:
 function updateOccurrence(req, res){
     const idOccurrence = parseInt(req.params.id);
-    const Description = req.body.Description;
-    const State = req.body.State;
     const Type = req.body.Type;
+    const idRequest = req.body.idRequest;
     const idUrgency_Level = req.body.idUrgency_Level;
-    //const idUrgency_Level = parseInt(req.params.id);
-    bd.execSQLQuery(`UPDATE Occurrences SET Description='${Description}', State='${State}', Type='${Type}', idUrgency_Level='${idUrgency_Level}' WHERE idOccurrence=${idOccurrence}`, res);
+    const idEntity = req.body.idEntity;
+    const idColaborator = req.body.idColaborator;
+    const idPartner = req.body.idPartner;
+    const idOperational = req.body.idOperational;
+    const idMaterial = req.body.idMaterial;
+    const State = req.body.State;
+    bd.execSQLQuery(`UPDATE Occurrences SET Type='${Type}', idRequest='${idRequest}', idUrgency_Level='${idUrgency_Level}', idEntity='${idEntity}', idColaborator='${idColaborator}', idPartner='${idPartner}', idOperational='${idOperational}', idMaterial='${idMaterial}', State='${State}' WHERE idOccurrence=${idOccurrence}`, res);
 };
 
 module.exports = {
