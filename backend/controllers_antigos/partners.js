@@ -1,6 +1,6 @@
 const app = require('../../main');
 const router = require('express').Router();
-const bd = require('../config/mysql');
+const bd = require('../config/mysql1');
 const { body, validationResult } = require('express-validator');
 app.use('/', router);
 
@@ -26,6 +26,16 @@ function deletePartner(req, res){
 
 
 //SAVE:
+function addPartner(req, res){
+    const idPartner = parseInt(req.params.id);
+    const Name = req.body.Name;
+    const Email = req.body.Email;
+    const Telephone = req.body.Telephone;
+    const Address = req.body.Address;
+    bd.execSQLQuery(`INSERT INTO Partners (idPartner, Name, Email, Telephone, Address)
+    VALUES('${idPartner}','${Name}','${Email}','${Telephone}','${Address}')`, res);
+}; 
+
 /*router.post('/partners',[
     body('Name').not().isEmpty().withMessage('Name is a required field'),
     body('Email').isEmail().withMessage('A valid email is required'),
@@ -58,5 +68,6 @@ function updatePartner(req, res){
 module.exports = {
     readPartner: readPartner,
     deletePartner: deletePartner,
-    updatePartner: updatePartner
+    updatePartner: updatePartner,
+    addPartner: addPartner
 }

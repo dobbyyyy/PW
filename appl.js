@@ -28,46 +28,47 @@ app.use('/', router);
 router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 
 router.get('/partners1/', controllerPartner.readPartner);
+router.post('/partners1/', controllerPartner.addPartner);
 router.delete('/partners1/:id', controllerPartner.deletePartner);
 router.put('/partners1/:id', controllerPartner.updatePartner);
 
 router.get('/accusers1/', controllerAccuser.readAccuser);
-router.post('/accusers1/', controllerAccuser.addAccuser)
+router.post('/accusers1/', controllerAccuser.addAccuser);
 router.delete('/accusers1/:id', controllerAccuser.deleteAccuser);
 router.put('/accusers1/:id', controllerAccuser.updateAccuser);
 
 router.get('/colaborators1/', controllerColaborator.readColaborator);
-router.post('/colaborators1/', controllerColaborator.addColaborator)
+router.post('/colaborators1/', controllerColaborator.addColaborator);
 router.delete('/colaborators1/:id', controllerColaborator.deleteColaborator);
 router.put('/colaborators1/:id', controllerColaborator.updateColaborator);
 
 router.get('/entities1/', controllerEntity.readEntity);
-router.post('/entities1/', controllerEntity.addEntity)
+router.post('/entities1/', controllerEntity.addEntity);
 router.delete('/entities1/:id', controllerEntity.deleteEntity);
 router.put('/entities1/:id', controllerEntity.updateEntity);
 
 router.get('/materials1/', controllerMaterial.readMaterial);
-router.post('/materials1/', controllerMaterial.addMaterial)
+router.post('/materials1/', controllerMaterial.addMaterial);
 router.delete('/materials1/:id', controllerMaterial.deleteMaterial);
 router.put('/materials1/:id', controllerMaterial.updateMaterial);
 
 router.get('/occurrences1/', controllerOccurrence.readOccurence);
-router.post('/occurrences1/', controllerOccurrence.addOccurrence)
+router.post('/occurrences1/', controllerOccurrence.addOccurrence);
 router.delete('/occurrences1/:id', controllerOccurrence.deleteOccurrence);
 router.put('/occurrences1/:id', controllerOccurrence.updateOccurrence);
 
 router.get('/operationals1/', controllerOperational.readOperational);
-router.post('/operationals1/', controllerOperational.addOperational)
+router.post('/operationals1/', controllerOperational.addOperational);
 router.delete('/operationals1/:id', controllerOperational.deleteOperational);
 router.put('/operationals1/:id', controllerOperational.updateOperational);
 
 router.get('/operations1/', controllerOperation.readOperation);
-router.post('/operations1/', controllerOperation.addOperation)
+router.post('/operations1/', controllerOperation.addOperation);
 router.delete('/operations1/:id', controllerOperation.deleteOperation);
 router.put('/operations1/:id', controllerOperation.updateOperation);
 
 router.get('/requests1/', controllerRequest.readRequest);
-router.post('/requests1/', controllerRequest.addRequest)
+router.post('/requests1/', controllerRequest.addRequest);
 router.delete('/requests1/:id', controllerRequest.deleteRequest);
 router.put('/requests1/:id', controllerRequest.updateRequest);
 

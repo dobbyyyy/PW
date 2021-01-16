@@ -17,7 +17,7 @@ function execSQLQuery(sqlQry, res){
         //res.json(error);
       else
         res.json(results);
-      connection.end();
+      //connection.end();
       console.log('executou!');
 });
 }

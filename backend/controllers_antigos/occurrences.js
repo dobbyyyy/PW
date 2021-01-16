@@ -1,6 +1,6 @@
 const app = require('../../main');
 const router = require('express').Router();
-const bd = require('../config/mysql');
+const bd = require('../config/mysql1');
 app.use('/', router);
 
 //LIST:
@@ -24,12 +24,15 @@ function deleteOccurrence(req, res){
 //SAVE:
 function addOccurrence(req, res){
     const idOccurrence = req.body.idOccurrence;
-    const Description = req.body.Description;
-    const State = req.body.State;
     const Type = req.body.Type;
     const idUrgency_Level = req.body.idUrgency_Level;
-    bd.execSQLQuery(`INSERT INTO Occurrences (idOccurrence, Description, State, Type, idUrgency_Level)
-    VALUES('${idOccurrence}','${Description}','${State}','${Type}','${idUrgency_Level}')`, res);
+    const idEntity = req.body.idEntity;
+    const idColaborator = req.body.idColaborator;
+    const idPartner = req.body.idPartner;
+    const idOperational = req.body.idOperational;
+    const idMaterial = req.body.idMaterial;
+    bd.execSQLQuery(`INSERT INTO Occurrences (idOccurrence, Type, idUrgency_Level, idEntity, idColaborator, idPartner, idOperational, idMaterial)
+    VALUES('${idOccurrence}','${Type}','${idUrgency_Level}','${idEntity}','${idColaborator}','${idPartner}','${idOperational}','${idMaterial}')`, res);
 };
 
 //UPDATE:

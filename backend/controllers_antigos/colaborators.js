@@ -1,6 +1,6 @@
 const app = require('../../main');
 const router = require('express').Router();
-const bd = require('../config/mysql');
+const bd = require('../config/mysql1');
 app.use('/', router);
 
 

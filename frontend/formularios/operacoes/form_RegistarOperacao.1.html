@@ -93,47 +93,26 @@
         <div class="operacoes" style="position: absolute; display: inline; ">
             <h1 style="font-style: italic;">Ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">
             
-            <form action ="http://35.172.203.74:8080/occurrences1" method ="POST">
+            <form action ="http://3.239.88.73:8080/occurrences1" method ="POST">
                 <!-- about the request in cause-->
                 <strong><label for="id_request" style="font-style: italic;"> Pedido </label></strong>
                 <hr style="width: 110%;">
                 <br>
                 <select name="idEntity" id="entities">
-                    <!-- go to BD search the centers-->
-                    <!--<option value="*"> Estabelecimento -- (id: -)</option>
-                    <option value="idEntity"> 1 </option>
-                    <option value="idEntity"> 2 </option>
-                    <option value="idEntity"> 3 </option>
-                    <option value="idEntity"> 4 </option>
-                    <option value="idEntity"> 5 </option--> 
-                  </select>
+                </select>
                 
                 <!-- button who gives more information about the id inputed-->
                 <!--<button class="mais" style="margin-left: -5%;"> <i class="far fa-plus-square"></i> </button>-->
             
             <br><br>  
-
-                 <div class="Colaboradores">
-                    <strong><label style="font-style: italic;"> Lista de colaboradores </label></strong>
+                <strong><label style="font-style: italic;"> Lista de colaboradores </label></strong>
                     <hr style="width: 121%;">
                     <br>
                     
                     <p for="" >Selecione um colaborador:</p>
                     <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">1</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">2</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">3</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">4</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">5</span>
-                    <br>
-                    <input type="checkbox" name="idColaborator" id="idColaborator" value="idColaborator"> <span style="margin-left: -7%;">6</span>
-                    <br>
-                    <br>
-                </div>
+                 <div id="renderColaborators">
+                 </div>
 <br>
 
 <div class="urgency">
@@ -164,7 +143,7 @@
                       <!-- Botao -->
                       <br>
                       <!--<form action="">-->
-                    <input type="radio" value="Sim" name="idPartner" id="idPartner" style="margin-right: 2%;"> Sim
+                    <input type="radio" value="Sim" name="entidade" id="receita1" style="margin-right: 2%;"> Sim
                     <!-- conteudo escondido -->
                      <div id="1" class="escondida"> 
                        <!-- Aqui fica o seu form -->
@@ -174,14 +153,14 @@
                         <label style="margin-top: 7px; margin-left: 20px;" for=""> Indique:</label>
                         <br>
                         
-                        <select style="margin-top: 7px; margin-left: 20px;" name="idEntity" id="idEntity">
+                        <select name="idPartner" id="partners">
                             <!-- go to BD search the centers-->
-                            <option value="*"> Entidade -- (id: -)</option>
+                            <!--<option value="*"> Entidade -- (id: -)</option>
                             <option value="*"> 1</option>
                             <option value="*"> 2</option>
                             <option value="*"> 3</option>
                             <option value="*"> 4</option>
-                            <option value="*"> 5</option>
+                            <option value="*"> 5</option>-->
                             <br>
                           </select>
                         
@@ -193,7 +172,7 @@
                     <!-- Botao -->
                     <br>
                   
-                    <input type="radio" value="Não" name="entidade" id="receita1" style="margin-right: 2%;"> Não
+                    <input type="radio" value="Não" style="margin-right: 2%;"> Não
                 
                     <br>
                     <br>
@@ -211,7 +190,7 @@
   
      <div class="table-responsiveOcorrencias"  style="overflow: scroll;  width: auto; height: 150px;"> 
      
-             <table id="tblParticipants" class="tableTable-sm">
+             <table id="renderOperationals" class="tableTable-sm">
            <thead>
             
              <tr class="bg-info1">
@@ -224,59 +203,6 @@
              </tr> 
            </thead>
 
-           <tbody >
-       
-               <tr class="rows">
-                   <td >op1</td>
-                   <td style="padding-left: 10px;">Alberto</td>
-                   <td> <input type="checkbox"></td>
-                  
-                   
-               </tr>
-           
-               <tr>
-                   <td >op2</td>
-                   <td style="padding-left: 10px;">Joana</td>
-                   <td> <input type="checkbox"></td>
-                   
-               </tr>
-           
-               <tr>
-                   <td >op3</td>
-                   <td style="padding-left: 10px;">Pedro</td>
-                   <td> <input type="checkbox"></td>
-                   
-               </tr>
-           
-               <tr>
-                   <td>op4</td>
-                   <td style="padding-left: 10px;">Luís</td>
-                   <td> <input type="checkbox"></td>
-                  
-               </tr>
-           
-              
-               <tr>
-                 <td>op5</td>
-                 <td style="padding-left: 10px;">Patrícia</td>
-                 <td> <input type="checkbox"></td>
-               
-             </tr>
-
-             <tr>
-                 <td >op6</td>
-                 <td style="padding-left: 10px;">Liliana</td>
-                 <td> <input type="checkbox"></td>
-                 
-             </tr>
-
-             <tr>
-                 <td>op7</td>
-                 <td style="padding-left: 10px;">Emílio</td>
-                 <td> <input type="checkbox"></td>
-                 
-             </tr>
-             </tbody>  
              </table>
      
      </div>  
@@ -314,7 +240,7 @@
                     <br>
                     <div class="table-responsiveOcorrencias"  style="overflow: scroll;  width: auto; height: 175px;"> 
                     
-                        <table id="idMaterial_Operation" class="tableTable-sm">
+                        <table id="renderMaterials" class="tableTable-sm">
                       <thead>
                        
                         <tr class="bg-info1">
@@ -326,91 +252,6 @@
                                         
                         </tr> 
                       </thead>
-
-                      <tbody >
-                  
-                          <tr class="rows">
-                              <td >mt1</td>
-                              <td style="padding-left: 10px;">Material X</td>
-                              <td> <input type="checkbox"></td>
-                             
-                              
-                          </tr>
-                        
-                          <tr>
-                              <td >mt2</td>
-                              <td style="padding-left: 10px;">Material Y</td>
-                              <td> <input type="checkbox"></td>
-                              
-                          </tr>
-                   
-                          <tr>
-                              <td >mt3</td>
-                              <td style="padding-left: 10px;">Material Z</td>
-                              <td> <input type="checkbox"></td>
-                              
-                          </tr>
-                      
-                          <tr>
-                              <td>mt4</td>
-                              <td style="padding-left: 10px;">Material A</td>
-                              <td> <input type="checkbox"></td>
-                             
-                          </tr>
-                      
-                         
-                          <tr>
-                            <td>mt5</td>
-                            <td style="padding-left: 10px;">Material B</td>
-                            <td> <input type="checkbox"></td>
-                          
-                        </tr>
-        
-                        <tr>
-                            <td >mt6</td>
-                            <td style="padding-left: 10px;">Material F</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-        
-                        <tr>
-                            <td>mt7</td>
-                            <td style="padding-left: 10px;">Material R</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>mt8</td>
-                            <td style="padding-left: 10px;">Material W</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>mt9</td>
-                            <td style="padding-left: 10px;">Material E</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>mt10</td>
-                            <td style="padding-left: 10px;">Material P</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        <tr>
-                            <td>mt11</td>
-                            <td style="padding-left: 10px;">Material M</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-
-                        <tr>
-                            <td>mt11</td>
-                            <td style="padding-left: 10px;">Material L</td>
-                            <td> <input type="checkbox"></td>
-                            
-                        </tr>
-                        </tbody>  
                         </table>
                     </div>
                     <div class="materialAnc" style=" width: 300px; margin-left: 80%;">
@@ -452,15 +293,84 @@
                 (async ()=>{
                 var strHtml = "";
                 var ents = document.getElementById("entities")
-                const response = await fetch('http://35.172.203.74:8080/entities1');
+                const response = await fetch('http://3.239.88.73:8080/entities1');
                 const entities = await response.json();
                 
                 for(const entity of entities){
-                strHtml+= `<option name="${entity.idEntity}" value="${entity.idEntity}"> ${entity.NameEntity}</option>`
-                console.log(entity.idEntity)
+                strHtml+= `<option name="idEntity" value="${entity.idEntity}"> ${entity.NameEntity}</option>`
+                console.log("entity" +entity.idEntity)
                 ents.innerHTML=strHtml;
                 }
                 
+            })();
+            
+            (async ()=>{
+                var strHtml = "";
+                var collabs = document.getElementById("renderColaborators")
+                const response = await fetch('http://3.239.88.73:8080/colaborators1');
+                const colaborators = await response.json();
+                
+                for(const colaborator of colaborators){
+                strHtml+= `<br>
+                    <input type="checkbox" name="${colaborator.idColaborator}"" id="${colaborator.idColaborator}" value="${colaborator.idColaborator}"> ${colaborator.Name}<span style="margin-left: -7%;">1</span>
+                    <br>`
+                console.log("colaborador" +colaborator.idColaborator);
+                collabs.innerHTML=strHtml;
+                }
+                
+            })();
+            
+                (async ()=>{
+                var strHtml = "";
+                var ents = document.getElementById("partners")
+                const response = await fetch('http://3.239.88.73:8080/partners1');
+                const partners = await response.json();
+                
+                for(const partner of partners){
+                strHtml+= `<option name="idPartner" id="${partner.idPartner}" value="${partner.idPartner}"> ${partner.Name}</option>`
+                console.log("Partner" +partner.idPartner);
+                ents.innerHTML=strHtml;
+                }
+                
+            })();
+            
+            (async ()=>{
+                var strHtml = "";
+                var opera = document.getElementById("renderOperationals")
+                const response = await fetch('http://3.239.88.73:8080/operationals1');
+                const operationals = await response.json();
+                
+                for(const operational of operationals){
+                
+                strHtml+= `<tr>
+                   <td >"${operational.idOperational}"</td>
+                   <td style="padding-left: 10px;" name="idOperational">${operational.Name}</td>
+                   <td> <input type="checkbox"></td>
+               </tr>`
+                
+                console.log("operational" + operational.idOperational);
+                opera.innerHTML=strHtml;
+                
+                }
+            })();
+            
+            (async ()=>{
+                var strHtml = "";
+                var mats = document.getElementById("renderMaterials")
+                const response = await fetch('http://3.239.88.73:8080/materials1');
+                const materials = await response.json();
+                
+                for(const material of materials){
+                
+                strHtml+= `<tr>
+                   <td >"${material.idMaterial}"</td>
+                   <td style="padding-left: 10px;" name="idMaterial">${material.Name}</td>
+                   <td> <input type="checkbox"></td>
+               </tr>`
+                console.log("material" +material.idMaterial);
+                mats.innerHTML=strHtml;
+                
+                }
             })();
             };
             window.onload=abrir;
