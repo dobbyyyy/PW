@@ -61,7 +61,7 @@
             <p style="font-size: x-large; ">Sobre o denunciante</p>
             <hr style="color: rgb(46, 57, 71);">
             <br>
-                <form action ="http://35.172.203.74:8080/requests1"  method ="POST">
+                <form action ="http://3.226.122.100:8080/requests1"  method ="POST">
                 <br>
                 <input type="text" class="name" name="Name" placeholder="    Nome ">
                 <br>
@@ -73,7 +73,7 @@
                 <br>
                 <input type="tel" class="contact" name="Telephone" placeholder="   Contacto ">
                 <!--<div class="entidade" style="text-align: right; position: relative; padding-right: 20%; padding-top: -5%;">-->
-                <label style="display:inline; ">Entidade <span style="color: rgb(180, 239, 72); ">*</span></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ent" name="ent" style="cursor: pointer;"> Interna &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ent" name="ent" > Externa 
+                <label style="display:inline;  font-size:14px">Entidade <span style="color: rgb(180, 239, 72);">*</span></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ent" name="ent" style="cursor: pointer;"> Interna &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ent" name="ent" > Externa 
                 <br>
                 <br>
                 <br>
@@ -94,55 +94,56 @@
             <br>
         <div class="dadosDenuncia">
             <p style="font-size: x-large;"> Sobre o pedido</p>
+            <hr style="color: rgb(46, 57, 71);">
             <br>
             <br>
             
                 <br>
-                <input type="text" class="name" name="NameEntity" placeholder="   Nome do estabelecimento * ">
+                <input type="text" class="name" name="NameEntity" placeholder="   Nome do estabelecimento * " style="margin-left:5%">
                 <br>
                 <br>
                 <br>
-                <input type="text" class="name" name="TypeEntity" placeholder="   Tipo do estabelecimento * ">
+                <input type="text" class="name" name="TypeEntity" placeholder="   Tipo do estabelecimento * " style="margin-left:5%">
                 <br>
                 <br>
                 <br>
-                <input type="text" class="name" name="Street" placeholder="   Morada * ">
+                <input type="text" class="name" name="Street" placeholder="   Morada * " style="margin-left:5%">
                 <br>
                 <br>
                 <br>
-                <input type="text" class="contact" name="District" placeholder="   Localidade * ">
-                <input type="text" class="contact" name="Zip_Code" placeholder="   Codigo Postal * " style="margin-left:9.5%">
+                <input type="text" class="contact" name="District" placeholder="   Localidade * " style="margin-left:5%">
+                <input type="text" class="contact" name="Zip_Code" placeholder="   Codigo Postal * " style="margin-left:9%">
                 <br>
                 <br>
                 <br>
                   <br>
-                <br>
+               
                 <div class="Type">
                     
                         <br>
-                        <label for="" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecione a área de operação que mais se enquadra com a denuncia <span style="color: rgb(180, 239, 72);">*</span></label>
+                        <label for="" style="margin-left:5%; font-size:14px">Selecione a área de operação que mais se enquadra com a denuncia <span style="color: rgb(180, 239, 72);">*</span></label>
+                        <br><br>
+                        <input type="checkbox" name="Type" value="Fiscalização Alimentar (PNFA)" style="margin-left:7%; margin-bottom: 1%"> Fiscalização Alimentar (PNFA)
                         <br>
-                        <input type="checkbox" name="Type" value="Fiscalização Alimentar (PNFA)"> Fiscalização Alimentar (PNFA)
+                        <input type="checkbox" name="Type" value="Inspeção" style="margin-left:7%; margin-bottom: 1%"> Inspeção 
                         <br>
-                        <input type="checkbox" name="Type" value="Inspeção"> Inspeção 
+                        <input type="checkbox" name="Type" value="Vigilância" style="margin-left:7%; margin-bottom: 1%"> Vigilância
                         <br>
-                        <input type="checkbox" name="Type" value="Vigilância"> Vigilância
+                        <input type="checkbox" name="Type" value="Colheita de Amostras (PNCA)" style="margin-left:7%; margin-bottom: 1%"> Colheita de Amostras (PNCA)
                         <br>
-                        <input type="checkbox" name="Type" value="Colheita de Amostras (PNCA)"> Colheita de Amostras (PNCA)
+                        <input type="checkbox" name="Type" value="Recolha de Amostras" style="margin-left:7%; margin-bottom: 1%"> Recolha de Amostras
                         <br>
-                        <input type="checkbox" name="Type" value="Recolha de Amostras"> Recolha de Amostras
-                        <br>
-                        <input type="checkbox" name="Type" value="Anasile de géneros alimentícios colocados no mercado"> Anasile de géneros alimentícios colocados no mercado
+                        <input type="checkbox" name="Type" value="Anasile de géneros alimentícios colocados no mercado" style="margin-left:7%;"> Anasile de géneros alimentícios colocados no mercado
                         <br>
                         <br>
                         <br>
                         <br>
     
                     </div>
-                 <label  for="id: Description"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Descrição do pedido <span style="color: rgb(180, 239, 72);">*</span></label>
+                 <label  for="id: Description" style="margin-left:5%; font-size:14px"> Descrição do pedido <span style="color: rgb(180, 239, 72);">*</span></label>
                 <br>
                 <br>
-               <textarea  id="desc" name="Description" rows="4" cols="50" placeholder="Descrição do pedido *">
+               <textarea  id="desc" name="Description" rows="4" cols="50" >
                  </textarea>
                 <br>
                 <br>

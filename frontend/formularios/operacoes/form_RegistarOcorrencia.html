@@ -89,7 +89,7 @@
         <div class="operacoes" style="position: absolute; display: inline; ">
             <h1 style="font-style: italic;">Registo de Ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">
             
-            <form action ="http://34.239.149.123:8080/occurrences1" method ="POST">
+            <form action ="http://3.226.122.100:8080/occurrences1" method ="POST">
                 <!-- about the request in cause-->
                 <strong><label for="id_request" style="font-style: italic;"> Pedido </label></strong>
                 <hr style="width: 110%;">
@@ -134,7 +134,7 @@
               
              
 <br> 
-               <div class="parceiros_assoc">
+            <div class="parceiros_assoc">
                      <strong><label for="" style="font-style: italic;"> Entidades internas </label></strong>
                      <hr style="width: 121%;">
                      <br>
@@ -142,38 +142,36 @@
                      <br>
                      
                      <div id="central">
-                         <form action="">
-                             
+                        
+                           <br>
+                         <input type="radio" id="receita2" name="entidade" value="Não" style="margin-left:8%; margin-bottom:1%" >
+                         <label for="receita2" style="margin-left:-5%">Não</label>   
                          <br>
-                         <input type="radio" id="receita1" name="entidade" value="Sim" style="margin-left:5%">
-                        <label for="entidade" style="margin-left:-5%">Sim</label><br>
-                        </form>
+                         
+                         <input type="radio" id="receita1" name="entidade" value="Sim" style="margin-left:8%" >
+                        <label for="receita1" style="margin-left:-5%">Sim</label><br>
+                       
                         <!-- opção escondida-->
-                        <div>
+                      <div id="campos">
                             <br>
-                            <label tyle="margin-left:5%"> Indique:
+                            <label style="margin-left:16%"> Se sim, indique:
                             </label>
                             <select name="idPartner" id="partners">
                             <br>
                           </select>
                         </div>
-                         
+                    <!-- final opção escondida-->
+                     
+                       
+                        
                      </div>
                      
                      
-                     
-                     <div id="central1">
-                         <form>
-                         <br>
-                         <input type="radio" id="receita1" name="entidade" value="Não" style="margin-left:11%">
-                         <label for="entidade" style="margin-left:-5%">Não</label>
-                         </form>
-                     </div>
-                     
-                     
+   </div> 
+                          
                    
                    
-        <!--          <div class="parceiro_associado">
+       <!--          <div class="parceiro_associado">
                     <br>
                 <strong><label for="" style="font-style: italic;"> Entidades internas </label></strong>
                     <hr style="width: 121%;">
@@ -182,16 +180,14 @@
                     <br>
                     
                 <div id="central">
-                      <!-- Botao -->
-                      
-                      <!--<form action="">-->
-          <!--          <input type="radio" value="Sim" name="entidade" id="receita1" style="margin-right: 2%;"> Sim
+                
+                  <input type="radio" value="Sim" name="entidade" id="receita1" style="margin-right: 2%;"> Sim
                     <!-- conteudo escondido -->
-           <!--          <div id="1" class="escondida"> 
+      <!--             <div id="1" class="escondida"> 
                        <!-- Aqui fica o seu form -->
                         
                         <!-- INICIO DO FORMULÁRIO -->
-            <!--            <br>
+       <!--          <br>
                         <label style="margin-top: 7px; margin-left: 20px;" for=""> Indique:</label>
                         <br><br>
                         
@@ -200,23 +196,23 @@
                           </select>
                         
                         <!-- FIM DO FORMULÁRIO -->
-                     
-            <!--        </div> 
+         <!--             </div>
                 
-                <div id="central1">
+                
+               
                     <!-- Botao -->
-          <!--          <br><br>
+    <!--             <br><br>
                   
-                    <input type="radio" value="Não" style="margin-right: 2%;"> Não
+                    <input type="radio" value="Não" style="margin-right: 2%;" id="receita1"> Não
                 
                     <br>
                     <br>
-                 </div>
+                
 
                  </div>
                 
-                </div>
-               </div>-->
+                </div>-->
+             
 
 
 <br><br><br> 
@@ -349,7 +345,7 @@
                 (async ()=>{
                 var strHtml = "";
                 var ents = document.getElementById("entities")
-                const response = await fetch('http://34.239.149.123:8080/entities1');
+                const response = await fetch('http://3.226.122.100:8080/entities1');
                 const entities = await response.json();
                 
                 for(const entity of entities){
@@ -363,7 +359,7 @@
             (async ()=>{
                 var strHtml = "";
                 var collabs = document.getElementById("renderColaborators")
-                const response = await fetch('http://34.239.149.123:8080/colaborators1');
+                const response = await fetch('http://3.226.122.100:8080/colaborators1');
                 const colaborators = await response.json();
                 
                 for(const colaborator of colaborators){
@@ -385,7 +381,7 @@
                 (async ()=>{
                 var strHtml = "";
                 var parts = document.getElementById("partners")
-                const response = await fetch('http://34.239.149.123:8080/partners1');
+                const response = await fetch('http://3.226.122.100:8080/partners1');
                 const partners = await response.json();
                 
                 for(const partner of partners){
@@ -399,7 +395,7 @@
             (async ()=>{
                 var strHtml = "";
                 var opera = document.getElementById("renderOperationals")
-                const response = await fetch('http://34.239.149.123:8080/operationals1');
+                const response = await fetch('http://3.226.122.100:8080/operationals1');
                 const operationals = await response.json();
                 
                 for(const operational of operationals){
@@ -411,6 +407,7 @@
                     <td> 
                     <input type="checkbox" name="idOperational" id="${operational.idOperational}" value="${operational.idOperational}>
                     </td>
+                    
                     <td name="idOperational" id="${operational.idOperational}" value="${operational.idOperational}">${operational.idOperational}
                     </td>
                    
@@ -430,7 +427,7 @@
             (async ()=>{
                 var strHtml = "";
                 var mats = document.getElementById("renderMaterials")
-                const response = await fetch('http://34.239.149.123:8080/materials1');
+                const response = await fetch('http://3.226.122.100:8080/materials1');
                 const materials = await response.json();
                 
                 for(const material of materials){

@@ -166,7 +166,7 @@ const renderOperationals = async () => {
             </tr>
      </thead><tbody>
         `
-        const response = await fetch('http://3.234.222.199:8080/operationals')
+        const response = await fetch('http://3.226.122.100:8080/operationals1')
         const operationals = await response.json()
         let i = 1
         for (const operational of operationals) {            
@@ -228,7 +228,7 @@ const renderOperationals = async () => {
                     if (result.value) {                        
                         let idOperational = btnDelete[i].getAttribute("id")
                         try {
-                            const response = await fetch(`http://3.234.222.199/operationals/${idOperational}`, { method: "DELETE"})
+                            const response = await fetch(`http://3.226.122.100/operationals1/${idOperational}`, { method: "DELETE"})
                             const operationals = await response.json()                            
                             swal('Removido!','O operacional foi removido da tabela.','success')
                             renderOperationals()
@@ -265,7 +265,7 @@ const renderOperationals = async () => {
                         var Type=document.getElementById("type_row"+idOperational).innerHTML;
                        
                         try {
-                            const response = await fetch(`http://3.234.222.199:8080/operationals/${idOperational}`, { method: "PUT",body: `Name=${Name}&Username=${Username}&Email=${Email}&Password=${Password}&Telephone=${Telephone}&Type=${Type}`,
+                            const response = await fetch(`http://3.226.122.100:8080/operationals1/${idOperational}`, { method: "PUT",body: `Name=${Name}&Username=${Username}&Email=${Email}&Password=${Password}&Telephone=${Telephone}&Type=${Type}`,
                                 headers: {"Content-type": "application/x-www-form-urlencoded"}})
                             const operationals = await response.json()                            
                             swal('Actualizado!','O operacional foi alterado na base de dados.','success')

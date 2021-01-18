@@ -167,7 +167,7 @@ const renderColaborators = async () => {
             </tr>
      </thead><tbody>
         `
-        const response = await fetch('http://3.226.122.100:8080/colaborators')
+        const response = await fetch('http://3.226.122.100:8080/colaborators1')
         const colaborators = await response.json()
         let i = 1
         for (const colaborator of colaborators) {            
@@ -270,7 +270,7 @@ const renderColaborators = async () => {
                             Address: Address
                         }*/
                         try {
-                            const response = await fetch(`http://3.226.122.100:8080/colaborators/${idColaborator}`, { method: "PUT",body: `Name=${Name}&Username=${Username}&Email=${Email}&Password=${Password}&Telephone=${Telephone}`,
+                            const response = await fetch(`http://3.226.122.100:8080/colaborators1/${idColaborator}`, { method: "PUT",body: `Name=${Name}&Username=${Username}&Email=${Email}&Password=${Password}&Telephone=${Telephone}`,
                                 headers: {"Content-type": "application/x-www-form-urlencoded"}})
                             const partners = await response.json()                            
                             swal('Actualizado!','O Colaborador foi alterado na base de dados.','success')

@@ -96,14 +96,62 @@
 
    <div class="content_tables" style="height:100%;">
        
+     <div class="pedidosPendentes" style="position: absolute; display: inline;">
+        <h1 style="font-style: italic;">Operacionais</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
+     
+    </div>  
        
        
        
        
        
        
-       
-        <table id="op-list" class="table table-striped table-bordered" style="width:75%; margin-left:40%; position:absolute; margin-top:10%" >
+        <table id="op-list" class="table table-striped table-bordered" style="width:70%; margin-left:34%; position:absolute; margin-top:5%" >
+            
+            <div class="search" style="font-size: 12px; position:absolute; width: 15px; margin-top:15.75%; margin-left: 81.5%">
+        Search:
+    </div> 
+            
+            <style>
+            
+    .dataTables_wrapper .dataTables_filter {
+    color: #333;
+    margin-left: 226%;
+    font-size: 12px;
+    width: 0px;
+    position: absolute;
+    margin-top: -2%;
+}
+
+    .dataTables_wrapper .dataTables_filter label{
+        color: white;
+    }
+    
+    .dataTables_wrapper .dataTables_length {
+    color: #333;
+    margin-left: 70%;
+    font-size: 12px;
+    width: 300px;
+    position: absolute;
+    margin-top: 2%;
+   }
+   
+   
+    .dataTables_wrapper .dataTables_length select {
+        width: 16%;
+    }
+    
+    .dataTables_wrapper .dataTables_paginate {
+    color: #333;
+    font-size: 12px;
+    margin-top: 55%;
+    margin-left: 184%;
+    
+    position: absolute;
+}
+
+
+            </style>
         
         <thead>
             <tr>
@@ -144,7 +192,7 @@
         function listOp() {
             let table = $('#op-list').DataTable();
     
-            fetch(`http://34.239.149.123:8080/operationals`, { method: 'GET',
+            fetch(`http://3.226.122.100:8080/operationals`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

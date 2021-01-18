@@ -111,10 +111,18 @@
     
      
      <style>
+     
+   
+     
+     
          #denun-list_paginate{
             margin-top: 110%;
             margin-left: 155%;
             position:absolute;
+         }
+         
+         #denun-list_paginate li hover {
+             background-color: white;
          }
          
          #denun-list_previous{
@@ -132,6 +140,17 @@
              color:#333;
              
          }
+         
+         .page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #29323c;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
          
          .page-item.active .page-link {
     z-index: 1; 
@@ -236,7 +255,7 @@
         function listDenun() {
             let table = $('#denun-list').DataTable();
     
-            fetch(`http://34.239.149.123:8080/accusers`, { method: 'GET',
+            fetch(`http://3.226.122.100:8080/accusers`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

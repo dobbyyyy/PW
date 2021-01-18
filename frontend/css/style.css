@@ -289,6 +289,7 @@ nav a:hover::before {
   border-bottom: 3px inset #c2b5b5;*/
   font-size: 15px;
   box-shadow: 0px 0px 10px 2px grey;
+  margin-left: 10%;
 }
 
 .dadosPessoais hr {
@@ -345,6 +346,7 @@ nav a:hover::before {
   border-bottom: 3px inset #c2b5b5;*/
   box-shadow: 0px 0px 10px 2px grey;
   font-size: 15px;
+   margin-left: 10%;
 }
 
 .dadosDenuncia form {
@@ -362,7 +364,7 @@ nav a:hover::before {
   font-size: 20px;
   font-style: italic;
 }
-
+/*
 #desc {
   opacity: 100‰;
   width: 900px;
@@ -371,7 +373,23 @@ nav a:hover::before {
   vertical-align: baseline;
   padding-left: 20px;
   padding-top: 20px;
+}*/
+
+#desc {
+  width:84%;
+  height: 25%;
+  /*text-align: left;
+  vertical-align: baseline;*/
+  margin-left: 5%;
+  padding-left:0px;
+  
 }
+
+#desc hover {
+  border: solid 1px greenyellow;
+}
+
+
 .BUTTON {
   text-align: center;
   border-radius: 40px;
@@ -1172,7 +1190,7 @@ label {
   background-color: #29323c;
   width: 22%;
   height: 100%;
-  border-radius: 0px 30px 30px 0;
+  border-radius: 0px 30px 30px 
 }
 
 .identify img {

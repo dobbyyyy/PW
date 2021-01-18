@@ -195,6 +195,8 @@
 
     <script>
     
+window.onload=()=>{
+        
         function listColab() {
             let table = $('#colab-list').DataTable();
             
@@ -205,9 +207,10 @@
             .then(res => res.json())
             //.then(json => console.log(json))
             .then((out) => {
-                console.log(out);
+                //console.log(out);
                 $.each(out, function(index, value) {
-                    console.log(value);
+                    //console.log(value);
+                    
                     table.row.add([value.idColaborator, 
                                     value.Name, 
                                     value.Username, 
@@ -216,19 +219,99 @@
                                     value.Telephone,
                                     `<i class="fas fa-save"></i>
                                      <i class="far fa-edit "></i>
-                                     <i id='${value.idColaborator}' class='fas fa-trash-alt remove'></i>`]).draw();
+                                     <i id='${value.idColaborator}' name="removeBtn" class='fas fa-trash-alt remove'></i>
+                                     <button id='${value.idColaborator}' onclick="deleteData(${value.idColaborator})">
+                                     <button id='${value.idColaborator}' onclick="editData(${value.idColaborator})">`]).draw();
                 });
+                }).catch(err => console.error(err));
                 
-            }).catch(err => console.error(err));
-    }
+        }
+        
+        
+     //DELETE
+        const btnDelete = document.getElementsByTagName("i");
+        console.log(btnDelete.length);
+        for (let i = 0; i < btnDelete.length; i++) {
+            //console.log(btnDelete[i]);
+            btnDelete[i].addEventListener("click", () => {
+                //console.log("HERE");
+                swal({
+                    title: 'Tem a certeza?',
+                    text: "Nao sera possivel reverter a remocao!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Remover'
+                  }).then( async (result) => {
+                    if (result.value) {                        
+                        let idColaborator = btnDelete[i].getAttribute("id")
+                        try {
+                            const response = await fetch(`http://3.226.122.100:8080/colaborator1/${idColaborator}`, { method: "DELETE"})
+                            const colaborators = await response.json()                            
+                            swal('Removido!','O colaborador foi removido da tabela.','success')
+                            listColab();
+                        } catch(err) {
+                            swal({type: 'error', title: 'Erro', text: err})
+                        }
+                    } 
+                  })
+            })
+        } 
         
         $(document).ready(function() {
             $('#colab-list').DataTable();
 			listColab();
         })
         
-       // strHtml += "</tbody>"
-       // myDataTable.innerHTML = strHtml
+}
+
+function deleteData(id){
+    //console.log(id);
+        (async() =>{
+            const response = await fetch(`http://3.226.122.100:8080/colaborators1/${id}`,{method: "DELETE"});
+            
+            //listColab();
+            const trs = document.getElementsByTagName("tr")  //linhas
+            console.log(trs);
+            for(tr of trs){
+                //console.log(tr.rowIndex)
+                console.log(tr.cells[0].innerHTML)  //id
+                console.log(id)
+                if(tr.cells[0].innerHTML==id){
+                    console.log("HIDE")
+                    tr.hidden=true;
+                }
+            }
+            //const colaborators = await response.json()
+        })();
+}
+
+function editData(id){
+    saveData(id);
+}
+
+function saveData(id) {
+    (async() =>{
+            //const response = await fetch(`http://3.226.122.100:8080/colaborators1/${id}`,{method: "UPDATE"});
+            
+            //listColab();
+            const trs = document.getElementsByTagName("tr")  //linhas
+            console.log(trs);
+            for(tr of trs){
+                //console.log(tr.rowIndex)
+                console.log(tr.cells[0].innerHTML)  //id
+                console.log(id)
+                if(tr.cells[0].innerHTML==id){
+                    console.log("HIDE")
+                    tr.hidden=true;
+                }
+            }
+            //const colaborators = await response.json()
+        })();
+        }
+
 
     </script>
 

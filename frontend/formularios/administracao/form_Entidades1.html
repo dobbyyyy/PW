@@ -26,7 +26,7 @@
   <body>
     
    
-  <div class="lateral_menu" style="position: absolute; height: 100%;">
+  <div class="lateral_menu" style="position: absolute; height: 135%;">
             <!--Identification of the user who is logged in the system-->
             <div class="identify">
                 <img src="/_img/Imgs/1499345621-contact_85338.png" alt="">
@@ -99,17 +99,130 @@
    <div class="content_tables" style="height:78%;">
 
 
+
     <div class="pedidosPendentes" style="position: absolute; display: inline;">
         <h1 style="font-style: italic;">Entidades</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
      
     </div>
     
+    <div class="search" style="font-size: 12px; position:absolute; width: 15px; margin-top:12.5%; margin-left: 72%">
+        Search:
+    </div>  
+    
+    <style>
+        .dataTables_wrapper .dataTables_length select {
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            padding: 5px;
+            background-color: transparent;
+            padding: 4px;
+            width:15%;
+            }
+            
+        .dataTables_wrapper .dataTables_length {
+            color: #333;
+            margin-left: 80%;
+            font-size: 12px;
+            width: 300px;
+            position: absolute;
+            margin-top: -8%;
+        }
+        
+        .dataTables_wrapper .dataTables_filter {
+            color: #333;
+            margin-left: 200%;
+            font-size: 12px;
+            width: -0px;
+            position: absolute;
+            margin-top: -11%;
+        }
+        
+        .dataTables_wrapper .dataTables_filter label{
+            color:white;
+        }
+        
+        
+   
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            /* box-sizing: border-box; */
+    display: inline-block;
+    /*min-width: 1.5em;*/
+    padding: 0px;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    cursor: hand;
+    color: #333 !important;
+    /*border: 1px solid transparent;
+    border-radius: 2px;*/
+}
+
+.pagination {
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0px;
+    list-style: none;
+    border-radius: .25rem;
+    position: absolute;
+    margin-left: 42%;
+    margin-top: 120%;
+    padding-right: 10px;
+}
+      
+      #ent-list_previous{
+          margin-right: 49px;
+          padding:-20px;
+          background-color: white;
+         
+      } 
+      
+    .dataTables_wrapper .dataTables_info {
+    color: #333;
+    margin-left: 100%;
+    font-size: 12px;
+    margin-top: 160%;
+    position: absolute;
+    
+} 
+     
+      
+   .page-item.active .page-link {
+    z-index: 1; 
+    z-index: 2;
+    z-index: 3;
+    z-index: 4;
+    color: grey;
+    /*border: solid 2px;*/
+    background-color: transparent;
+    border-color: greenyellow;
+    font-weight: bold;
+}
+
+.page-item.active .page-link hover{
+    background:transparent;
+} 
+
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #29323c;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+    </style>
     
     
     
     
     
-    <table id="ent-list" class="table table-striped table-bordered" style="width:75%; margin-left:40%; position:absolute; margin-top:10%" >
+    
+    <table id="ent-list" class="table table-striped table-bordered" style="width:75%; margin-left:40%; position:absolute; margin-top:1%" >
         
         <thead>
             <tr>
@@ -148,7 +261,7 @@
         function listEnt() {
             let table = $('#ent-list').DataTable();
     
-            fetch(`http://35.172.203.74:8080/entities1`, { method: 'GET',
+            fetch(`http://3.226.122.100:8080/entities1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

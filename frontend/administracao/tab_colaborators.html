@@ -36,7 +36,7 @@ const renderColaborators = async () => {
                 </tr> 
             </thead><tbody>
         `
-        const response = await fetch('http://3.226.122.100:8080/colaborators')
+        const response = await fetch('http://3.226.122.100:8080/colaborators1')
         const colaborators = await response.json()
         let i = 1
         for (const colaborator of colaborators) {            
