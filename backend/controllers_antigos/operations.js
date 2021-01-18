@@ -16,6 +16,12 @@ router.get('/operations/:id?', (req, res) =>{
     bd.execSQLQuery('SELECT * FROM Operations idOperation ' + filter, res);
 });
 
+function readOperationByState(req,res){
+    let filter = '';
+    if(req.params.State) filter = ' WHERE State=' + req.params.State;
+    bd.execSQLQuery('SELECT * FROM Operations State ' + filter, res);
+}
+
 //DELETE FISICO:
 function deleteOperation(req, res){
     bd.execSQLQuery('DELETE FROM Operations WHERE idOperation=' + parseInt(req.params.id), res);
@@ -77,6 +83,7 @@ router.put('/operations/:idOperation/operationals/', (req, res) =>{
 
 module.exports = {
     readOperation: readOperation,
+    readOperationByState: readOperationByState,
     deleteOperation: deleteOperation,
     updateOperation: updateOperation,
     addOperation: addOperation

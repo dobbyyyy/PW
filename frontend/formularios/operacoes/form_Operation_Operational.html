@@ -175,7 +175,7 @@ const renderoperation_operational = async () => {
             </tr>
      </thead><tbody>
         `
-        const response = await fetch('http://3.234.222.199:8080/operations/:idOperation/operationals/')
+        const response = await fetch('http://3.226.122.100:8080/operations/:idOperation/operationals/')
         const operation_operational = await response.json()
         let i = 1
         for (const ope_ope of operation_operational) {            
@@ -218,7 +218,7 @@ const renderoperation_operational = async () => {
                         let idOperation = btnDelete[i].getAttribute("id")
                         let idOperational = btnDelete[i].getAttribute("id")
                         try {
-                            const response = await fetch(`http://3.234.222.199:8080/operations/${idOperation}/operationals/${idOperational}`, { method: "DELETE"})
+                            const response = await fetch(`http://3.226.122.100:8080/operations/${idOperation}/operationals/${idOperational}`, { method: "DELETE"})
                             const operation_operational = await response.json()                            
                             swal('Removido!','O operacional foi removido da operacao na tabela.','success')
                             renderoperation_operational()
@@ -250,7 +250,7 @@ const renderoperation_operational = async () => {
                         var idOperational=saveBtn[i].getAttribute("name_row")
                         console.log(idOperational);
                         try {
-                            const response = await fetch(`http://3.234.222.199:8080/operations/${idOperation}/operationals/`, { method: "PUT",body: `idOperational=${idOperational}`,
+                            const response = await fetch(`http://3.226.122.100:8080/operations/${idOperation}/operationals/`, { method: "PUT",body: `idOperational=${idOperational}`,
                                 headers: {"Content-type": "application/x-www-form-urlencoded"}})
                             const operation_operational = await response.json()                            
                             swal('Actualizado!','O operacional foi alterado na base de dados.','success')

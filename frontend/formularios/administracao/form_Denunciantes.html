@@ -167,7 +167,7 @@ const renderAccusers = async () => {
             </tr>
      </thead><tbody>
         `
-        const response = await fetch('http://3.234.222.199:8080/accusers')
+        const response = await fetch('http://3.226.122.100:8080/accusers')
         const accusers = await response.json()
         let i = 1
         for (const accuser of accusers) {            
@@ -180,8 +180,7 @@ const renderAccusers = async () => {
                     <td id="add_row${accuser.idAccuser}"> ${accuser.Address} </td>
                     <td id="tel_row${accuser.idAccuser}"> ${accuser.Telephone} </td>
                     <td><p><i id='${accuser.idAccuser}' class='fas fa-trash-alt remove' style="cursor:pointer;"></i></p>
-                    <p><i class="far fa-edit" id="edit_button${accuser.idAccuser}" value="Edit" class="edit" onclick="edit_row('${accuser.idAccuser}')" style="cursor:pointer;"></i>
-                    </p>
+                    <p><i class="far fa-edit" id="edit_button${accuser.idAccuser}" value="Edit" class="edit" onclick="edit_row('${accuser.idAccuser}')" style="cursor:pointer;"></i></p>
                     <p><i name="${accuser.idAccuser}" id="save_button${accuser.idAccuser}" value="Save" class="fa fa-save" onclick="save_row('${accuser.idAccuser}')" style="cursor:pointer;"></p></td>
                 </tr>`
             i++
@@ -229,7 +228,7 @@ const renderAccusers = async () => {
                     if (result.value) {                        
                         let idAccuser = btnDelete[i].getAttribute("id")
                         try {
-                            const response = await fetch(`http://3.234.222.199:8080/accusers/${idAccuser}`, { method: "DELETE"})
+                            const response = await fetch(`http://3.226.122.100:8080/accusers1/${idAccuser}`, { method: "DELETE"})
                             const accusers = await response.json()                            
                             swal('Removido!','O denunciante foi removido da tabela.','success')
                             renderAccusers()
@@ -266,7 +265,7 @@ const renderAccusers = async () => {
                         var Telephone=document.getElementById("tel_row"+idAccuser).innerHTML;
                         console.log(Name+ Username+ Email+ Password+ Address+ Telephone)
                         try {
-                            const response = await fetch(`http://3.234.222.199:8080/accusers/${idAccuser}`, { method: "PUT",body: `Name=${Name}&Username=${Username}&Email=${Email}&Password=${Password}&Address=${Address}&Telephone=${Telephone}`,
+                            const response = await fetch(`http://3.226.122.100:8080/accusers1/${idAccuser}`, { method: "PUT",body: `Name=${Name}&Username=${Username}&Email=${Email}&Password=${Password}&Address=${Address}&Telephone=${Telephone}`,
                                 headers: {"Content-type": "application/x-www-form-urlencoded"}})
                             const accusers = await response.json()                            
                             swal('Actualizado!','O denunciante foi alterado na base de dados.','success')

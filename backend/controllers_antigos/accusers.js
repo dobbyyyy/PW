@@ -6,6 +6,7 @@ app.use('/', router);
 //LIST:
 function readAccuser(req, res){
     bd.execSQLQuery('SELECT * FROM Accusers ORDER BY idAccuser DESC', res);
+    res.json(res);
 };
 
 //READ ID:

@@ -7,7 +7,7 @@ function getAll(req, res) {
             console.log(err);
             return res.status(500).json(err);
         }
-        //res.json(results);
+        res.json(results);
     });      
 }
 
@@ -25,9 +25,8 @@ function getPass(req, res) {
     bd.connection.query(sql, req.params.username, function(err, results) {
         if (err) return res.status(500).end();
         if (results.length == 0) return res.status(404).end();
-        const pw = res.json();
-        console.log(pw);
-        return res.json(results[0]);
+        //console.log(res.json(results[0].password));
+        return res.json(results[0].password);
     });
 }
 
@@ -67,6 +66,7 @@ function deleteOne(req, res) {
 
 module.exports = {
     list: getAll,
+    getPass: getPass,
     read: getOne,
     create: createOne,
     update: updateOne,

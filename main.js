@@ -15,6 +15,10 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./passport.js')(passport);
+
+app.set('view engine', 'ejs');
+
 app.use(cors({
   exposedHeaders: ['Location'],
 }));
@@ -101,29 +105,46 @@ app.get('/parceiros', (req,res)=>{
 });
 
 //ROTAS PRIVADAS
-app.get('/pedidospendentes', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_PedidosPendentes.html');
+
+app.get('/gerirestados', (req,res)=>{
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoEstados.html');
+});
+
+app.get('/gerirmaterial', (req,res)=>{
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoMaterial.html');
+});
+
+app.get('/gerirocorrencia', (req,res)=>{
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoOcorrencias.html');
+});
+
+app.get('/geriroperacao', (req,res)=>{
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoOperacoes.html');
+});
+
+app.get('/registarocorrencia', (req,res)=>{
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarOcorrencia.html');
 });
 
 app.get('/registaroperacao', (req,res)=>{
-    if(req.session.loggedIn){
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarOperacao.html');}
-    else{res.send("NOT ALLOWED TO SEE THIS PAGE");}
-});
-
-app.get('/registarpedido', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarPedido.html');
-});
-
-app.get('/pedidospendentes', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_PedidosPendentes.html');
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarOperacao.html');
 });
 
 app.get('/registardenuncia', (req,res)=>{
     res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarDenuncia.html');
 });
 
-app.post('/auth',function(req,res){
+/*app.get('/pedidospendentes', (req,res)=>{
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_PedidosPendentes.html');
+});*/
+
+/*app.get('/registaroperacao', (req,res)=>{
+    if(req.session.loggedIn){
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarOperacao.html');}
+    else{res.send("NOT ALLOWED TO SEE THIS PAGE");}
+});*/
+
+/*app.post('/auth',function(req,res){
     console.log("HERE")
 	var username = req.body.username;
 	var password = req.body.password;
@@ -143,7 +164,7 @@ app.post('/auth',function(req,res){
 		res.send('Please enter username and password!');
 		res.end();
 	}
-});
+});*/
 
 app.post('/sign-up',function(req,res){
     if(req.method=="POST"){

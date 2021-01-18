@@ -15,7 +15,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <title>ASAE | Gestão Operações </title>
+    <title>ASAE | Gestão estado das ocorrências </title>
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="/style.css" crossorigin="anonymous"></linkrel>
@@ -27,7 +27,7 @@
   <body>
     
    
-     <div class="lateral_menu" style="position: absolute; height: 100%;">
+    <div class="lateral_menu" style="position: absolute; height: 100%;">
             <!--Identification of the user who is logged in the system-->
             <div class="identify">
                 <img src="/_img/Imgs/1499345621-contact_85338.png" alt="">
@@ -44,7 +44,7 @@
                 <!--go to the page with the list of the request not awnser-->
                 <div class="options">
                 <i class="far fa-clock" style="margin-left: 15%;"></i> 
-                <a href="/pedidospendentes" style="margin-top: 6%; margin-left: 25%; margin-bottom: 2.5%; color: greenyellow; font-size: 20px;"> Gestão de Operações</a>
+                <a href="/pedidospendentes" style="margin-top: 6%; margin-left: 25%; margin-bottom: 2.5%"> Gestão de Operações</a>
                 <br><br>
             </div>
             
@@ -55,7 +55,7 @@
             </div> 
             <div class="options">
                 <i class="fas fa-toggle-on" style="margin-left: 15%;"></i>
-                <a href="/pedidospendentes" style="margin-top: 4.5%; margin-left: 25%; margin-bottom: 3%"> Gestão de Estados</a>
+                <a href="/pedidospendentes" style="margin-top: 4%; margin-left: 25%;  color: greenyellow; font-size: 22px;"> Gestão de Estados</a>
                 <br><br>
             </div>
             <div class="options">
@@ -101,7 +101,7 @@
 
 
     <div class="pedidosPendentes" style="position: absolute; display: inline;">
-        <h1 style="font-style: italic;">Gestão de Operações</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
+        <h1 style="font-style: italic;">Gestão estado das ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
      
     </div>
 
@@ -115,10 +115,7 @@
         
         <thead>
             <tr>
-                <th>idOperation</th>
                 <th>idOccurrence</th>
-                <th>idOperation_Manager</th>
-                <th>Type</th>
                 <th>State</th>
                 <th>Ações</th>
             </tr>
@@ -147,7 +144,7 @@
         function listOccurrence() {
             let table = $('#colab-list').DataTable();
     
-            fetch(`http://34.239.149.123:8080/operations1`, { method: 'GET',
+            fetch(`http://3.226.122.100:8080/occurrences1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             
@@ -157,10 +154,7 @@
                 console.log(out);
                 $.each(out, function(index, value) {
                     console.log(value);
-                    table.row.add([value.idOperation, 
-                                    value.idOccurrence,
-                                    value.idOperation_Manager,
-                                    value.Type,
+                    table.row.add([value.idOccurrence, 
                                     value.State,
                                     '<i class="fas fa-save"></i><i class="far fa-edit"></i><i class="fas fa-trash"></i>']).draw();
                 });

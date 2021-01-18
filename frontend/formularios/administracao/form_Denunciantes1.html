@@ -26,8 +26,7 @@
   <body style="height=100%;">
       
  
-      
-         <div class="lateral_menu" style="position: absolute; height: 180%;">
+      <div class="lateral_menu" style="position: absolute; height: 140%;">
             <!--Identification of the user who is logged in the system-->
             <div class="identify">
                 <img src="/_img/Imgs/1499345621-contact_85338.png" alt="">
@@ -39,59 +38,56 @@
             </div>
     
             <!--Options - load new pages-->
-            <div class="menuOptions">
+            <div class="menuOptions" style="margin-top: 5%">
                 
                 <!--go to the page with the list of the request not awnser-->
                 <div class="options">
                 <i class="far fa-clock" style="margin-left: 15%;"></i> 
-                <a href="/pedidospendentes" style="margin-top: 5%; margin-left: 25%; margin-bottom: 3%"> Pedidos Pendentes</a>
+                <a href="/pedidospendentes" style="margin-top: 6%; margin-left: 25%; margin-bottom: 2.5%"> Gestão de Operações</a>
                 <br><br>
             </div>
             
-                
                 <div class="options">
                 <i class="fas fa-network-wired" style="margin-left: 15%;"></i> 
-                <a href="/registaroperacao" style="margin-top: 5%;margin-left: 25%;" > Gerir Ocorrência</a>
-                
+                <a href="/registaroperacao" style="margin-top: 4.5%;margin-left: 25%;" > Gestão de Ocorrências</a>
+                <br><br>
+            </div> 
+            <div class="options">
+                <i class="fas fa-toggle-on" style="margin-left: 15%;"></i>
+                <a href="/pedidospendentes" style="margin-top: 4.5%; margin-left: 25%;"> Gestão de Estados</a>
                 <br><br>
             </div>
-                
             <div class="options">
                 <i class="far fa-address-card" style="margin-left: 15%;"></i>
-                <a href="/entidades" style="margin-top: 5%;margin-left: 25%; "  > Entidades</a>
-                
+                <a href="/entidades" style="margin-top: 4.5%;margin-left: 25%;  " > Entidades</a>
                 <br><br>
             </div>
-            
             <div class="options">
                 <i class="fas fa-user-secret" style="margin-left: 15%;"></i>
                 <a href="/denunciantes" style="margin-top: 4%;margin-left: 25%; color: greenyellow; font-size: 22px;" > Denunciantes</a>
-                
                 <br><br>
             </div>
-            
-            
             <div class="options">
                 <i class="far fa-building" style="margin-left: 15%;"></i> 
-                <a href="/colaboradores" style="margin-top: 5%;margin-left: 25%;"> Colaboradores</a>
+                <a href="/colaboradores" style="margin-top: 4.5%;margin-left: 25%; "> Colaboradores</a>
                 <br><br>
             </div>
             
             <div class="options">
                 <i class="far fa-address-book" style="margin-left: 15%;"></i> 
-                <a href="/operacionais" style="margin-top: 5%;margin-left: 25%;"> Operacionais</a>
+                <a href="/operacionais.html" style="margin-top: 4.5%;margin-left: 25%;"> Operacionais</a>
                 <br><br>
             </div>
             
             <div class="options">
-                <i class="fas fa-hard-hat" style="margin-left: 15%;"></i> 
-                <a href="/parceiros" style="margin-top: 5%;margin-left: 25%;"> Parceiros</a>
+                <i class="fas fa-hard-hat" style="margin-left: 15%;"></i>
+                <a href="/parceiros" style="margin-top: 4.5%;margin-left: 25%;"> Parceiros</a>
                 <br><br>
             </div>
             
             <div class="options">
                 <i class="fas fa-chart-line" style="margin-left: 15%;"></i> 
-                <a href="#" style="margin-top: 5%;margin-left: 25%;"> Dashboard </a>
+                <a href="#" style="margin-top: 4.5%;margin-left: 25%;"> Dashboard </a>
                 <br><br>
             </div>
     
@@ -99,16 +95,110 @@
             
             </div>
 
+
    <div class="content_tables" style="height:78%;">
 
 
     <div class="pedidosPendentes" style="position: absolute; display: inline;">
         <h1 style="font-style: italic;">Denunciantes</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
-     
+    
     </div>
+    <div class="search" style="font-size: 12px; position:absolute; width: 15px; margin-top:12%; margin-left: 77%">
+        Search:
+    </div>     
 
- <table id="denun-list" class="table table-striped table-bordered" style="width:75%; margin-left:40%; position:absolute; margin-top:10%" >
-        
+ <table id="denun-list" class="table table-striped table-bordered" style="width:75%; margin-left:40%; position:absolute; margin-top:0%" >
+    
+     
+     <style>
+         #denun-list_paginate{
+            margin-top: 110%;
+            margin-left: 155%;
+            position:absolute;
+         }
+         
+         #denun-list_previous{
+             margin-right: 49px;
+             padding:-20px;
+            background-color: white;
+             
+         }
+         
+          #denun-list_previous li{
+            border:none;
+         }
+         
+         #denun-list_next{
+             color:#333;
+             
+         }
+         
+         .page-item.active .page-link {
+    z-index: 1; 
+    z-index: 2;
+    z-index: 3;
+    z-index: 4;
+    color: grey;
+    border: solid 2px;
+    background-color: transparent;
+    border-color: greenyellow;
+    font-weight: bold;
+}
+
+.page-item.active .page-link hover{
+    background:transparent;
+}
+         
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+    /* box-sizing: border-box; */
+    display: inline-block;
+    /*min-width: 1.5em;*/
+    padding: 0px;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    cursor: hand;
+    color: #333 !important;
+    /*border: 1px solid transparent;
+    border-radius: 2px;*/
+}
+         
+         #denun-list_filter{
+            margin-top: -45%;
+            margin-left: 215%;
+            position:absolute;
+         }
+         
+         #denun-list_filter label{
+            color:white;
+         }
+         
+         #denun-list_length{
+             margin-top: -10%;
+            margin-left: 81%;
+            position:absolute;
+         }
+         
+         #denun-list_length select {
+             font-size: 15px;
+             width:40px;
+             display:inline-block;
+         }
+         
+         #denun-list_info{
+            margin-top: 150%;
+            margin-left: 99%;
+            position:absolute; 
+            display: block;
+            width: 70px;
+            height: 15px;
+            
+         }
+         
+         
+         
+     </style>    
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -146,7 +236,7 @@
         function listDenun() {
             let table = $('#denun-list').DataTable();
     
-            fetch(`http://35.172.203.74:8080/accusers`, { method: 'GET',
+            fetch(`http://34.239.149.123:8080/accusers`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             
@@ -162,7 +252,8 @@
                                     value.Email, 
                                     value.Password, 
                                     value.Address,
-                                    value.Telephone, '']).draw();
+                                    value.Telephone, 
+                                    '<i class="fas fa-save"></i><i class="far fa-edit"></i><i class="fas fa-trash"></i>']).draw();
                 });
             }).catch(err => console.error(err));
         }

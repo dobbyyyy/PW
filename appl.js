@@ -7,6 +7,10 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+const usersRouter = require('./backend/routes/usersRouter'); 
+const loginRouter = require('./backend/routes/loginRouter');
+
 const controllerAccuser = require('./backend/controllers_antigos/accusers.js');
 const controllerPartner = require('./backend/controllers_antigos/partners.js');
 const controllerColaborator = require('./backend/controllers_antigos/colaborators.js');
@@ -16,7 +20,7 @@ const controllerOperations_Manager = require('./backend/controllers_antigos/oper
 const controllerOccurrence = require('./backend/controllers_antigos/occurrences.js');
 const routeUrgency_Levels = require('./backend/controllers/urg_levels.js');
 const controllerMaterial = require('./backend/controllers_antigos/materials.js');
-const routeMaterials_Operation = require('./backend/controllers/materials_operation.js');
+const controllerMaterials_Operation = require('./backend/controllers_antigos/materials_operation.js');
 const controllerRequest = require('./backend/controllers_antigos/requests.js');
 const controllerEntity = require('./backend/controllers_antigos/entities.js');
 const controllerUser = require('./backend/controllers_antigos/users.js');
@@ -53,10 +57,17 @@ router.post('/materials1/', controllerMaterial.addMaterial);
 router.delete('/materials1/:id', controllerMaterial.deleteMaterial);
 router.put('/materials1/:id', controllerMaterial.updateMaterial);
 
-router.get('/occurrences1/', controllerOccurrence.readOccurence);
+router.get('/materials_operation1/', controllerMaterials_Operation.readMaterial_Operation);
+router.post('/materials_operation1/', controllerMaterials_Operation.addMaterial_Operation);
+router.delete('/materials_operation1/:id', controllerMaterials_Operation.deleteMaterial_Operation);
+router.put('/materials_operation1/:id', controllerMaterials_Operation.updateMaterial_Operation);
+
+router.get('/occurrences1/', controllerOccurrence.readOccurrence);
+router.get('/occurrences1/:id', controllerOccurrence.readOccurrenceById);
 router.post('/occurrences1/', controllerOccurrence.addOccurrence);
 router.delete('/occurrences1/:id', controllerOccurrence.deleteOccurrence);
 router.put('/occurrences1/:id', controllerOccurrence.updateOccurrence);
+router.get('/occurrences1/:state', controllerOccurrence.readOccurrenceByState);
 
 router.get('/operationals1/', controllerOperational.readOperational);
 router.post('/operationals1/', controllerOperational.addOperational);
@@ -64,6 +75,7 @@ router.delete('/operationals1/:id', controllerOperational.deleteOperational);
 router.put('/operationals1/:id', controllerOperational.updateOperational);
 
 router.get('/operations1/', controllerOperation.readOperation);
+router.get('/operations1/:state', controllerOperation.readOperationByState);
 router.post('/operations1/', controllerOperation.addOperation);
 router.delete('/operations1/:id', controllerOperation.deleteOperation);
 router.put('/operations1/:id', controllerOperation.updateOperation);
@@ -78,14 +90,39 @@ router.post('/operations_manager1/', controllerOperations_Manager.addOperations_
 router.delete('/operations_manager1/:id', controllerOperations_Manager.deleteOperations_Manager);
 
 router.get('/users/', controllerUser.list);
-router.get('/users/:username', controllerUser.read);
+//router.get('/users/:username', controllerUser.read);
+router.get('/users/:username', controllerUser.getPass);
+app.use('/users', authenticationMiddleware, usersRouter);
+app.use('/login1', loginRouter);
 
-/*function test(){
-(async ()=>{
-const response = await fetch('http://3.239.88.73:8080/requests1/');
-const users = await response.json();
-console.log(users);
-})();}*/
+function authenticationMiddleware(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect('/login?fail=true');
+}
+
+/*app.post('/auth/:username',function(req,res){
+    console.log("HERE")
+	var username = req.body.username;
+	var password = req.body.password;
+	console.log(username+password)
+	if(username&&password){
+		bd.connection.query('SELECT * FROM users WHERE Username = ?', username, function(error,results,fields){
+			if(results.length>0){
+			    console.log(controllerUser.getPass(req.params.username,res));
+			    if (controllerUser.getPass(req,res)===password){
+				req.session.loggedIn=true;
+				req.session.user=username;
+				res.redirect('/home')}
+			} else{
+				res.send('Incorrect username or password!');
+			}
+			res.end();
+		});
+	}else{
+		res.send('Please enter username and password!');
+		res.end();
+	}
+});*/
 
 
 ///test();

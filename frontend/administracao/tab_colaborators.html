@@ -36,7 +36,7 @@ const renderColaborators = async () => {
                 </tr> 
             </thead><tbody>
         `
-        const response = await fetch('http://35.172.100.171:8080/colaborators')
+        const response = await fetch('http://3.226.122.100:8080/colaborators')
         const colaborators = await response.json()
         let i = 1
         for (const colaborator of colaborators) {            
@@ -70,7 +70,7 @@ const renderColaborators = async () => {
                     if (result.value) {                        
                         let idColaborator = btnDelete[i].getAttribute("id")
                         try {
-                            const response = await fetch(`http://35.172.100.171:8080/colaborators/${idColaborator}`, { method: "DELETE"})
+                            const response = await fetch(`http://3.226.122.100:8080/colaborators1/${idColaborator}`, { method: "DELETE"})
                             const colaborators = await response.json()                            
                             swal('Removido!','O denunciante foi removido da tabela.','success')
                             renderColaborators()

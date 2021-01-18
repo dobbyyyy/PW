@@ -9,11 +9,11 @@ function readOccurrence(req, res){
 };
 
 //READ ID:
-router.get('/occurrences/:id?', (req, res) =>{
+function readOccurrenceById(req, res){
     let filter = '';
     if(req.params.id) filter = ' WHERE idOccurrence=' + parseInt(req.params.id);
     bd.execSQLQuery('SELECT * FROM Occurrences idOccurrence ' + filter, res);
-});
+};
 
 //DELETE FISICO:
 function deleteOccurrence(req, res){
@@ -52,8 +52,16 @@ function updateOccurrence(req, res){
     bd.execSQLQuery(`UPDATE Occurrences SET Type='${Type}', idRequest='${idRequest}', idUrgency_Level='${idUrgency_Level}', idEntity='${idEntity}', idColaborator='${idColaborator}', idPartner='${idPartner}', idOperational='${idOperational}', idMaterial='${idMaterial}', State='${State}' WHERE idOccurrence=${idOccurrence}`, res);
 };
 
+function readOccurrenceByState(req,res){
+    const state = req.params.state;
+    bd.execSQLQuery(`SELECT * FROM Occurrences WHERE State= '${req.params.state}'`, res);
+}
+
+
 module.exports = {
-    readOccurence: readOccurrence,
+    readOccurrence: readOccurrence,
+    readOccurrenceById: readOccurrenceById,
+    readOccurrenceByState: readOccurrenceByState,
     deleteOccurrence: deleteOccurrence,
     updateOccurrence: updateOccurrence,
     addOccurrence: addOccurrence

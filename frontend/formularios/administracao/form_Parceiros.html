@@ -165,7 +165,7 @@ const renderPartners = async () => {
             </tr>
      </thead><tbody>
         `
-        const response = await fetch('http://3.234.222.199:8080/partners')
+        const response = await fetch('http://3.226.122.100:8080/partners')
         const partners = await response.json()
         let i = 1
         for (const partner of partners) {            
@@ -225,7 +225,7 @@ const renderPartners = async () => {
                     if (result.value) {                        
                         let idPartner = btnDelete[i].getAttribute("id")
                         try {
-                            const response = await fetch(`http://3.234.222.199:8080/partners/${idPartner}`, { method: "DELETE"})
+                            const response = await fetch(`http://3.226.122.100:8080/partners/${idPartner}`, { method: "DELETE"})
                             const partners = await response.json()                            
                             swal('Removido!','O parceiro foi removido da tabela.','success')
                             renderPartners()
@@ -267,7 +267,7 @@ const renderPartners = async () => {
                             Address: Address
                         }*/
                         try {
-                            const response = await fetch(`http://3.234.222.199:8080/partners/${idPartner}`, { method: "PUT",body: `Name=${Name}&Email=${Email}&Telephone=${Telephone}&Address=${Address}`,
+                            const response = await fetch(`http://3.226.122.100:8080/partners/${idPartner}`, { method: "PUT",body: `Name=${Name}&Email=${Email}&Telephone=${Telephone}&Address=${Address}`,
                                 headers: {"Content-type": "application/x-www-form-urlencoded"}})
                             const partners = await response.json()                            
                             swal('Actualizado!','O parceiro foi alterado na base de dados.','success')
