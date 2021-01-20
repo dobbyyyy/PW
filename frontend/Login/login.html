@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="content first-content">
+            <div class="first-column">
+                <h2 class="title title-primary">Bem vindo de volta!</h2>
+                <p class="description description-primary">Para se manter conectado connosco</p>
+                <p class="description description-primary">por favor faça o login com as suas informações pessoais</p>
+                <button id="signin" class="btn btn-primary">Login</button>
+            </div>    
+            <div class="second-column">
+                <h2 class="title title-second">Criar <span>Conta</span></h2>
+                
+                <p class="description description-second">Insira os seus dados pessoais:</p>
+                <form class="form">
+                    <label class="label-input" for="">
+                        <i class="fas fa-signature icon-modify"></i>
+                        <input type="text" placeholder="Nome">
+                    </label>
+
+                    <label class="label-input" for="">
+                        <i class="far fa-user icon-modify"></i>
+                        <input type="text" placeholder="Username">
+                    </label>
+                    
+                    <label class="label-input" for="">
+                        <i class="far fa-envelope icon-modify"></i>
+                        <input type="email" placeholder="Email">
+                    </label>
+                    
+                    <label class="label-input" for="">
+                        <i class="fas fa-map-marker-alt icon-modify"></i>
+                        <input type="text" placeholder="Morada">
+                    </label>
+
+                    <label class="label-input" for="">
+                        <i class="fas fa-mobile-alt icon-modify"></i>
+                        <input type="text" placeholder="Contacto">
+                    </label>
+
+                    <label class="label-input" for="">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input type="password" placeholder="Password">
+                    </label>
+                    
+                    <button class="btn btn-second">Criar </button>        
+                </form>
+            </div><!-- second column -->
+        </div><!-- first content -->
+        <div class="content second-content">
+            <div class="first-column">
+                <h2 class="title title-primary">Olá, Utilizador!</h2>
+                <p class="description description-primary">Insira os seus dados pessoais</p>
+                <p class="description description-primary">e comece a jornada connosco</p>
+                <button id="signup" class="btn btn-primary">Criar conta</button>
+            </div>
+            <div class="second-column">
+                <h2 class="title title-second">Lo<span>g</span>in</h2>
+                
+                <p class="description description-second">Insira os seus dados:</p>
+                <form class="form">
+                
+                    <label class="label-input" for="">
+                        <i class="far fa-user icon-modify"></i>
+                        <input type="email" placeholder="Username">
+                    </label>
+                
+                    <label class="label-input" for="">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input type="password" placeholder="Password">
+                    </label>
+                
+                    <a class="password" href="#">Esqueceu-se da sua password?</a>
+                    <button class="btn btn-second">Login</button>
+                </form>
+            </div><!-- second column -->
+        </div><!-- second-content -->
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

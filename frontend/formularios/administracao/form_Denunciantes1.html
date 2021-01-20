@@ -117,7 +117,7 @@
      
          #denun-list_paginate{
             margin-top: 110%;
-            margin-left: 155%;
+            margin-left: 150%;
             position:absolute;
          }
          
@@ -125,20 +125,29 @@
              background-color: white;
          }
          
-         #denun-list_previous{
-             margin-right: 49px;
-             padding:-20px;
-            background-color: white;
-             
-         }
+        .page-item:first-child .page-link {
+    margin-left: 0;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    width: 70px;
+}
          
+       #denun-list_previous {
+           /* margin-right: 40px;
+            padding: -20px;*/
+            background-color: white;
+        width: 70px;
+        padding-right: 30px;
+        }
+        
+        
           #denun-list_previous li{
             border:none;
          }
          
          #denun-list_next{
              color:#333;
-             
+             width:50px;
          }
          
          .page-link {
@@ -150,6 +159,7 @@
     color: #29323c;
     background-color: #fff;
     border: 1px solid #dee2e6;
+    width: 47px;
 }
          
          .page-item.active .page-link {
@@ -158,22 +168,34 @@
     z-index: 3;
     z-index: 4;
     color: grey;
-    border: solid 2px;
+    border: solid 1px;
     background-color: transparent;
     border-color: greenyellow;
     font-weight: bold;
+    margin-right:7px;
 }
 
 .page-item.active .page-link hover{
     background:transparent;
 }
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+    width: 70px;
+    margin-right:7px;
+}
+
          
         .dataTables_wrapper .dataTables_paginate .paginate_button {
     /* box-sizing: border-box; */
     display: inline-block;
     /*min-width: 1.5em;*/
     padding: 0px;
-    margin-left: 2px;
+    margin-left: 7px;
     text-align: center;
     text-decoration: none !important;
     cursor: pointer;
@@ -181,6 +203,7 @@
     color: #333 !important;
     /*border: 1px solid transparent;
     border-radius: 2px;*/
+    margin-right:7px;
 }
          
          #denun-list_filter{
@@ -206,11 +229,11 @@
          }
          
          #denun-list_info{
-            margin-top: 150%;
+            margin-top: 153%;
             margin-left: 99%;
             position:absolute; 
             display: block;
-            width: 70px;
+            width: 300px;
             height: 15px;
             
          }
@@ -255,7 +278,7 @@
         function listDenun() {
             let table = $('#denun-list').DataTable();
     
-            fetch(`http://3.226.122.100:8080/accusers`, { method: 'GET',
+            fetch(`http://35.174.60.211:8080/accusers`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

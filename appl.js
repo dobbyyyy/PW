@@ -3,6 +3,7 @@ const router = require('express').Router();
 const bd = require('./backend/config/mysql1');
 const express = require('express');
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt');
 //const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -93,22 +94,22 @@ router.get('/users/', controllerUser.list);
 //router.get('/users/:username', controllerUser.read);
 router.get('/users/:username', controllerUser.getPass);
 app.use('/users', authenticationMiddleware, usersRouter);
-app.use('/login1', loginRouter);
+app.use('/login', loginRouter);
 
 function authenticationMiddleware(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.redirect('/login?fail=true');
 }
 
-/*app.post('/auth/:username',function(req,res){
+app.post('/auth1',function(req,res){
     console.log("HERE")
 	var username = req.body.username;
 	var password = req.body.password;
-	console.log(username+password)
-	if(username&&password){
+	console.log(username&&password)
+	if(username){/*
 		bd.connection.query('SELECT * FROM users WHERE Username = ?', username, function(error,results,fields){
 			if(results.length>0){
-			    console.log(controllerUser.getPass(req.params.username,res));
+			    console.log(controllerUser.getPass(req,res));
 			    if (controllerUser.getPass(req,res)===password){
 				req.session.loggedIn=true;
 				req.session.user=username;
@@ -117,12 +118,24 @@ function authenticationMiddleware(req, res, next) {
 				res.send('Incorrect username or password!');
 			}
 			res.end();
-		});
+		});*/
+		let sql = "SELECT password FROM users WHERE username=?";
+    	bd.connection.query(sql, req.body.username, function(err, results) {
+        if (err) return res.status(500).end();
+        if (results.length == 0) return res.status(404).end();
+        //console.log(res.json(results[0].password));
+        let pass = results[0].password;
+        bcrypt.compareSync(password, pass);
+        console.log(pass)
+        if(password==pass){
+        	res.send('OK')
+        }
+    });
 	}else{
 		res.send('Please enter username and password!');
 		res.end();
 	}
-});*/
+});
 
 
 ///test();

@@ -91,7 +91,15 @@
             
             <form action ="http://3.226.122.100:8080/occurrences1" method ="POST">
                 <!-- about the request in cause-->
-                <strong><label for="id_request" style="font-style: italic;"> Pedido </label></strong>
+                <strong><label for="id_request" style="font-style: italic;"> Denuncia Nº</label></strong>
+                <hr style="width: 110%;">
+                <br>
+                <select name="idRequest" id="requests" style="margin-left: 5%; position:absolute" placeholder="Denuncia">
+                    
+                </select>
+                
+                <br>
+                <strong><label for="id_entity" style="font-style: italic;"> Entidade Denunciada </label></strong>
                 <hr style="width: 110%;">
                 <br>
                 <select name="idEntity" id="entities" style="margin-left: 5%; position:absolute" placeholder="Estabelecimento">
@@ -101,10 +109,6 @@
                 <!-- button who gives more information about the id inputed-->
                 <!--<button class="mais" style="margin-left: -5%;"> <i class="far fa-plus-square"></i> </button>-->
                 
-                
-   
-         
-            
             <br><br><br>  
                 <strong><label style="font-style: italic;"> Lista de colaboradores </label></strong>
                     <hr style="width: 110%;">
@@ -247,7 +251,7 @@
                 <strong><label for="" style="font-style: italic;"> Tipo de operação </label></strong>
                     <hr style="width: 131%;">
                     <br>
-                    <p for="" style="margin-left:5%">Selecione o tipo de operação destacada</p>
+                    <p for="" style="margin-left:5%">Selecione o tipo de operação correspondente à denuncia</p>
                     <br><br>
                     <div class="tips" style="margin-left:6%">
                         <input type="checkbox" name="Type" value="Fiscalização Alimentar (PNFA)" style="margin-left:5%; margin-right:4%;"> Fiscalização Alimentar (PNFA)
@@ -287,25 +291,23 @@
                         </table>
                     </div>
                     <div class="materialAnc" style=" width: 300px; margin-left: 80%;">
-                    <a href="#"> Verificar disponibilidade dos materiais </a>
+                    <a href="http://3.226.122.100:8080/gerirmaterial" target="_blank"> Verificar disponibilidade dos materiais </a>
                     
                 </div>
                 </div>  
                 
 <br><br>
                 <div class="state">
-                <strong><label for="" style="font-style: italic;"> Estado da Ocorrência </label></strong>
+                <strong><label for="" style="font-style: italic;"> Estado da Denuncia </label></strong>
                     <hr style="width: 131%;">
                     <br>
-                    <p for="" style="margin-left:5%">Selecione o estado que se encontra a ocorrência</p>
+                    <p for="" style="margin-left:5%">Selecione a classificação da denuncia</p>
                     <br><br>
-                        <input type="checkbox" name="State" value="Pendente" style="margin-left:8%; margin-right:4%;"> Ativo
+                        <input type="checkbox" name="State" value="Em analise" style="margin-left:8%; margin-right:4%;"> Reportado
                         <br>
-                        <input type="checkbox" name="State" value="Em analise" style="margin-left:8%; margin-right:4%;"> Em análise
+                        <input type="checkbox" name="State" value="Confirmado" style="margin-left:8%; margin-right:4%;"> Confirmado
                         <br>
-                        <input type="checkbox" name="State" value="Concluido" style="margin-left:8%; margin-right:4%;"> Rejeitado
-                        <br>
-                        <input type="checkbox" name="State" value="Concluido" style="margin-left:8%; margin-right:4%;"> Concluído
+                        <input type="checkbox" name="State" value="Rejeitado" style="margin-left:8%; margin-right:4%;"> Rejeitado
                     <br>
 
 
@@ -341,6 +343,20 @@
                         }
                     }
                 }
+                
+                (async ()=>{
+                var strHtml = "";
+                var req = document.getElementById("requests")
+                const response = await fetch('http://3.226.122.100:8080/requests1');
+                const requests = await response.json();
+                
+                for(const request of requests){
+                strHtml+= `<option name="idRequest" value="${request.idRequest}"> ${request.idRequest}</option>`
+                console.log("request" +request.idRequest)
+                req.innerHTML=strHtml;
+                }
+                
+            })();
                 
                 (async ()=>{
                 var strHtml = "";
@@ -434,8 +450,8 @@
                 
                 strHtml+= `<tr>
                 
-                    <td> <input type="checkbox" name="idMaterial" value="${material.idMaterial}></td>
-                   <td style="margin-rigth: 4%">${material.Name}</td>
+                <td> <input type="checkbox" name="idMaterial" value="${material.idMaterial}></td>
+                <td style="margin-rigth: 4%">${material.Name}</td>
                    
                    
                    

@@ -19,13 +19,13 @@ function getOne(req, res) {
         return res.json(results[0]);
     });
 }
-
+console.log("PASS")
 function getPass(req, res) {
     let sql = "SELECT password FROM users WHERE username=?";
     bd.connection.query(sql, req.params.username, function(err, results) {
+        console.log(req.params.username)
         if (err) return res.status(500).end();
         if (results.length == 0) return res.status(404).end();
-        //console.log(res.json(results[0].password));
         return res.json(results[0].password);
     });
 }
@@ -70,5 +70,5 @@ module.exports = {
     read: getOne,
     create: createOne,
     update: updateOne,
-    delete: deleteOne
+    deleteOne: deleteOne
 }

@@ -116,6 +116,7 @@
         <thead>
             <tr>
                 <th>idOccurrence</th>
+                <th>idRequest</th>
                 <th>State</th>
                 <th>Ações</th>
             </tr>
@@ -144,7 +145,7 @@
         function listOccurrence() {
             let table = $('#colab-list').DataTable();
     
-            fetch(`http://3.226.122.100:8080/occurrences1`, { method: 'GET',
+            fetch(`http://3.238.88.124:8080/occurrences1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             
@@ -154,7 +155,8 @@
                 console.log(out);
                 $.each(out, function(index, value) {
                     console.log(value);
-                    table.row.add([value.idOccurrence, 
+                    table.row.add([value.idOccurrence,
+                                    value.idRequest,
                                     value.State,
                                     '<i class="fas fa-save"></i><i class="far fa-edit"></i><i class="fas fa-trash"></i>']).draw();
                 });

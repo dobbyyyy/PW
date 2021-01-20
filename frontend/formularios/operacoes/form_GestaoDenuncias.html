@@ -15,7 +15,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <title>ASAE | Gestão Operações </title>
+    <title>ASAE | Gestão Denuncias </title>
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="/style.css" crossorigin="anonymous"></linkrel>
@@ -101,7 +101,7 @@
 
 
     <div class="pedidosPendentes" style="position: absolute; display: inline;">
-        <h1 style="font-style: italic;">Gestão de Operações</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
+        <h1 style="font-style: italic;">Gestão Denuncias</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
      
     </div>
 
@@ -115,11 +115,18 @@
         
         <thead>
             <tr>
-                <th>idOperation</th>
-                <th>idOccurrence</th>
-                <th>idOperation_Manager</th>
+                <th>idRequest</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Telephone</th>
+                <th>NameEntity</th>
+                <th>TypeEntity</th>
+                <th>Street</th>
+                <th>District</th>
+                <th>Zip_Code</th>
                 <th>Type</th>
-                <th>State</th>
+                <th>Description</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -147,7 +154,7 @@
         function listOccurrence() {
             let table = $('#colab-list').DataTable();
     
-            fetch(`http://35.174.60.211:8080/operations1`, { method: 'GET',
+            fetch(`http://3.226.122.100:8080/requests1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             
@@ -157,10 +164,18 @@
                 console.log(out);
                 $.each(out, function(index, value) {
                     console.log(value);
-                    table.row.add([value.idOperation, 
-                                    value.idOccurrence,
-                                    value.idOperation_Manager,
+                    table.row.add([value.idRequest, 
+                                    value.Name,
+                                    value.Email,
+                                    value.Address,
+                                    value.Telephone,
+                                    value.NameEntity,
+                                    value.TypeEntity,
+                                    value.Street,
+                                    value.District,
+                                    value.Zip_Code,
                                     value.Type,
+                                    value.Description,
                                     value.State,
                                     '<i class="fas fa-save"></i><i class="far fa-edit"></i><i class="fas fa-trash"></i>']).draw();
                 });

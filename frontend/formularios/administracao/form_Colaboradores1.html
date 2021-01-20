@@ -114,7 +114,7 @@
      
      <style>
          #colab-list_paginate{
-            margin-top: 70%;
+            margin-top: 78%;
             margin-left: 174%;
             position:absolute;
          }
@@ -125,7 +125,7 @@
             z-index: 3;
             z-index: 4;
             color: grey;
-            border: solid 2px;
+            border: solid 1px;
             background-color: transparent;
             border-color: greenyellow;
             font-weight: bold;
@@ -150,14 +150,41 @@
          }
          
          #colab-list_info{
-            margin-top: 95%;
+            margin-top: 110%;
             margin-left: 99%;
             position:absolute; 
             display: block;
-            width: 70px;
+            width: 300px;
             height: 15px;
             
          }
+         
+          .dataTables_wrapper .dataTables_paginate {
+    color: #333;
+    font-size: 12px;
+    margin-top: 62%;
+    margin-left: 184%;
+    
+    position: absolute;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+    width: 70px;
+}
+
+         .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+    width: 70px;
+}
          
          
          
@@ -200,7 +227,7 @@
             
             
     
-            fetch(`http://3.226.122.100:8080/colaborators1`, { method: 'GET',
+            fetch(`http://35.174.60.211:8080/colaborators1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

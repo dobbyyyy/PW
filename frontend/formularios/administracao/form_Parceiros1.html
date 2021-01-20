@@ -104,13 +104,114 @@
      
     </div>
     
+     <div class="search" style="font-size: 12px; position:absolute; width: 15px; margin-top:10.75%; margin-left: 74%">
+        Search:
+    </div> 
+    
+    <style>
+        
+        .dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: transparent;
+    margin-left: 237%;
+    width: 150px;
+    height: 28px;
+    margin-top: 38%;
+    margin-bottom: 5%;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    color: white;
+    margin-left: 76%;
+    font-size: 12px;
+    width: 300px;
+    position: absolute;
+    margin-top: -36.5%;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: transparent;
+    padding: 4px;
+    margin-top: 0%;
+    width: 14%;
+}
+
+.dataTables_wrapper .dataTables_length {
+    color: #333;
+    margin-left: 90%;
+    font-size: 12px;
+    width: 300px;
+    position: absolute;
+    margin-top: -13%;
+}
+
+.dataTables_wrapper .dataTables_info {
+    color: #333;
+    margin-left: 110%;
+    font-size: 12px;
+    margin-top: 118%;
+    width: 220px;
+    position:absolute;
+}
+
+.pagination {
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    margin-top: 85%;
+    margin-left: 70%;
+    position:absolute;
+    
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+    width: 70px;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: grey;
+    background-color: transparent;
+    border-color: greenyellow;
+    border: solid 1px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0.5em 1em;
+    margin-left: -14px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    *cursor: hand;
+    color: #333 !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    margin-right: -2px;
+}
+
+
+    </style>
     
     
     
     
     
-    
-    <table id="parc-list" class="table table-striped table-bordered" style="width:75%; margin-left:40%; position:absolute; margin-top:10%" >
+    <table id="parc-list" class="table table-striped table-bordered" style="width:75%; margin-left:43%; position:absolute; margin-top:-2%" >
         
         <thead>
             <tr>
@@ -146,7 +247,7 @@
         function listParc() {
             let table = $('#parc-list').DataTable();
     
-            fetch(`http://3.226.122.100:8080/partners1`, { method: 'GET',
+            fetch(`http://35.174.60.211:8080/partners1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

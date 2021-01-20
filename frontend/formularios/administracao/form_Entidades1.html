@@ -166,7 +166,7 @@
     list-style: none;
     border-radius: .25rem;
     position: absolute;
-    margin-left: 42%;
+    margin-left: 35%;
     margin-top: 120%;
     padding-right: 10px;
 }
@@ -182,11 +182,17 @@
     color: #333;
     margin-left: 100%;
     font-size: 12px;
-    margin-top: 160%;
+    margin-top: 165%;
     position: absolute;
-    
+    width:300px;
 } 
-     
+     .page-item:first-child .page-link {
+    margin-left: 0;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    margin-right: 9%;
+    width: 70px;
+     }
       
    .page-item.active .page-link {
     z-index: 1; 
@@ -198,7 +204,22 @@
     background-color: transparent;
     border-color: greenyellow;
     font-weight: bold;
+    margin-left: 2px;
 }
+
+    .page-link {
+    position: absolute;
+    display: block;
+    /*padding: .5rem .75rem;*/
+    margin-left: 6px;
+    line-height: 1.25;
+    color: #29323c;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    width:47px;
+}
+
+
 
 .page-item.active .page-link hover{
     background:transparent;
@@ -261,7 +282,7 @@
         function listEnt() {
             let table = $('#ent-list').DataTable();
     
-            fetch(`http://3.226.122.100:8080/entities1`, { method: 'GET',
+            fetch(`http://35.174.60.211:8080/entities1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

@@ -16,7 +16,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./passport.js')(passport);
-
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 app.use(cors({
@@ -76,7 +76,7 @@ app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/frontend/pages/index.html');
 });
 
-app.get('/login', (req,res)=>{
+app.get('/login1', (req,res)=>{
     res.sendFile(__dirname + '/frontend/pages/newlogin.html');
 });
 
@@ -120,6 +120,14 @@ app.get('/gerirocorrencia', (req,res)=>{
 
 app.get('/geriroperacao', (req,res)=>{
     res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoOperacoes.html');
+});
+
+app.get('/gerirdenuncia', (req,res)=>{
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoDenuncias.html');
+});
+
+app.get('/gerirdashboard', (req,res)=>{
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoDashboard.html');
 });
 
 app.get('/registarocorrencia', (req,res)=>{

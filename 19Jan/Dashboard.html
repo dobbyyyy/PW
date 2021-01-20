@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
+        <link href="dashboard.css" rel="stylesheet" type="text/css">
+        <meta charset="UTF-8">
+        <link rel="icon" href="/Projeto/Icons/125076500_354858608940977_907053442859606634_n.png"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            ASAE | Dashboard
+        </title>
+    </head>
+    
+    <body>
+        <header>
+            <div class="container">
+                <img src="/Projeto/Icons/125076500_354858608940977_907053442859606634_n.png" alt="logotipo asae" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="#">A ASAE</a></li>
+                        <li><a href="#">OCORRÊNCIAS</a></li>
+                        <li><a href="#">ESTATÍSTICAS</a></li>
+                        <li><a href="#">COLABORADORES</a></li>
+                        <li><a href="#">LOGIN</a></li>
+                    </ul>
+                </nav>
+                <hr></hr>
+            </div>
+        </header>
+        <div class="total">
+            <div class="performance">
+                <div class="titulo">
+                    <h2>Performance</h2>
+                </div>
+                <div class="pedidos">
+                    <div class="reportados" id="renderRequests">
+                        <h3>Pedidos Reportados</h3>
+                        <h2> </h2>
+                        <img src="/Projeto/Icons/Seta_Baixo.png" alt="Seta para Baixo">
+                    </div>
+                    <div class="respondidos">
+                        <h3>Pedidos Respondidos</h3>
+                        <h2>1.4 M</h2>
+                        <img src="/Projeto/Icons/Seta_Cima.png" alt="Seta para Cima">
+                    </div>
+                    <div class="declinados">
+                        <h3>Pedidos Declinados</h3>
+                        <h2>0.3 M</h2>
+                        <img src="/Projeto/Icons/Seta_Cima.png" alt="Seta para Cima">
+                    </div>
+                </div>
+                <div class="relatorio_completo">
+                    <a href="#" class="ver_relatorio_completo">Ver Relatório Completo</a>
+                </div>
+            </div>
+            <div class=" pedidos_operacoes">
+                <img src="/Projeto/Imgs/Captura de Ecrã (121).png" alt="pedidos e operações">
+            </div>
+        </div>
+        <div class="footer">
+            
+        </div>
+        
+        
+        <script>
+        window.onload = () => {
+            ( async () => {
+                console.log("Here");
+                const renderRequests = document.getElementById("renderRequests")
+                console.log(renderRequests);
+                let txtRequests = ""
+                const response = await fetch(`http://3.238.88.124:8080/requests1`)
+                const requests = await response.json()
+                console.log(requests);
+                
+                const size = requests.length
+                txtRequests += `
+                <p> ${size} </p>`
+                  
+                renderRequests.innerHTML = txtRequests
+            })();
+        }
+</script>
+    </body>
+</html>

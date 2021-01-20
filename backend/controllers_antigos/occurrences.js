@@ -25,7 +25,7 @@ function deleteOccurrence(req, res){
 function addOccurrence(req, res){
     const idOccurrence = req.body.idOccurrence;
     const Type = req.body.Type;
-    //const idRequest = req.body.idRequest;
+    const idRequest = req.body.idRequest;
     const idUrgency_Level = req.body.idUrgency_Level;
     const idEntity = req.body.idEntity;
     const idColaborator = req.body.idColaborator;
@@ -33,8 +33,8 @@ function addOccurrence(req, res){
     const idOperational = req.body.idOperational;
     const idMaterial = req.body.idMaterial;
     const State = req.body.State;
-    bd.execSQLQuery(`INSERT INTO Occurrences (idOccurrence, Type, idUrgency_Level, idEntity, idColaborator, idPartner, idOperational, idMaterial, State)
-    VALUES('${idOccurrence}','${Type}','${idUrgency_Level}','${idEntity}','${idColaborator}','${idPartner}','${idOperational}','${idMaterial}','${State}')`, res);
+    bd.execSQLQuery(`INSERT INTO Occurrences (idOccurrence, Type, idRequest, idUrgency_Level, idEntity, idColaborator, idPartner, idOperational, idMaterial, State)
+    VALUES('${idOccurrence}','${Type}','${idRequest}','${idUrgency_Level}','${idEntity}','${idColaborator}','${idPartner}','${idOperational}','${idMaterial}','${State}')`, res);
 };
 
 //UPDATE:

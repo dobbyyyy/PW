@@ -36,23 +36,30 @@ function addRequest(req, res){
     const Zip_Code = req.body.Zip_Code;
     const Type = req.body.Type;
     const Description = req.body.Description;
+    bd.execSQLQuery(`INSERT INTO Requests (idRequest, Name, Email, Address, Telephone, NameEntity, TypeEntity, Street, District, Zip_Code, Type, Description)
+    VALUES('${idRequest}','${Name}','${Email}','${Address}','${Telephone}','${NameEntity}','${TypeEntity}','${Street}','${District}','${Zip_Code}','${Type}','${Description}')`, res);
     bd.execSQLQuery(`INSERT INTO Accusers (Name, Email, Address, Telephone) 
     VALUES('${Name}','${Email}','${Address}','${Telephone}')`, res);
     console.log(Name,Email,Address,Telephone);
     bd.execSQLQuery(`INSERT INTO Entities (NameEntity, TypeEntity, Street, District, Zip_Code)
     VALUES('${NameEntity}','${TypeEntity}','${Street}','${District}','${Zip_Code}')`, res);
-    bd.execSQLQuery(`INSERT INTO Requests(idRequest, Type, Description)
-    VALUES('${idRequest}','${Type}','${Description}')`, res);
 }
 
 //UPDATE:
 function updateRequest(req, res){
     const idRequest = parseInt(req.params.id);
+    const Name = req.body.Name;
+    const Email = req.body.Email;
+    const Address = req.body.Address;
+    const Telephone = req.body.Telephone;
+    const NameEntity = req.body.NameEntity;
+    const TypeEntity = req.body.TypeEntity;
+    const Street = req.body.Street;
+    const District = req.body.District;
+    const Zip_Code = req.body.Zip_Code;
     const Type = req.body.Type;
     const Description = req.body.Description;
-    const idAccuser = req.body.idAccuser;
-    const idEntity = req.body.idEntity;
-    bd.execSQLQuery(`UPDATE Requests SET Type='${Type}', 'Description='${Description}', idAccuser='${idAccuser}', idEntity='${idEntity}' WHERE idRequest=${idRequest}`, res);
+    bd.execSQLQuery(`UPDATE Requests SET Name='${Name}', Email='${Email}', Address='${Address}', Telephone='${Telephone}', NameEntity='${NameEntity}', TypeEntity='${TypeEntity}', Street='${Street}', District='${District}', Zip_Code='${Zip_Code}', Type='${Type}', 'Description='${Description}' WHERE idRequest=${idRequest}`, res);
 };
 
 module.exports = {
