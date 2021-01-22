@@ -9,11 +9,11 @@ function readOccurrence(req, res){
 };
 
 //READ ID:
-function readOccurrenceById(req, res){
+/*function readOccurrenceById(req, res){
     let filter = '';
     if(req.params.id) filter = ' WHERE idOccurrence=' + parseInt(req.params.id);
     bd.execSQLQuery('SELECT * FROM Occurrences idOccurrence ' + filter, res);
-};
+};*/
 
 //DELETE FISICO:
 function deleteOccurrence(req, res){
@@ -60,7 +60,7 @@ function readOccurrenceByState(req,res){
 
 module.exports = {
     readOccurrence: readOccurrence,
-    readOccurrenceById: readOccurrenceById,
+    //readOccurrenceById: readOccurrenceById,
     readOccurrenceByState: readOccurrenceByState,
     deleteOccurrence: deleteOccurrence,
     updateOccurrence: updateOccurrence,

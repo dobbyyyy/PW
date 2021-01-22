@@ -111,27 +111,78 @@
     
     
     
-    <table id="colab-list" class="table table-striped table-bordered" style="width:75%; margin-left:40%; position:absolute; margin-top:10%" >
+    <table id="colab-list" class="table table-striped table-bordered" style="width:75%; margin-left:38%; position:absolute; margin-top:10%" >
         
         <thead>
             <tr>
-                <th>idRequest</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Telephone</th>
-                <th>NameEntity</th>
-                <th>TypeEntity</th>
-                <th>Street</th>
-                <th>District</th>
-                <th>Zip_Code</th>
-                <th>Type</th>
-                <th>Description</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Contacto</th>
+                <th>Entidade</th>
+                <th>Tipo</th>
+                <th>Morada</th>
+                <th>Tipo</th>
+                <th>Descrição</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody></tbody>
     </table>
+    
+    
+    <style>
+        
+        div.dataTables_wrapper div.dataTables_filter {
+    text-align: right;
+    margin-left: 190%;
+    margin-top:-42%;
+    position:absolute;
+}
+        
+        .dataTables_wrapper .dataTables_length {
+    color: #333;
+    margin-left: 80%;
+    font-size: 12px;
+    width: 300px;
+    position: absolute;
+    margin-top: -9%;
+}
+
+    div.dataTables_wrapper div.dataTables_length select {
+    width: 13%;
+    display: inline-block;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: .85em;
+    margin-top: 117%;
+    margin-left: 100%;
+    position:absolute;
+    width:220px;
+}
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin: 2px 0;
+    white-space: nowrap;
+    justify-content: flex-end;
+    margin-left: 210%;
+    margin-top: 88%;
+}
+
+    .page-item.active .page-link {
+    z-index: 3;
+    color: grey;
+    background-color: transparent;
+    border-color: greenyellow;
+    margin-left: 2px;
+    margin-right: 8px;
+}
+
+
+
+
+
+
+    </style>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -150,11 +201,14 @@
     -->
 	
 
-     <script>
+<script>
+     
+window.onload=()=>{ 
+    
         function listOccurrence() {
             let table = $('#colab-list').DataTable();
     
-            fetch(`http://3.226.122.100:8080/requests1`, { method: 'GET',
+            fetch(`http://3.236.239.191:8080/requests1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             
@@ -166,18 +220,17 @@
                     console.log(value);
                     table.row.add([value.idRequest, 
                                     value.Name,
-                                    value.Email,
-                                    value.Address,
                                     value.Telephone,
                                     value.NameEntity,
                                     value.TypeEntity,
                                     value.Street,
-                                    value.District,
-                                    value.Zip_Code,
                                     value.Type,
                                     value.Description,
                                     value.State,
-                                    '<i class="fas fa-save"></i><i class="far fa-edit"></i><i class="fas fa-trash"></i>']).draw();
+                                    `
+                                     <button id='${value.idRequest}' onclick="deleteData(${value.idRequest})" style="background-color:transparent; border:none; width: 20px"><i class="fas fa-trash"></i></button>
+                                     <button id='${value.idRequest}' onclick="saveData(${value.idRequest})" style="background-color:transparent; border:none;width: 20px"><i class="fas fa-save"></i></button>
+                                     <button id='${value.idRequest}' onclick="editData(${value.idRequest})" style="background-color:transparent; border:none; width: 20px"><i class="far fa-edit"></i></button>`]).draw();
                 });
             }).catch(err => console.error(err));
         }
@@ -185,12 +238,140 @@
         $(document).ready(function() {
             $('#colab-list').DataTable();
 			listOccurrence();
-        })
-        
-       // strHtml += "</tbody>"
-       // myDataTable.innerHTML = strHtml
+})
 
-    </script>
+}
+
+//DELETE
+function deleteData(id){
+        swal({
+                title: 'Tem a certeza?',
+                text: "Nao sera possivel reverter a remocao!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Remover'
+            }).then( async (result) => {
+                if (result.value) {                        
+                        try {
+                            const response = await fetch(`http://3.236.239.191:8080/requests1/${id}`, { method: "DELETE"})
+                            const requests = await response.json()                            
+                            swal('Removido!','A Denuncia foi removida da tabela.','success')
+
+                        } catch(err) {
+                            swal({type: 'error', title: 'Erro', text: err})
+                        }
+                        const trs = document.getElementsByTagName("tr")  //linhas
+                        console.log(trs);
+                    for(tr of trs){
+                        //console.log(tr.rowIndex)
+                        console.log(tr.cells[0].innerHTML)  //id
+                        if(tr.cells[0].innerHTML==id){
+                        console.log("HIDE")
+                        tr.hidden=true;
+                        }
+                    }
+                } 
+            })
+
+} 
+
+//EDIT
+function editData(id){
+    //console.log(id);
+    const trs = document.getElementsByTagName("tr")
+    
+            
+        let index=0;
+        for(tr of trs){
+        if(tr.cells[0].innerHTML==id){
+            tr.cells[0].innerHTML=`<input id='id${id}' placeholder="${id}" value=''>`
+            tr.cells[1].innerHTML=`<input id='Name${id}' placeholder="name" value=''>`
+            tr.cells[2].innerHTML=`<input id='Telephone${id}' placeholder="telephone" value=''>`
+            tr.cells[3].innerHTML=`<input id='NameEntity${id}' placeholder="name_entity" value=''>`
+            tr.cells[4].innerHTML=`<input id='Street${id}' placeholder="street" value=''>`
+            tr.cells[5].innerHTML=`<input id='Type${id}' placeholder="type" value=''>`
+            tr.cells[6].innerHTML=`<input id='Description${id}' placeholder="description" value=''>`
+            tr.cells[7].innerHTML=`<input id='State${id}' placeholder="state" value=''>`
+        }
+        }
+}
+
+
+//SAVE
+function saveData(id){
+            console.log("fetch UPDATE")
+            var id_val=document.getElementById(`id${id}`).value;
+            var name_val=document.getElementById(`Name${id}`).value;
+            var telephone_val=document.getElementById(`Telephone${id}`).value;
+            var NameEntity_val=document.getElementById(`NameEntity${id}`).value;
+            var TypeEntity_val=document.getElementById(`TypeEntity${id}`).value;
+            var street_val=document.getElementById(`Street${id}`).value;
+            var type_val=document.getElementById(`Type${id}`).value;
+            var description_val=document.getElementById(`Description${id}`).value;
+            var state_val=document.getElementById(`State${id}`).value;
+                swal({
+                    title: 'Tem a certeza?',
+                    text: "Esta linha sera alterada na base de dados!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3075d6',
+                    cancelButtonColor: '#d34',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Alterar'
+                  }).then( async (result) => {
+                    if (result.value) {
+                        
+                        try {
+                            const response = await fetch(`http://3.236.239.191:8080/requests1/${id}`,{method: "PUT",body: `Name=${name_val}&Telephone=${telephone_val}&NameEntity=${NameEntity_val}&TypeEntity=${TypeEntity_val}&Street=${street_val}&Type=${type_val}&Description=${description_val}&State=${state_val}`,
+                            headers: {"Content-type": "application/x-www-form-urlencoded"}});
+                            const requests = await response.json()                            
+                            swal('Actualizado!','A denuncia foi alterada na base de dados.','success')
+                            
+                        } catch(err) {
+                            swal({type: 'error', title: 'Erro', text: err})
+                        }
+                    }
+                    
+                    
+                    document.getElementById(`Name${id}`).innerHTML=`<td id='Name${id}'>${name_val}`;
+                    document.getElementById(`Telephone${id}`).innerHTML=`<td id='Telephone${id}'>${telephone_val}`;
+                    document.getElementById(`NameEntity${id}`).innerHTML=`<td id='NameEntity${id}'>${NameEntity_val}`;
+                    document.getElementById(`TypeEntity${id}`).innerHTML=`<td id='TypeEntity${id}'>${TypeEntity_val}`;
+                    document.getElementById(`Street${id}`).innerHTML=`<td id='Street${id}'>${street_val}`;
+                    document.getElementById(`Type${id}`).innerHTML=`<td id='Type${id}'>${type_val}`;
+                    document.getElementById(`Description${id}`).innerHTML=`<td id='Description${id}'>${description_val}`;
+                    document.getElementById(`State${id}`).innerHTML=`<td id='State${id}'>${state_val}`;
+                  })
+        
+}
+        
+function searchData(){
+    var tbl = document.getElementById("colab-list");
+    var query = document.getElementById("query");
+    filter = query.value.toUpperCase();
+    var tr = tbl.getElementsByTagName("tr");
+    console.log("SEARCH")
+    // loop table row and hide those that don't match
+    console.log(tr.length)
+    for (i = 0; i < tr.length; i++) {
+    var td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+        console.log("TD")
+      const txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+
+
+</script>
     
    
 

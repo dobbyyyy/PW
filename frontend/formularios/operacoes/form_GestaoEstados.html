@@ -15,7 +15,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <title>ASAE | Gestão estado das ocorrências </title>
+    <title>ASAE | Estado Ocorrências</title>
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="/style.css" crossorigin="anonymous"></linkrel>
@@ -27,7 +27,7 @@
   <body>
     
    
-    <div class="lateral_menu" style="position: absolute; height: 100%;">
+    <div class="lateral_menu" style="position: absolute; height: 120%;">
             <!--Identification of the user who is logged in the system-->
             <div class="identify">
                 <img src="/_img/Imgs/1499345621-contact_85338.png" alt="">
@@ -101,7 +101,7 @@
 
 
     <div class="pedidosPendentes" style="position: absolute; display: inline;">
-        <h1 style="font-style: italic;">Gestão estado das ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
+        <h1 style="font-style: italic;">Estado das Ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
      
     </div>
 
@@ -111,18 +111,95 @@
     
     
     
-    <table id="colab-list" class="table table-striped table-bordered" style="width:75%; margin-left:40%; position:absolute; margin-top:10%" >
+    <table id="colab-list" class="table table-striped table-bordered" style="width:75%; margin-left:43%; position:absolute; margin-top:2%" >
         
         <thead>
             <tr>
-                <th>idOccurrence</th>
-                <th>idRequest</th>
-                <th>State</th>
+                <th>Id Operação</th>
+                <th>Id Denuncia</th>
+                <th>Estado</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody></tbody>
     </table>
+    
+    <style>
+        
+        div.dataTables_wrapper div.dataTables_filter {
+    text-align: right;
+    margin-top: -41%;
+    position: absolute;
+    margin-left: 180%;
+}
+
+    .dataTables_wrapper .dataTables_length {
+    color: #333;
+    margin-left: 50%;
+    font-size: 12px;
+    width: 300px;
+    position: absolute;
+    margin-top: -8%;
+    margin-left: 93%;
+}
+
+    div.dataTables_wrapper div.dataTables_info {
+    padding-top: .85em;
+    position: absolute;
+    margin-top: 145%;
+    margin-left: 115%;
+    width:220px;
+}
+
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin: 2px 0;
+    white-space: nowrap;
+    justify-content: flex-end;
+    position: absolute;
+    margin-left: 176%;
+    margin-top: 103%;
+}
+
+    .page-item.active .page-link {
+    z-index: 3;
+    color: grey;
+    background-color: transparent;
+    border-color: greenyellow;
+}
+
+    .page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: grey;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+        margin-left: -11px;
+}
+
+    #colab-list_previous {
+        box-sizing: border-box;
+    margin-right: 7%;
+    margin-left: 3%;
+    }
+
+    div.dataTables_wrapper div.dataTables_length select {
+    width: auto;
+    display: inline-block;
+    width: 13%;
+}
+
+
+
+table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable td:last-child {
+    border-right-width: 1px;
+    text-align: center;
+}
+
+
+    </style>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -141,11 +218,14 @@
     -->
 	
 
-     <script>
+<script>
+
+window.onload=()=>{ 
+    
         function listOccurrence() {
             let table = $('#colab-list').DataTable();
     
-            fetch(`http://3.238.88.124:8080/occurrences1`, { method: 'GET',
+            fetch(`http://3.236.239.191:8080/occurrences1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             
@@ -158,7 +238,10 @@
                     table.row.add([value.idOccurrence,
                                     value.idRequest,
                                     value.State,
-                                    '<i class="fas fa-save"></i><i class="far fa-edit"></i><i class="fas fa-trash"></i>']).draw();
+                                    `
+                                     <button id='${value.idOccurrence}' onclick="deleteData(${value.idOccurrence})" style="background-color:transparent; border:none; width: 20px"><i class="fas fa-trash"></i></button>
+                                     <button id='${value.idOccurrence}' onclick="saveData(${value.idOccurrence})" style="background-color:transparent; border:none;width: 20px"><i class="fas fa-save"></i></button>
+                                     <button id='${value.idOccurrence}' onclick="editData(${value.idOccurrence})" style="background-color:transparent; border:none; width: 20px"><i class="far fa-edit"></i></button>`]).draw();
                 });
             }).catch(err => console.error(err));
         }
@@ -171,7 +254,45 @@
        // strHtml += "</tbody>"
        // myDataTable.innerHTML = strHtml
 
-    </script>
+}
+
+//DELETE
+function deleteData(id){
+        swal({
+                title: 'Tem a certeza?',
+                text: "Nao sera possivel reverter a remocao!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Remover'
+            }).then( async (result) => {
+                if (result.value) {                        
+                        try {
+                            const response = await fetch(`http://3.236.239.191:8080/occurrences1/${id}`, { method: "DELETE"})
+                            const occurrences = await response.json()                            
+                            swal('Removido!','A ocorrencia foi removido da tabela.','success')
+
+                        } catch(err) {
+                            swal({type: 'error', title: 'Erro', text: err})
+                        }
+                        const trs = document.getElementsByTagName("tr")  //linhas
+                        console.log(trs);
+                    for(tr of trs){
+                        //console.log(tr.rowIndex)
+                        console.log(tr.cells[0].innerHTML)  //id
+                        if(tr.cells[0].innerHTML==id){
+                        console.log("HIDE")
+                        tr.hidden=true;
+                        }
+                    }
+                } 
+            })
+
+} 
+
+</script>
     
    
 

@@ -91,7 +91,7 @@
         <div class="operacoes" style="position: absolute; display: inline; ">
             <h1 style="font-style: italic;">Registo de Operações</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">
             
-            <form action ="http://3.226.122.100:8080/operations1" method ="POST">
+            <form action ="http://3.236.102.0:8080/operations1" method ="POST">
                 <!-- about the request in cause-->
                 <strong><label for="id_occurrence" style="font-style: italic;"> Lista das Ocorrências </label></strong>
                 <hr style="width: 110%;">
@@ -180,7 +180,7 @@
              (async ()=>{
                 var strHtml = "";
                 var occu = document.getElementById("occurrences")
-                const response = await fetch('http://3.226.122.100:8080/occurrences1');
+                const response = await fetch('http://3.235.176.178:8080/occurrences1');
                 const occurrences = await response.json();
                 console.log(occurrences);
 
@@ -197,7 +197,7 @@
             (async ()=>{
                 var strHtml = "";
                 var manag = document.getElementById("operation_manager")
-                const response = await fetch('http://3.226.122.100:8080/operations_manager1');
+                const response = await fetch('http://3.235.176.178:8080/operations_manager1');
                 const operations_manager = await response.json();
                 
                 for(const operation_manager of operations_manager){

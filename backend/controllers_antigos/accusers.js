@@ -5,51 +5,81 @@ app.use('/', router);
 
 //LIST:
 function readAccuser(req, res){
-    bd.execSQLQuery('SELECT * FROM Accusers ORDER BY idAccuser DESC', res);
-    res.json(res);
+    let sql = "SELECT * FROM Accusers ORDER BY idAccuser DESC";
+    bd.connection.query(sql, function(err, results) {
+    if (err) {
+            console.log(err);
+            return res.status(500).json(err);
+        }    
+        res.json(results)
+    });
 };
 
+
 //READ ID:
-router.get('/accusers/:id?', (req, res) =>{
+/*router.get('/accusers/:id?', (req, res) =>{
     let filter = '';
     if(req.params.id) filter = ' WHERE idAccuser=' + parseInt(req.params.id);
     bd.execSQLQuery('SELECT * FROM Accusers idAccuser ' + filter, res);
-});
+});*/
+
+function readAccuserId(req, res){
+    let sql = "SELECT * FROM Accusers WHERE idAccuser=?"
+    bd.connection.query(sql, req.params.idAccuser, function(err, results) {
+        if (err) return res.status(500).end();
+        if (results.length == 0) return res.status(404).end();
+        return res.json(results[0]);
+    });
+    
+}
 
 //DELETE FISICO:
 function deleteAccuser(req, res){
-    bd.execSQLQuery('DELETE FROM Accusers WHERE idAccuser=' + parseInt(req.params.id), res);
+    let sql = "DELETE FROM Accusers WHERE idAccuser=?";
+    bd.connection.query(sql, req.params.idAccuser, function(err, results){
+        if (err) return res.status(500).end();
+        res.status(204).end();
+    });
 };
+
 
 //SAVE:
 function addAccuser(req, res){
-    console.log(req.body.Name)
-    const idAccuser = req.body.idAccuser;
-    const Username = req.body.Username;
-    const Name = req.body.Name;
-    const Email = req.body.Email;
-    const Password = req.body.Password;
-    const Address = req.body.Address;
-    const Telephone = req.body.Telephone;
-    bd.execSQLQuery(`INSERT INTO Accusers (idAccuser, Name, Username, Email, Password, Address, Telephone) 
-    VALUES('${idAccuser}','${Name}','${Username}','${Email}','${Password}','${Address}','${Telephone}')`, res);
-};
-
+    let sql = "INSERT INTO Accusers (idAccuser, Name, Username, Email, Password, Address, Telephone) VALUES (?,?,?,?,?,?,?)";
+    bd.connection.query(sql, [
+        req.body.idAccuser,
+        req.body.Username,
+        req.body.Name,
+        req.body.Email,
+        req.body.Password,
+        req.body.Address,
+        req.body.Telephone
+        ], function(err, results) {
+        if (err) return res.status(500).end();
+        res.json(results);
+    });
+}
 
 //UPDATE:
 function updateAccuser(req, res){
-    const idAccuser = parseInt(req.params.id);
-    const Name = req.body.Name;
-    const Username = req.body.Username;
-    const Email = req.body.Email;
-    const Password = req.body.Password;
-    const Address = req.body.Address;   
-    const Telephone = req.body.Telephone;
-    bd.execSQLQuery(`UPDATE Accusers SET Name='${Name}', Username='${Username}', Email='${Email}', Password='${Password}', Address='${Address}', Telephone='${Telephone}' WHERE idAccuser=${idAccuser}`, res);
+    let sql = "UPDATE Accusers SET Name=?, Username=?, Email=?, Password=?, Address=?, Telephone=? WHERE idAccuser=?";
+    bd.connection.query(sql, [
+        req.body.Name,
+        req.body.Username,
+        req.body.Email, 
+        req.body.Password,
+        req.body.Address,
+        req.body.Telephone,
+        req.params.idAccuser
+      ], function(err, results) {
+            if (err) return res.status(500).end();
+            res.json(results);
+    });
 };
 
 module.exports = {
     readAccuser: readAccuser,
+    readAccuserId: readAccuserId,
     deleteAccuser: deleteAccuser,
     updateAccuser: updateAccuser,
     addAccuser: addAccuser

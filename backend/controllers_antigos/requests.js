@@ -9,12 +9,12 @@ function readRequest(req, res){
     bd.execSQLQuery('SELECT * FROM Requests ORDER BY idRequest DESC', res);
 };
 
-//READ ID:
+/*//READ ID:
 router.get('/requests/:id?', (req, res) =>{
     let filter = '';
     if(req.params.id) filter = ' WHERE idRequest= ' + parseInt(req.params.id);
     bd.execSQLQuery('SELECT FROM Requests idRequest ' + filter, res);
-});
+});*/
     
 //DELETE FISICO:
 function deleteRequest(req, res){
@@ -62,8 +62,14 @@ function updateRequest(req, res){
     bd.execSQLQuery(`UPDATE Requests SET Name='${Name}', Email='${Email}', Address='${Address}', Telephone='${Telephone}', NameEntity='${NameEntity}', TypeEntity='${TypeEntity}', Street='${Street}', District='${District}', Zip_Code='${Zip_Code}', Type='${Type}', 'Description='${Description}' WHERE idRequest=${idRequest}`, res);
 };
 
+function readRequestByState(req,res){
+    const state = req.params.state;
+    bd.execSQLQuery(`SELECT * FROM Requests WHERE State= '${req.params.state}'`, res);
+}
+
 module.exports = {
     readRequest: readRequest,
+    readRequestByState: readRequestByState,
     deleteRequest: deleteRequest,
     updateRequest: updateRequest,
     addRequest: addRequest

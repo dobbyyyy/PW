@@ -13,7 +13,7 @@
 
     </head>
     <body>
-<div class="lateral_menu" style="position: absolute; height: 275%;">
+<div class="lateral_menu" style="position: absolute; height: 290%;">
             <!--Identification of the user who is logged in the system-->
             <div class="identify">
                 <img src="/_img/Imgs/1499345621-contact_85338.png" alt="">
@@ -31,18 +31,18 @@
                 <!--go to the page with the list of the request not awnser-->
                 <div class="options">
                 <i class="far fa-clock" style="margin-left: 15%; margin-top: 6%"></i> 
-                <a href="/pedidospendentes" style="margin-top: 6%; margin-left: 25%; "> Gestão de Operações</a>
+                <a href="/geriroperacao" style="margin-top: 6%; margin-left: 25%; "> Gestão de Operações</a>
                 <br><br>
             </div>
             
                 <div class="options">
                 <i class="fas fa-network-wired" style="margin-left: 15%; margin-top: 10%"></i> 
-                <a href="/registaroperacao" style="margin-top: 10%;margin-left: 25%; margin-bottom: 5% margin-bottom: 2.5%; color: greenyellow; font-size: 19px;" > Gestão de Ocorrências</a>
+                <a href="/registarocorrencia" style="margin-top: 10%;margin-left: 25%; margin-bottom: 5% margin-bottom: 2.5%; color: greenyellow; font-size: 19px;" > Gestão de Ocorrências</a>
                 <br><br>
             </div> 
             <div class="options">
                 <i class="fas fa-toggle-on" style="margin-left: 15%; margin-top: 10%"></i>
-                <a href="/pedidospendentes" style="margin-top: 10%; margin-left: 25%; margin-bottom: 3%"> Gestão de Estados</a>
+                <a href="/gerirestados" style="margin-top: 10%; margin-left: 25%; margin-bottom: 3%"> Gestão de Estados</a>
                 <br><br>
             </div>
             <div class="options">
@@ -75,7 +75,7 @@
             
             <div class="options">
                 <i class="fas fa-chart-line" style="margin-left: 15%; margin-top: 10%"></i> 
-                <a href="#" style="margin-top: 10%;margin-left: 25%;"> Dashboard </a>
+                <a href="/gerirdashboard" style="margin-top: 10%;margin-left: 25%;"> Dashboard </a>
                 <br><br>
             </div>
     
@@ -89,16 +89,16 @@
         <div class="operacoes" style="position: absolute; display: inline; ">
             <h1 style="font-style: italic;">Registo de Ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">
             
-            <form action ="http://3.226.122.100:8080/occurrences1" method ="POST">
+            <form action ="http://3.235.176.178:8080/occurrences1" method ="POST">
                 <!-- about the request in cause-->
-                <strong><label for="id_request" style="font-style: italic;"> Denuncia Nº</label></strong>
+                <strong><label for="id_request" style="font-style: italic;">Número da Denuncia </label></strong>
                 <hr style="width: 110%;">
                 <br>
                 <select name="idRequest" id="requests" style="margin-left: 5%; position:absolute" placeholder="Denuncia">
                     
                 </select>
                 
-                <br>
+                <br><br><br>
                 <strong><label for="id_entity" style="font-style: italic;"> Entidade Denunciada </label></strong>
                 <hr style="width: 110%;">
                 <br>
@@ -118,6 +118,7 @@
                     <br> <br>
                      <div class="table-responsiveOcorrencias"  style="overflow: scroll;  width: 180%; height: 150px;"> 
                  <table id="renderColaborators" style="margin-left: 0%; width:900px">
+                    
                      </table>
                  </div>
                  
@@ -158,7 +159,7 @@
                         <!-- opção escondida-->
                       <div id="campos">
                             <br>
-                            <label style="margin-left:16%"> Se sim, indique:
+                            <label style="margin-left:16%; font-size: 17px"> Se sim, indique:
                             </label>
                             <select name="idPartner" id="partners">
                             <br>
@@ -291,7 +292,7 @@
                         </table>
                     </div>
                     <div class="materialAnc" style=" width: 300px; margin-left: 80%;">
-                    <a href="http://3.226.122.100:8080/gerirmaterial" target="_blank"> Verificar disponibilidade dos materiais </a>
+                    <a href="http://3.236.102.0:8080/gerirmaterial" target="_blank"> Verificar disponibilidade dos materiais </a>
                     
                 </div>
                 </div>  
@@ -347,7 +348,7 @@
                 (async ()=>{
                 var strHtml = "";
                 var req = document.getElementById("requests")
-                const response = await fetch('http://3.226.122.100:8080/requests1');
+                const response = await fetch('http://3.235.176.178:8080/requests1');
                 const requests = await response.json();
                 
                 for(const request of requests){
@@ -361,7 +362,7 @@
                 (async ()=>{
                 var strHtml = "";
                 var ents = document.getElementById("entities")
-                const response = await fetch('http://3.226.122.100:8080/entities1');
+                const response = await fetch('http://3.235.176.178:8080/entities1');
                 const entities = await response.json();
                 
                 for(const entity of entities){
@@ -375,13 +376,16 @@
             (async ()=>{
                 var strHtml = "";
                 var collabs = document.getElementById("renderColaborators")
-                const response = await fetch('http://3.226.122.100:8080/colaborators1');
+                const response = await fetch('http://3.235.176.178:8080/colaborators1');
                 const colaborators = await response.json();
                 
                 for(const colaborator of colaborators){
-                strHtml+= `<tr>
-                    <td>
-                    <input type="checkbox" name="idColaborator" id="${colaborator.idColaborator}" value="${colaborator.idColaborator}"> ${colaborator.Name}
+                strHtml+= `
+                
+                <tr>
+                    
+                    <td >
+                    <input type="checkbox" name="idColaborator" id="${colaborator.idColaborator}" value="${colaborator.idColaborator}" "> ${colaborator.Name}
                     </td>
                     <td>
                     <span style="margin-left: 0%;">${colaborator.idColaborator}</span>
@@ -397,7 +401,7 @@
                 (async ()=>{
                 var strHtml = "";
                 var parts = document.getElementById("partners")
-                const response = await fetch('http://3.226.122.100:8080/partners1');
+                const response = await fetch('http://3.235.176.178:8080/partners1');
                 const partners = await response.json();
                 
                 for(const partner of partners){
@@ -411,7 +415,7 @@
             (async ()=>{
                 var strHtml = "";
                 var opera = document.getElementById("renderOperationals")
-                const response = await fetch('http://3.226.122.100:8080/operationals1');
+                const response = await fetch('http://3.235.176.178:8080/operationals1');
                 const operationals = await response.json();
                 
                 for(const operational of operationals){
@@ -443,7 +447,7 @@
             (async ()=>{
                 var strHtml = "";
                 var mats = document.getElementById("renderMaterials")
-                const response = await fetch('http://3.226.122.100:8080/materials1');
+                const response = await fetch('http://3.235.176.178:8080/materials1');
                 const materials = await response.json();
                 
                 for(const material of materials){

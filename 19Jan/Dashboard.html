@@ -35,7 +35,6 @@
                 <div class="pedidos">
                     <div class="reportados" id="renderRequests">
                         <h3>Pedidos Reportados</h3>
-                        <h2> </h2>
                         <img src="/Projeto/Icons/Seta_Baixo.png" alt="Seta para Baixo">
                     </div>
                     <div class="respondidos">
@@ -69,7 +68,7 @@
                 const renderRequests = document.getElementById("renderRequests")
                 console.log(renderRequests);
                 let txtRequests = ""
-                const response = await fetch(`http://3.238.88.124:8080/requests1`)
+                const response = await fetch(`http://3.236.102.0:8080/requests1`)
                 const requests = await response.json()
                 console.log(requests);
                 

@@ -6,8 +6,15 @@ app.use('/', router);
 
 //LIST:
 function readOperation(req, res){
-    bd.execSQLQuery('SELECT * FROM Operations ORDER BY idOperation DESC', res);
-};
+    let sql = "SELECT * FROM Colaborators ORDER BY idOperation DESC";
+    bd.connection.query(sql, function(err, results) {
+    if (err) {
+            console.log(err);
+            return res.status(500).json(err);
+        }    
+        res.json(results)
+    });
+}
 
 //READ ID:
 router.get('/operations/:id?', (req, res) =>{
@@ -26,27 +33,42 @@ function readOperationByState(req,res){
 function deleteOperation(req, res){
     bd.execSQLQuery('DELETE FROM Operations WHERE idOperation=' + parseInt(req.params.id), res);
 };
-
+function deleteOperation(req, res){
+    let sql = "DELETE FROM Colaborators WHERE idOperation=?";
+    global.connection.query(sql, req.params.idColaborator, function(err, results){
+        if (err) return res.status(500).end();
+        res.status(204).end();
+    });
+};
 
 //SAVE:
 function addOperation(req, res){
-    const idOperation = req.body.idOperation;
-    const idOccurrence = req.body.idOccurrence;
-    const idOperation_Manager = req.body.idOperation_Manager;
-    const Type = req.body.Type;
-    const State = req.body.State;
-    bd.execSQLQuery(`INSERT INTO Operations (idOperation, idOccurrence, idOperation_Manager, Type, State) 
-    VALUES('${idOperation}','${idOccurrence}','${idOperation_Manager}','${Type}','${State}')`, res);
-};
+    let sql = "INSERT INTO Operations (idOperation, idOccurrence, idOperation_Manager, Type, State) VALUES (?,?,?,?,?)";
+    global.connection.query(sql, [
+        req.body.idOperation,
+        req.body.idOccurrence,
+        req.body.idOperation_Manager,
+        req.body.Type,
+        req.body.State
+        ], function(err, results) {
+        if (err) return res.status(500).end();
+        res.json(results);
+    });
+}
 
 //UPDATE:
 function updateOperation(req, res){
-    const idOperation = parseInt(req.params.id);
-    const idOccurrence = req.body.idOccurrence;
-    const idOperation_Manager = req.body.idOperation_Manager;
-    const Type = req.body.Type;
-    const State = req.body.State;
-    bd.execSQLQuery(`UPDATE Operations SET idOccurrence='${idOccurrence}', idOperation_Manager='${idOperation_Manager}', Type='${Type}', State='${State}' WHERE idOperation=${idOperation}`, res);
+    let sql = "UPDATE Colaborators SET idOccurrence=?, idOperation_Manager=?, Type=?, State=? WHERE idOperation=?";
+    global.connection.query(sql, [
+        req.body.idOccurrence,
+        req.body.idOperation_Manager,
+        req.body.Type,
+        req.body.State,
+        req.params.idOperation
+      ], function(err, results) {
+            if (err) return res.status(500).end();
+            res.json(results);
+    });
 };
 
 /*

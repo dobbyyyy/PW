@@ -1374,3 +1374,137 @@ a ::before {
 .operacoes hr {
   width: 100%;
 }
+
+ /*.pedidosDashboard {
+  position: absolute;
+  left: 500px;
+  top: 200px;
+border-top: 4px solid #7c7; 
+  background-color: #efe;    
+  color: #050;
+}*/
+
+h70 {
+  position: relative;
+  font-size: 30px;
+  left: 65px;
+  font-weight: bold;
+  color: #29323c;
+}
+
+h71 {
+  position: relative;
+  font-size: 30px;
+  left: 20px;
+  font-weight: bold;
+  color: #29323c;
+}
+
+h72 {
+  position: relative;
+  font-size: 30px;
+  left: 7px;
+  font-weight: bold;
+  color: #29323c;
+}
+
+h73 {
+  position: relative;
+  font-size: 30px;
+  left: 26px;
+  font-weight: bold;
+  color: #29323c;
+}
+
+#renderRequests p {
+  font-size: 60px;
+  position: relative;
+  left: 120px;
+  font-weight: bold;
+  color: #29323c;
+}
+
+#renderRequestsReportados p {
+  font-size: 60px;
+  position: relative;
+  left: 135px;
+  font-weight: bold;
+  color: #29323c;
+}
+
+#renderRequestsConfirmados p {
+  font-size: 60px;
+  position: relative;
+  left: 125px;
+  font-weight: bold;
+  color: #29323c;
+}
+
+#renderRequestsRejeitados p {
+  font-size: 60px;
+  position: relative;
+  left: 130px;
+  font-weight: bold;
+  color: #29323c;
+}
+
+.RequestsTable {
+  position: relative;
+  left: 700px;
+  top: 150px;
+  width: 350px;
+  height: 144px;
+  padding-left: -50px;
+  border-style: solid;
+  border-width: 5px;  
+  border-color: #29323c;
+  margin-left: 50px;
+  border-radius: 20px;
+  
+}
+
+.RequestsReportadosTable {
+  position: relative;
+  left: 350px;
+  top: 200px;
+  width: 350px;
+  height: 144px;
+  padding-left: -50px;
+  border-style: solid;
+  border-width: 5px;  
+  border-color: #29323c;
+  border-radius: 20px;
+}
+
+.RequestsConfirmadosTable {
+  position: relative;
+  left: 750px;
+  top: 56px;
+  width: 350px;
+  height: 144px;
+  padding-left: -50px;
+  border-style: solid;
+  border-width: 5px;  
+  border-color: #29323c;
+  border-radius: 20px;
+}
+
+.RequestsRejeitadosTable {
+  position: relative;
+  left: 1150px;
+  top: -88px;
+  width: 350px;
+  height: 144px;
+  padding-left: -50px;
+  border-style: solid;
+  border-width: 5px;  
+  border-color: #29323c;
+  border-radius: 20px;
+}
+
+
+#piechart {
+  position: absolute;
+  left: 715px;
+  top:500px;
+}

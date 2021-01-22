@@ -161,7 +161,8 @@
          
          
          
-     </style>   
+     </style>  <input type="text" placeholder="Search.." name="search" id="query" onkeyup="searchData()">
+  <button type="submit" id="searchBar" value="search" onclick="searchData()"><i class="fa fa-search"></i></button> 
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -200,7 +201,7 @@ window.onload=()=>{
         function listColab() {
             let table = $('#colab-list').DataTable();
             
-            fetch(`http://3.238.88.124:8080/colaborators1`, { method: 'GET',
+            fetch(`http://3.238.235.115:8080/colaborators1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
                       
@@ -232,26 +233,7 @@ window.onload=()=>{
         })
         
 }
-
-/*function deleteData(id){
-    //console.log(id);
-        (async() =>{
-            //const response = await fetch(`http://3.226.122.100:8080/colaborators1/${id}`,{method: "DELETE"});
-            //listColab();
-            const trs = document.getElementsByTagName("tr")  //linhas
-            console.log(trs);
-            for(tr of trs){
-                //console.log(tr.rowIndex)
-                console.log(tr.cells[0].innerHTML)  //id
-                if(tr.cells[0].innerHTML==id){
-                    console.log("HIDE")
-                    tr.hidden=true;
-                }
-            }
-            //const colaborators = await response.json()
-        })();
-}*/
-
+//DELETE
 function deleteData(id){
         swal({
                 title: 'Tem a certeza?',
@@ -263,64 +245,119 @@ function deleteData(id){
                 cancelButtonText: 'Cancelar',
                 confirmButtonText: 'Remover'
             }).then( async (result) => {
-                    if (result.value) {                        
+                if (result.value) {                        
                         //let idColaborator = btnDelete[i].getAttribute("id")
                         try {
-                            const response = await fetch(`http://3.226.122.100:8080/colaborators1/${id}`, { method: "DELETE"})
+                            const response = await fetch(`http://3.238.235.115:8080/colaborators1/${id}`, { method: "DELETE"})
                             const colaborators = await response.json()                            
                             swal('Removido!','O colaborador foi removido da tabela.','success')
+
                         } catch(err) {
                             swal({type: 'error', title: 'Erro', text: err})
                         }
-                    } 
-                  })
+                        const trs = document.getElementsByTagName("tr")  //linhas
+                        console.log(trs);
+                    for(tr of trs){
+                        //console.log(tr.rowIndex)
+                        console.log(tr.cells[0].innerHTML)  //id
+                        if(tr.cells[0].innerHTML==id){
+                        console.log("HIDE")
+                        tr.hidden=true;
+                        }
+                    }
+                } 
+            })
 
 }
 
+//EDIT
 function editData(id){
     //console.log(id);
     const trs = document.getElementsByTagName("tr")
-    /*for(i=0;i<trs.length;i++){
-        for(tr of trs){
-        console.log(tr.cells[i]);}
-    }*/
-    for(tr of trs){
+    //for(i=0;i<trs.length;i++){
+        //for(tr of trs){
+        //console.log(tr.cells[i]);}
+    //}
+    var name=document.getElementById('name${id}'+id);
+            
         let index=0;
+        for(tr of trs){
         if(tr.cells[0].innerHTML==id){
-            tr.cells[0].innerHTML=`<input id='id${id}' placeholder="id" value='${id}'>`
-            tr.cells[1].innerHTML=`<input id='name${id}' placeholder="name" value='name${id}'>`
-            tr.cells[2].innerHTML=`<input id='username${id}' placeholder="username" value='username${id}'>`
-            tr.cells[3].innerHTML=`<input id='email${id}' placeholder="email" value='email${id}'>`
-            tr.cells[4].innerHTML=`<input id='password${id}' placeholder="password" type="password" value='password${id}'>`
-            tr.cells[5].innerHTML=`<input id='contactos${id}' placeholder="contactos" value='contactos${id}'>`
-    }
-}}
-
-function saveData(id) {
-var name_val=document.getElementById(`name${id}`).value;
- var username_val=document.getElementById(`username${id}`).value;
- var id_val=document.getElementById(`id${id}`).value;
- var password_val=document.getElementById(`password${id}`).value;
- var email_val=document.getElementById(`email${id}`).value;
- var tel_val=document.getElementById(`contactos${id}`).value;
-    (async() =>{
- 
- //console.log(name_val+username_val+id_val);
-    
-    //FETCH
-    const response = await fetch(`http://3.238.88.124:8080/colaborators1/${id}`,{method: "PUT",body: `Name=${name_val}&Username=${username_val}&Email=${email_val}&Password=${password_val}&Telephone=${tel_val}`,
-                                headers: {"Content-type": "application/x-www-form-urlencoded"}});
-                                console.log(name_val)
-
-            //const colaborators = await response.json()
-        })();
-document.getElementById(`name${id}`).innerHTML=name_val;
- document.getElementById(`username${id}`).innerHTML=`<td id='username${id}'>'${username_val}'</label>`;
- document.getElementById(`id${id}`).innerHTML=`<td id='id${id}'>'${id_val}'`;
- document.getElementById(`password${id}`).innerHTML=`<td id='password${id}'>'${password_val}'</label>`;
- document.getElementById(`email${id}`).innerHTML=`<td id='email${id}'>'${email_val}'</label>`;
- document.getElementById(`contactos${id}`).innerHTML=`<td id='contactos${id}'>'${tel_val}'</label>`;
+            tr.cells[0].innerHTML=`<input id='id${id}' placeholder="${id}" value=''>`
+            tr.cells[1].innerHTML=`<input id='name${id}' placeholder="name" value=''>`
+            tr.cells[2].innerHTML=`<input id='username${id}' placeholder="username" value=''>`
+            tr.cells[3].innerHTML=`<input id='email${id}' placeholder="email" value=''>`
+            tr.cells[4].innerHTML=`<input id='password${id}' placeholder="password" type="password" value=''>`
+            tr.cells[5].innerHTML=`<input id='contactos${id}' placeholder="contactos" value=''>`
         }
+        }
+}
+
+//SAVE
+function saveData(id){
+            console.log("fetch UPDATE")
+            var id_val=document.getElementById(`id${id}`).value;
+            var name_val=document.getElementById(`name${id}`).value;
+            var username_val=document.getElementById(`username${id}`).value;
+            var password_val=document.getElementById(`password${id}`).value;
+            var email_val=document.getElementById(`email${id}`).value;
+            var tel_val=document.getElementById(`contactos${id}`).value;
+                swal({
+                    title: 'Tem a certeza?',
+                    text: "Esta linha sera alterada na base de dados!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3075d6',
+                    cancelButtonColor: '#d34',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Alterar'
+                  }).then( async (result) => {
+                    if (result.value) {
+                        
+                        try {
+                            const response = await fetch(`http://3.238.235.115:8080/colaborators1/${id}`,{method: "PUT",body: `Name=${name_val}&Username=${username_val}&Email=${email_val}&Password=${password_val}&Telephone=${tel_val}`,
+                            headers: {"Content-type": "application/x-www-form-urlencoded"}});
+                            const colaborators = await response.json()                            
+                            swal('Actualizado!','O Colaborador foi alterado na base de dados.','success')
+                            
+                        } catch(err) {
+                            swal({type: 'error', title: 'Erro', text: err})
+                        }
+                    }
+                    
+                    console.log(document.getElementById(`id${id}`).value)
+                    var idcol = document.getElementById(`id${id}`)
+                    idcol=id_val;
+                    document.getElementById(`name${id}`).innerHTML=`<td id='name${id}'>${name_val}`;
+                    document.getElementById(`username${id}`).innerHTML=`<td id='username${id}'>${username_val}`;
+                    document.getElementById(`password${id}`).innerHTML=`<td id='password${id}'>${password_val}`;
+                    document.getElementById(`email${id}`).innerHTML=`<td id='email${id}'>${email_val}`;
+                    document.getElementById(`contactos${id}`).innerHTML=`<td id='contactos$${id}'>${tel_val}`;
+                  })
+        
+}
+        
+function searchData(){
+    var tbl = document.getElementById("colab-list");
+    var query = document.getElementById("query");
+    filter = query.value.toUpperCase();
+    var tr = tbl.getElementsByTagName("tr");
+    console.log("SEARCH")
+    // loop table row and hide those that don't match
+    console.log(tr.length)
+    for (i = 0; i < tr.length; i++) {
+    var td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+        console.log("TD")
+      const txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
 
 
     </script>

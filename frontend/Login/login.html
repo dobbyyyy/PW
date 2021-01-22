@@ -22,35 +22,36 @@
                 <h2 class="title title-second">Criar <span>Conta</span></h2>
                 
                 <p class="description description-second">Insira os seus dados pessoais:</p>
-                <form class="form">
+                
+                <form action ="http://3.236.239.191:8080/accusers1"  method ="POST" class="form">
                     <label class="label-input" for="">
                         <i class="fas fa-signature icon-modify"></i>
-                        <input type="text" placeholder="Nome">
+                        <input type="text" class="name" name="Name" placeholder="Nome">
                     </label>
 
                     <label class="label-input" for="">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" placeholder="Username">
+                        <input type="text" class="name" name="Username"placeholder="Username">
                     </label>
                     
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="email" class="name" name="Email" placeholder="Email">
                     </label>
                     
                     <label class="label-input" for="">
                         <i class="fas fa-map-marker-alt icon-modify"></i>
-                        <input type="text" placeholder="Morada">
+                        <input type="text" class="name" name="Address" placeholder="Morada">
                     </label>
 
                     <label class="label-input" for="">
                         <i class="fas fa-mobile-alt icon-modify"></i>
-                        <input type="text" placeholder="Contacto">
+                        <input type="text" class="contact" name="Telephone" placeholder="Contacto">
                     </label>
 
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" class="name" name="Password" placeholder="Password">
                     </label>
                     
                     <button class="btn btn-second">Criar </button>        
@@ -68,16 +69,16 @@
                 <h2 class="title title-second">Lo<span>g</span>in</h2>
                 
                 <p class="description description-second">Insira os seus dados:</p>
-                <form class="form">
+                <form action ="http://3.236.239.191:8080/auth"  method ="POST" class="form">
                 
                     <label class="label-input" for="">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="email" placeholder="Username">
+                        <input type="text"  class="name" name="username" placeholder="Username">
                     </label>
                 
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password"  class="name" name="password" placeholder="Password">
                     </label>
                 
                     <a class="password" href="#">Esqueceu-se da sua password?</a>

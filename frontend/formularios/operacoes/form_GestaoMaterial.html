@@ -15,7 +15,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <title>ASAE | Gestão Material </title>
+    <title>ASAE | Material </title>
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="/style.css" crossorigin="anonymous"></linkrel>
@@ -55,7 +55,7 @@
             </div> 
             <div class="options">
                 <i class="fas fa-toggle-on" style="margin-left: 15%;"></i>
-                <a href="/pedidospendentes" style="margin-top: 4%; margin-left: 25%;  color: greenyellow; font-size: 22px;"> Gestão de Estados</a>
+                <a href="/pedidospendentes" style="margin-top: 4.5%; margin-left: 25%;"> Gestão de Estados</a>
                 <br><br>
             </div>
             <div class="options">
@@ -101,7 +101,7 @@
 
 
     <div class="pedidosPendentes" style="position: absolute; display: inline;">
-        <h1 style="font-style: italic;">Gestão Material</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
+        <h1 style="font-style: italic;">Materiais</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
      
     </div>
 
@@ -115,14 +115,74 @@
         
         <thead>
             <tr>
-                <th>idMaterial</th>
-                <th>Name</th>
-                <th>Quantity</th>
+                <th>ID Material</th>
+                <th>Designação</th>
+                <th>Quantidade</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody></tbody>
     </table>
+    
+    <style>
+        
+        div.dataTables_wrapper div.dataTables_filter {
+    text-align: right;
+    margin-left: 175%;
+    margin-top: -41%;
+    position:absolute;
+}
+
+        div.dataTables_wrapper div.dataTables_length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+    margin-top:20%;
+    position: absolute;
+    margin-left:65%;
+}
+
+    div.dataTables_wrapper div.dataTables_length select {
+    width: 40%;
+    display: inline-block;
+}
+
+        div.dataTables_wrapper div.dataTables_info {
+    padding-top: .85em;
+    margin-left: 105%;
+    position: absolute;
+    margin-top: 110%;
+    width: 220px;
+}
+
+
+        div.dataTables_wrapper div.dataTables_paginate {
+    margin-top: 79%;
+    margin-left: 173%;
+    position: absolute;
+    white-space: nowrap;
+    text-align: right;
+}
+
+        .page-item.active .page-link {
+    z-index: 3;
+    color: grey;
+    background-color: transparent;
+    border-color: greenyellow;
+}
+
+        .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+    margin-left: -10px;
+    margin-right: -5px;
+}
+
+
+    </style>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -145,7 +205,7 @@
         function listOccurrence() {
             let table = $('#colab-list').DataTable();
     
-            fetch(`http://3.226.122.100:8080/materials1`, { method: 'GET',
+            fetch(`http://3.236.239.191:8080/materials1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

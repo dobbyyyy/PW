@@ -227,7 +227,7 @@
             
             
     
-            fetch(`http://35.174.60.211:8080/colaborators1`, { method: 'GET',
+            fetch(`http://3.236.239.191:8080/colaborators1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             
@@ -269,7 +269,7 @@
                     if (result.value) {                        
                         let idColaborator = btnDelete[i].getAttribute("id")
                         try {
-                            const response = await fetch(`http://3.226.122.100:8080/colaborators1/${idColaborator}`, { method: "DELETE"})
+                            const response = await fetch(`http://3.236.239.191:8080/colaborators1/${idColaborator}`, { method: "DELETE"})
                             const colaborators = await response.json()                            
                             swal('Removido!','O colaborador foi removido da tabela.','success')
                             renderColaborators()

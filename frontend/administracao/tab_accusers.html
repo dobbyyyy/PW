@@ -42,7 +42,7 @@ const renderAccusers = async () => {
                 </tr> 
             </thead><tbody>
         `
-        const response = await fetch('http://3.226.122.100:8080/accusers')
+        const response = await fetch('http://18.206.83.66:8080/accusers1')
         const accusers = await response.json()
         let i = 1
         for (const accuser of accusers) {            
@@ -80,7 +80,7 @@ const renderAccusers = async () => {
                     if (result.value) {                        
                         let idAccuser = btnDelete[i].getAttribute("id")
                         try {
-                            const response = await fetch(`http://3.226.122.100:8080/accusers1/${idAccuser}`, { method: "DELETE"})
+                            const response = await fetch(`http://18.206.83.66:8080/accusers1/${idAccuser}`, { method: "DELETE"})
                             const accusers = await response.json()                            
                             swal('Removido!','O parceiro foi removido da tabela.','success')
                             renderAccusers()
@@ -117,7 +117,7 @@ const renderAccusers = async () => {
                         var Telephone=document.getElementById("tel_row"+idAccuser).innerHTML;
                         console.log(Name+ Username+ Email+ Password+ Address+ Telephone)
                         try {
-                            const response = await fetch(`http://3.226.122.100:8080/accusers1/${idAccuser}`, { method: "PUT",body: `Name=${Name}&Username=${Username}&Email=${Email}&Password=${Password}&Address=${Address}&Telephone=${Telephone}`,
+                            const response = await fetch(`http://18.206.83.66:8080/accusers1/${idAccuser}`, { method: "PUT",body: `Name=${Name}&Username=${Username}&Email=${Email}&Password=${Password}&Address=${Address}&Telephone=${Telephone}`,
                                 headers: {"Content-type": "application/x-www-form-urlencoded"}})
                             const accusers = await response.json()                            
                             swal('Actualizado!','O denunciante foi alterado na base de dados.','success')

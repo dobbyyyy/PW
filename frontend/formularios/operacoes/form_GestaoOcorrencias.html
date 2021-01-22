@@ -15,7 +15,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <title>ASAE | Gestão estado das ocorrências </title>
+    <title>ASAE | Gestão das ocorrências </title>
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400">
     <link rel="stylesheet" href="/style.css" crossorigin="anonymous"></linkrel>
@@ -27,7 +27,7 @@
   <body>
     
    
-    <div class="lateral_menu" style="position: absolute; height: 100%;">
+    <div class="lateral_menu" style="position: absolute; height: 150%;">
             <!--Identification of the user who is logged in the system-->
             <div class="identify">
                 <img src="/_img/Imgs/1499345621-contact_85338.png" alt="">
@@ -101,7 +101,7 @@
 
 
     <div class="pedidosPendentes" style="position: absolute; display: inline;">
-        <h1 style="font-style: italic;">Gestão estado das ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
+        <h1 style="font-style: italic;">Gestão das ocorrências</h1> <img src="/_img/Imgs/Sem nome.png" alt="" style="display: inline; width: 60px; height: 30px; position: absolute;">            
      
     </div>
 
@@ -111,25 +111,85 @@
     
     
     
-    <table id="colab-list" class="table table-striped table-bordered" style="width:75%; margin-left:40%; position:absolute; margin-top:10%" >
+    
+    
+    <table id="colab-list" class="table table-striped table-bordered" style="width:75%; margin-left:45%; position:absolute; margin-top:5%; overflow-y: scroll; display: block">
         
         <thead>
             <tr>
-                <th>idOccurrence</th>
-                <th>Type</th>
-                <th>idRequest</th>
-                <th>idUrgency_Level</th>
-                <th>idEntity</th>
-                <th>idColaborator</th>
-                <th>idPartner</th>
-                <th>idOperational</th>
-                <th>idMaterial</th>
-                <th>State</th>
+                <th>ID Ocorrência</th>
+                <th>Tipo</th>
+                <th>ID Denuncia</th>
+                <th>Nível de Urgência</th>
+                <th>ID Entidade</th>
+                <th>ID Colaborador</th>
+                <th>ID Parceiro</th>
+                <th>ID Operacional</th>
+                <th>ID Material</th>
+                <th>Estado</th>
                 <th>Ações</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody ></tbody>
     </table>
+    
+    
+    <style>
+        div.dataTables_wrapper div.dataTables_filter {
+    text-align: right;
+    margin-left: 185%;
+    margin-top: -41%;
+    position: absolute;
+}
+
+    .dataTables_wrapper .dataTables_length {
+    color: #333;
+    margin-left: 95%;
+    font-size: 12px;
+    width: 300px;
+    position: absolute;
+    margin-top: -8%;
+}
+
+    div.dataTables_wrapper div.dataTables_length select {
+    width: 13%;
+    display: inline-block;
+}
+
+    div.dataTables_wrapper div.dataTables_info {
+    padding-top: .85em;
+    margin-top: 190%;
+    margin-left:115%;
+    width:220px;
+    position: absolute;
+}
+    
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin-top: 136%;
+    margin-left: 180%;
+    white-space: nowrap;
+    justify-content: flex-end;
+    position:absolute;
+}
+
+    .page-item.active .page-link {
+    z-index: 3;
+    color: grey;
+    background-color: transparent;
+    border-color: greenyellow;
+}
+
+    .page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -11px;
+    line-height: 1.25;
+    color: grey;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+    </style>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -152,7 +212,7 @@
         function listOccurrence() {
             let table = $('#colab-list').DataTable();
     
-            fetch(`http://3.238.88.124:8080/occurrences1`, { method: 'GET',
+            fetch(`http://3.236.239.191:8080/occurrences1`, { method: 'GET',
             headers: {'Accept': 'application/json',
                       'Content-Type': 'application/json'}})
             

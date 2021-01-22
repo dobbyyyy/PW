@@ -40,10 +40,12 @@ router.put('/partners1/:id', controllerPartner.updatePartner);
 
 router.get('/accusers1/', controllerAccuser.readAccuser);
 router.post('/accusers1/', controllerAccuser.addAccuser);
+router.get('/accusers1/:id', controllerAccuser.readAccuserId);
 router.delete('/accusers1/:id', controllerAccuser.deleteAccuser);
 router.put('/accusers1/:id', controllerAccuser.updateAccuser);
 
 router.get('/colaborators1/', controllerColaborator.readColaborator);
+router.get('/colaborators1/:id', controllerColaborator.readColaboratorId);
 router.post('/colaborators1/', controllerColaborator.addColaborator);
 router.delete('/colaborators1/:id', controllerColaborator.deleteColaborator);
 router.put('/colaborators1/:id', controllerColaborator.updateColaborator);
@@ -64,7 +66,7 @@ router.delete('/materials_operation1/:id', controllerMaterials_Operation.deleteM
 router.put('/materials_operation1/:id', controllerMaterials_Operation.updateMaterial_Operation);
 
 router.get('/occurrences1/', controllerOccurrence.readOccurrence);
-router.get('/occurrences1/:id', controllerOccurrence.readOccurrenceById);
+//router.get('/occurrences1/:id', controllerOccurrence.readOccurrenceById);
 router.post('/occurrences1/', controllerOccurrence.addOccurrence);
 router.delete('/occurrences1/:id', controllerOccurrence.deleteOccurrence);
 router.put('/occurrences1/:id', controllerOccurrence.updateOccurrence);
@@ -85,6 +87,7 @@ router.get('/requests1/', controllerRequest.readRequest);
 router.post('/requests1/', controllerRequest.addRequest);
 router.delete('/requests1/:id', controllerRequest.deleteRequest);
 router.put('/requests1/:id', controllerRequest.updateRequest);
+router.get('/occurrences1/:state', controllerRequest.readRequestByState);
 
 router.get('/operations_manager1/', controllerOperations_Manager.readOperations_Manager);
 router.post('/operations_manager1/', controllerOperations_Manager.addOperations_Manager);
@@ -125,11 +128,8 @@ app.post('/auth1',function(req,res){
         if (results.length == 0) return res.status(404).end();
         //console.log(res.json(results[0].password));
         let pass = results[0].password;
-        bcrypt.compareSync(password, pass);
-        console.log(pass)
-        if(password==pass){
-        	res.send('OK')
-        }
+        if(bcrypt.compareSync(password, pass));
+        res.send('LOGIN SUCCESS')
     });
 	}else{
 		res.send('Please enter username and password!');

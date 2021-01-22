@@ -54,6 +54,8 @@ app.use(function(req, res, next) {
 app.use(express.static('/frontend'));
 app.use('/styleindex.css', express.static(__dirname + '/frontend/css/styleindex.css'))
 app.use('/app.js', express.static(__dirname + '/frontend/pages/app.js'))
+app.use('/login.js', express.static(__dirname + '/frontend/Login/login.js'))
+app.use('/login.css', express.static(__dirname + '/frontend/Login/login.css'))
 app.use('/_img', express.static(__dirname + '/frontend/_img'))
 app.use('/stylelogin.css', express.static(__dirname + '/frontend/css/stylelogin.css'))
 app.use('/style.css', express.static(__dirname + '/frontend/css/style.css'))
@@ -68,21 +70,18 @@ app.post('/login',(req,res)=>{
 	res.send('User: '+req.body.user+' password: '+req.body.password);
 });
 
-app.get('/',(req,res)=>{
-	res.sendFile('page.html',{root: path.join(__dirname,'public')})
-});
 */
 app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/frontend/pages/index.html');
 });
 
 app.get('/login1', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/pages/newlogin.html');
+    res.sendFile(__dirname + '/frontend/Login/login.html');
 });
-
+/*
 app.get('/criarConta', (req,res)=>{
     res.sendFile(__dirname + '/frontend/pages/criarConta.html');
-});
+});*/
 
 app.get('/colaboradores', (req,res)=>{
     res.sendFile(__dirname + '/frontend/formularios/administracao/form_Colaboradores1.html');
@@ -107,23 +106,43 @@ app.get('/parceiros', (req,res)=>{
 //ROTAS PRIVADAS
 
 app.get('/gerirestados', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoEstados.html');
+    if(req.session.loggedIn){
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoEstados.html');}
+    else{
+		res.send('Not allowed to see this page, please login.');
+	}
 });
 
 app.get('/gerirmaterial', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoMaterial.html');
+    if(req.session.loggedIn){
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoMaterial.html');}
+    else{
+		res.send('Not allowed to see this page, please login.');
+	}
 });
 
 app.get('/gerirocorrencia', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoOcorrencias.html');
+   if(req.session.loggedIn){
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoOcorrencias.html');}
+    else{
+		res.send('Not allowed to see this page, please login.');
+	}
 });
 
 app.get('/geriroperacao', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoOperacoes.html');
+    if(req.session.loggedIn){
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoOperacoes.html');}
+    else{
+		res.send('Not allowed to see this page, please login.');
+	}
 });
 
 app.get('/gerirdenuncia', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoDenuncias.html');
+    if(req.session.loggedIn){
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_GestaoDenuncias.html');}
+    else{
+		res.send('Not allowed to see this page, please login.');
+	}
 });
 
 app.get('/gerirdashboard', (req,res)=>{
@@ -131,28 +150,34 @@ app.get('/gerirdashboard', (req,res)=>{
 });
 
 app.get('/registarocorrencia', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarOcorrencia.html');
+    if(req.session.loggedIn){
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarOcorrencia.html');}
+    else{
+		res.send('Not allowed to see this page, please login.');
+	}
 });
 
 app.get('/registaroperacao', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarOperacao.html');
+    if(req.session.loggedIn){
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarOperacao.html');}
+    else{
+		res.send('Not allowed to see this page, please login.');
+	}
 });
 
 app.get('/registardenuncia', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarDenuncia.html');
+    if(req.session.loggedIn){
+    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarDenuncia.html');}
+    else{
+		res.send('Not allowed to see this page, please login.');
+	}
 });
 
-/*app.get('/pedidospendentes', (req,res)=>{
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_PedidosPendentes.html');
-});*/
+app.get('/logout', (req,res)=>{
+    res.sendFile(__dirname + '/frontend/pages/index.html');
+});
 
-/*app.get('/registaroperacao', (req,res)=>{
-    if(req.session.loggedIn){
-    res.sendFile(__dirname + '/frontend/formularios/operacoes/form_RegistarOperacao.html');}
-    else{res.send("NOT ALLOWED TO SEE THIS PAGE");}
-});*/
-
-/*app.post('/auth',function(req,res){
+app.post('/auth',function(req,res){
     console.log("HERE")
 	var username = req.body.username;
 	var password = req.body.password;
@@ -172,7 +197,7 @@ app.get('/registardenuncia', (req,res)=>{
 		res.send('Please enter username and password!');
 		res.end();
 	}
-});*/
+});
 
 app.post('/sign-up',function(req,res){
     if(req.method=="POST"){
@@ -193,12 +218,12 @@ app.post('/sign-up',function(req,res){
     }
 });
 
-app.post('logout',function(req, res, err) {
+app.post('/logout',function(req, res, err) {
     req.session.destroy(function(err){
         if(err){
             console.log(err);
         }
-        res.send("LOGOUT");
+        res.sendFile(__dirname + '/frontend/pages/index.html');
     });
 });
 
@@ -209,7 +234,6 @@ app.get('/home', function(req,res){
 	} else{
 		res.send('Not allowed to see this page, please login.');
 	}
-	res.end();
 });
 
 /*function isLoggedIn(req, res, next) {
